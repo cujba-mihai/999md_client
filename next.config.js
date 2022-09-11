@@ -1,11 +1,20 @@
+const withImages = require("next-images");
+module.exports = withImages();
+
 /* eslint-disable import/no-extraneous-dependencies */
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
+
+
 module.exports = withBundleAnalyzer({
   eslint: {
     dirs: ['.'],
+  },
+  i18n: {
+    locales: ['en-US', 'ro-RO', 'ru-RU'],
+    defaultLocale: 'en-US'
   },
   poweredByHeader: false,
   trailingSlash: true,
