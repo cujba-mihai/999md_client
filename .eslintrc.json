@@ -5,12 +5,9 @@
     "jest": true
   },
   "extends": [
-    "react-app",
-    "react-app/jest",
-    "airbnb",
     "airbnb-typescript",
-    "plugin:import/typescript",
-    "plugin:prettier/recommended"
+    "plugin:react/recommended",
+    "plugin:import/typescript"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -24,8 +21,22 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "prettier"
+    "prettier",
+    "import"
   ],
+
+  "settings": {
+    "import/extensions": [".js", ".jsx"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "project": "./"
+      }
+    }
+  },
+
   "rules": {
     "react/react-in-jsx-scope": [
       "off"
@@ -38,6 +49,23 @@
     ],
     "react/no-unescaped-entities": [
       "off"
-    ]
+    ],
+    "react/function-component-definition": [
+      2, {
+        "namedComponents": "arrow-function"
+      }
+    ],
+
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".ts", "tsx"] }]
   }
 }
