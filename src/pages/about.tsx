@@ -1,8 +1,6 @@
-// import { useRouter } from 'next/router';
-
 import { Header } from '@/layouts/Header';
 import { Main } from '@/components/Main';
-const Index = () => {
+const About = () => {
   // const router = useRouter();
 
   return (
@@ -13,4 +11,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default About;
