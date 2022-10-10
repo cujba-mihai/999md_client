@@ -1,15 +1,16 @@
 // import { useRouter } from 'next/router';
 
-import { Header } from '@/layouts/Header';
-import { Main } from '@/components/Main';
 const Index = () => {
   // const router = useRouter();
 
   return (
-    <>
-      <Header />
-      <Main />
-    </>
+    <div className="grid page-layout">
+      <div className="header">
+        <span>asjdnjasndkl</span>
+      </div>
+      <div className="header"></div>
+      <div className="header"></div>
+    </div>
   );
 };
 

@@ -12,6 +12,9 @@ module.exports = withBundleAnalyzer({
   eslint: {
     dirs: ['.'],
   },
+  sassOptions: {
+    includePaths: [require('path').join(__dirname, 'src', 'styles')],
+  },
   i18n: {
     locales: ['en-US', 'ro-RO', 'ru-RU'],
     defaultLocale: 'en-US'

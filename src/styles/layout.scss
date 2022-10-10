@@ -1,0 +1,11 @@
+.grid {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: auto minmax(320px, 1000px) auto;
+    grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+    grid-auto-flow: column;
+}
+
+.grid>* {
+    grid-column: 2 / span 1;
+}
