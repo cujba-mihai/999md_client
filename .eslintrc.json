@@ -47,6 +47,9 @@
     "react/jsx-props-no-spreading": [
       "warn"
     ],
+    "quotes":[
+      "off"
+    ],
     "react/no-unescaped-entities": [
       "off"
     ],
