@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import '@/styles/global.scss';
-import '@/styles/layout.scss';
+import '../styles/global.scss';
 
 import type { AppProps } from 'next/app';
 

@@ -1,0 +1,15 @@
+.main-page-layout {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1000px) auto;
+  grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+  grid-auto-columns: auto minmax(320px, 1000px) auto;
+  grid-auto-rows: auto;
+  grid-auto-flow: column;
+}
+
+.main-page-layout > * {
+  display: grid;
+  grid-column: 2 / span 1;
+  align-content: center;
+  align-items: center;
+}

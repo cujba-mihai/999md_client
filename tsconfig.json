@@ -42,5 +42,5 @@
     }
   },
   "exclude": ["./out/**/*", "./node_modules/**/*", "**/*.cy.ts"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js", "lint-staged.config.js"]
 }

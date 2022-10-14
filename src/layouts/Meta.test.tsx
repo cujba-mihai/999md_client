@@ -9,7 +9,7 @@ jest.mock(
   () =>
     function Head(props: { children: ReactNode }) {
       return <>{props.children}</>;
-    }
+    },
 );
 
 describe('Meta component', () => {
