@@ -200,9 +200,9 @@
   }
 
   &__search-input {
+    @include round-borders(3px);
     width: 100%;
     padding: 5px 110px 5px 10px;
-    border-radius: 3px;
     border: 1px solid $color-light-gray;
     position: relative;
     outline: none;
@@ -212,19 +212,20 @@
   }
 
   &__search-results {
-    padding: 5px 8px 5px 10px;
+    @include round-borders(0 0 4px 4px);
+    padding: 5px 8px 8px 10px;
     margin-right: 20px;
     display: grid;
     grid-template-columns: minmax(320px, 521px);
     position: absolute;
     background-color: white;
     border: 1px solid $color-dark-gray;
-    border-radius: 0 0 4px 4px;
   }
 
   &__search-result {
+    @include round-borders(3px);
+
     padding: 5px;
-    border-radius: 3px;
     font-size: 14px;
     &:hover {
       background-color: $color-primary-light;

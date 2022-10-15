@@ -2,3 +2,7 @@
   border: none;
   border-radius: $radius;
 }
+
+@mixin center-page {
+  grid-column: 2 / span 1;
+}

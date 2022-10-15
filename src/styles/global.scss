@@ -111,7 +111,7 @@ table {
 }
 
 input {
-  border-radius: 0;
+  @include round-borders;
 }
 
 a {
