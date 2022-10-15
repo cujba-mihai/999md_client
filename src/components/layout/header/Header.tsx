@@ -2,7 +2,7 @@
 
 import Svg from '@/components/Svg';
 import { Dispatch, SetStateAction } from 'react';
-import styles from './header.module.scss';
+import styles from './Header.module.scss';
 
 interface IProps {
   toggleSearchResults: () => void;
