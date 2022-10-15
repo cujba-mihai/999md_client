@@ -23,10 +23,10 @@ const Meta = (props: IMetaProps) => {
           key="viewport"
         />
 
-        <link 
-        rel="manifest" 
-        href={`${router.basePath}/site.webmanifest`}
-        key="webmanifest"
+        <link
+          rel="manifest"
+          href={`${router.basePath}/site.webmanifest`}
+          key="webmanifest"
         />
 
         <link
@@ -53,14 +53,8 @@ const Meta = (props: IMetaProps) => {
           href={`${router.basePath}/favicon.ico`}
           key="favicon"
         />
-        <meta 
-          name="msapplication-TileColor" 
-          content="#da532c"
-        />
-        <meta 
-          name="theme-color" 
-          content="#ffffff"
-        />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
       <NextSeo
         title={props.title}

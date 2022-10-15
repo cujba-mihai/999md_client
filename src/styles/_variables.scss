@@ -1,0 +1,13 @@
+$color-primary: rgba(0, 92, 195, 1);
+$color-primary-light: rgba($color-primary, 0.15);
+$color-white: #ffffff;
+$color-bg-light-gray: #f0f1f4;
+$color-light-gray: #a4a5a6;
+$color-black: #292929;
+$color-dark-gray: #555555;
+$color-light-green: #73b222;
+$color-link-hover: #c01;
+
+:export {
+  primaryColor: $color-primary;
+}

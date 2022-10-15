@@ -1,4 +1,4 @@
-const withImages = require("next-images");
+const withImages = require('next-images');
 module.exports = withImages();
 
 /* eslint-disable import/no-extraneous-dependencies */
@@ -6,18 +6,22 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-
+const path = require('path');
 
 module.exports = withBundleAnalyzer({
   eslint: {
     dirs: ['.'],
   },
   sassOptions: {
-    includePaths: [require('path').join(__dirname, 'src', 'styles')],
+    includePaths: [
+      // path.join(__dirname, 'src', 'styles'),
+      path.join(__dirname, 'src', 'components', '*.scss'), 
+    ],
+    additionalData: '@import \'src/styles/_variables.scss\'; @import \'src/styles/_mixins.scss\';',
   },
   i18n: {
     locales: ['en-US', 'ro-RO', 'ru-RU'],
-    defaultLocale: 'en-US'
+    defaultLocale: 'en-US',
   },
   poweredByHeader: false,
   trailingSlash: true,

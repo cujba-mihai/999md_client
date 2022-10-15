@@ -16,7 +16,7 @@
     },
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": ["./tsconfig.json", "next.config.js"]
   },
   "plugins": [
     "react",
@@ -36,7 +36,7 @@
       }
     }
   },
-
+  "ignorePatterns": ["commitlint.config.js", "*.cy.ts", "cypress.config.js", "jest.setup.js", "jest.config.js"],
   "rules": {
     "react/react-in-jsx-scope": [
       "off"
@@ -69,6 +69,7 @@
         "tsx": "never"
       }
     ],
+    
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".ts", "tsx"] }]
   }
 }

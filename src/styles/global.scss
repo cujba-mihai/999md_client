@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 *,
 *:before,
 *:after {
@@ -103,15 +107,14 @@ table {
 }
 
 input {
-  -webkit-appearance: none;
-  border-radius: 0;
+  @include round-borders;
 }
 
 a {
-  color: #005cc3;
+  color: $color-primary;
   text-decoration: none;
   &:hover {
-    color: #c01;
+    color: $color-link-hover;
   }
 }
 
