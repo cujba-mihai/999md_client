@@ -1,0 +1,21 @@
+.categories {
+  @include main-content-container;
+
+  padding-top: 30px;
+
+  &-label {
+    @include label(-10px, 10px);
+  }
+}
+
+.category {
+  @include full-width;
+  display: inline-block;
+  height: 2.25rem;
+}
+
+.link-text {
+  font-size: 1.2rem;
+  vertical-align: middle;
+  display: inline;
+}

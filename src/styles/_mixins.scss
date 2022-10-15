@@ -19,3 +19,30 @@
   @include full-height();
   @include full-width();
 }
+
+@mixin padding-main($padding: 15px) {
+  padding: $padding;
+}
+
+@mixin label($top: 0, $left: 0) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  padding: 0 5px;
+  background: $color-white;
+  color: $color-darker-gray;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+@mixin main-content-container() {
+  @include fill-container;
+  @include round-borders;
+  @include padding-main;
+
+  position: relative;
+  border: 1px solid $border-light-gray;
+  line-height: 1.4 !important;
+}

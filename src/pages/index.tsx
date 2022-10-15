@@ -1,5 +1,7 @@
+import MainContent from '@/components/main-content/MainContent';
+
 const Index = () => {
-  return <h1>CHILD</h1>;
+  return <MainContent />;
 };
 
 Index.withLayout = true;
