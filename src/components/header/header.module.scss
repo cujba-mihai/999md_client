@@ -99,7 +99,7 @@
   &__wrapper {
     display: grid;
     height: 60px;
-    background-color: $color-white;
+    background-color: $color-bg-light-gray;
     grid-template-columns: auto minmax(320px, 1000px) auto;
     grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
     grid-auto-columns: auto minmax(320px, 1000px) auto;
@@ -227,7 +227,7 @@
     border-radius: 3px;
     font-size: 14px;
     &:hover {
-      background-color: $color-light-gray;
+      background-color: $color-primary-light;
       color: $color-primary;
     }
   }

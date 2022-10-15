@@ -95,21 +95,18 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
                 onBlur={toggleSearchResults}
               />
 
-              <div
-                className={
-                  (styles['main-bar__search-results'],
-                  showSearchResults ? 'hidden' : 'void')
-                }
-              >
-                <a className={styles['main-bar__search-result']} href="#">
-                  <span>Electrocasnice</span>
-                </a>
-                <a className={styles['main-bar__search-result']} href="#">
-                  <span>Imobiliare</span>
-                </a>
-                <a className={styles['main-bar__search-result']} href="#">
-                  <span>Instrumente</span>
-                </a>
+              <div className={showSearchResults ? '' : 'hidden'}>
+                <div className={styles['main-bar__search-results']}>
+                  <a className={styles['main-bar__search-result']} href="#">
+                    <span>Electrocasnice</span>
+                  </a>
+                  <a className={styles['main-bar__search-result']} href="#">
+                    <span>Imobiliare</span>
+                  </a>
+                  <a className={styles['main-bar__search-result']} href="#">
+                    <span>Instrumente</span>
+                  </a>
+                </div>
               </div>
             </div>
             <div className={styles['main-bar__add-post-container']}>
