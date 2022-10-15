@@ -14,9 +14,10 @@ module.exports = withBundleAnalyzer({
   },
   sassOptions: {
     includePaths: [
+      // path.join(__dirname, 'src', 'styles'),
       path.join(__dirname, 'src', 'components', '*.scss'), 
-      path.join(__dirname, 'src', 'styles'),
     ],
+    additionalData: '@import \'src/styles/_variables.scss\'; @import \'src/styles/_mixins.scss\';',
   },
   i18n: {
     locales: ['en-US', 'ro-RO', 'ru-RU'],

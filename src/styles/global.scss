@@ -115,10 +115,10 @@ input {
 }
 
 a {
-  color: #005cc3;
+  color: $color-primary;
   text-decoration: none;
   &:hover {
-    color: #c01;
+    color: $color-link-hover;
   }
 }
 
