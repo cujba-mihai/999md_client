@@ -46,3 +46,18 @@
   border: 1px solid $border-light-gray;
   line-height: 1.4 !important;
 }
+
+@mixin title(
+  $font-size: 20px,
+  $font-weight: 700,
+  $line-height: 2rem,
+  $padding: 11px 0 0
+) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  color: $color-darker-gray;
+  padding: $padding;
+  display: inline-block;
+  width: fit-content;
+}

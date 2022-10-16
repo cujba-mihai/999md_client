@@ -8,6 +8,14 @@
   box-sizing: border-box;
 }
 
+hr {
+  @include full-width;
+  height: 1px;
+  border: none;
+  background-color: $border-light-gray;
+  margin: 0;
+}
+
 html,
 body,
 div,

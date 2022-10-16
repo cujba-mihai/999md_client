@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "build-stats": "cross-env ANALYZE=true npm run build",
-    "export": "next export",
+    "export": "next build && next export",
     "build-prod": "run-s clean build export",
     "clean": "rimraf .next out",
     "lint": "next lint",

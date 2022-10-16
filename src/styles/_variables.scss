@@ -9,8 +9,9 @@ $color-light-green: #73b222;
 $color-link-hover: #c01;
 $color-darker-gray: #333;
 $border-light-gray: #ddd;
+$background-light-gray: #f2f6fa;
 
-$recommended-container-width: 473px;
+$recommended-container-width: calc(100% - 260px);
 
 :export {
   primaryColor: $color-primary;
