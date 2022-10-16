@@ -1,6 +1,7 @@
 import PageLayout from '@/components/layout/page-layout/PageLayout';
 import Header from './header/Header';
 import { ReactNode, useState } from 'react';
+import Footer from './footer/Footer';
 
 // interface IAuthProps {
 //   requiresAuth?: boolean;
@@ -26,6 +27,7 @@ const MainLayout = ({ children }: { children: ReactNode }): JSX.Element => {
         setShowSearchResults={setShowSearchResults}
       />
       {children}
+      <Footer />
     </PageLayout>
   );
 };
