@@ -1,4 +1,4 @@
-import Svg from '@/components/Svg';
+import Image from '@/components/Image';
 import React from 'react';
 import style from './Footer.module.scss';
 
@@ -165,21 +165,21 @@ const Footer = () => {
               <ul className={style['footer-columns-list']}>
                 <li className={style['footer-columns-list-item']}>
                   <a href="#" className={style['footer-columns-item-link']}>
-                    <Svg src="fb.svg" alt="Facebook" />
+                    <Image src="fb.svg" alt="Facebook" />
                   </a>
                   <a href="#" className={style['footer-columns-item-link']}>
-                    <Svg src="ok.svg" alt="Facebook" />
+                    <Image src="ok.svg" alt="Facebook" />
                   </a>
                   <a href="#" className={style['footer-columns-item-link']}>
-                    <Svg src="vk.svg" alt="Facebook" />
+                    <Image src="vk.svg" alt="Facebook" />
                   </a>
                 </li>
                 <li className={style['footer-columns-list-item']}>
                   <a href="#" className={style['footer-columns-item-link']}>
-                    <Svg src="master-card.svg" alt="Facebook" />
+                    <Image src="master-card.svg" alt="Facebook" />
                   </a>
                   <a href="#" className={style['footer-columns-item-link']}>
-                    <Svg src="visa.svg" alt="Facebook" />
+                    <Image src="visa.svg" alt="Facebook" />
                   </a>
                 </li>
               </ul>

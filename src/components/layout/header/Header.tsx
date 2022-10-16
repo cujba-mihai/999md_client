@@ -1,6 +1,6 @@
 // import { useRouter } from 'next/router';
 
-import Svg from '@/components/Svg';
+import Image from '@/components/Image';
 import { Dispatch, SetStateAction } from 'react';
 import styles from './Header.module.scss';
 
@@ -16,7 +16,7 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
       <header className={styles.header}>
         <div className={styles['header__left-wrapper']}>
           <a className={styles['header__logo-wrapper']} href="/">
-            <Svg
+            <Image
               className={styles.header__logo}
               key="logo999.svg"
               alt="999.md"
@@ -58,7 +58,7 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
           <div className={styles['main-bar__container']}>
             <div className={styles['main-bar__categories-container']}>
               <button className={styles['main-bar__categories-button']}>
-                <Svg
+                <Image
                   className={styles['main-bar__burger-icon']}
                   src="burger.svg"
                   alt="Categories Menu"
@@ -70,14 +70,14 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
             </div>
 
             <a href="#" className={styles['main-bar__market-link']}>
-              <Svg
+              <Image
                 className={styles['main-bar__market-icon']}
                 src="home.svg"
                 alt="Market"
               />
               <p className={styles['main-bar__market-text']}>Market</p>
 
-              <Svg
+              <Image
                 className={styles['main-bar__market-new']}
                 src="new.svg"
                 alt="New market features"

@@ -1,5 +1,5 @@
 import React from 'react';
-import Svg from '../Svg';
+import Image from '../Image';
 import style from './BuyOnMarkset.module.scss';
 
 const BuyOnMarket = () => {
@@ -10,7 +10,7 @@ const BuyOnMarket = () => {
           <h3 className={style['popular-categories-title']}>
             Аксессуары для авто
           </h3>
-          <Svg
+          <Image
             src="car.png"
             alt="Car category"
             className={style['popular-categories-image']}
@@ -28,7 +28,7 @@ const BuyOnMarket = () => {
       <div className={style['category-item-wrapper']}>
         {Array.from({ length: 12 }).map((_, index) => (
           <a key={index} href="#" className={style['category-item-container']}>
-            <Svg
+            <Image
               src="calorifer.jpg"
               alt="Calorifer"
               className={style['category-item-image']}
@@ -54,7 +54,7 @@ const BuyOnMarket = () => {
             Все товары
           </a>
 
-          <Svg
+          <Image
             src="arrow-to-delivery.svg"
             alt="Arrow right"
             className={style['all-products-arrow-right']}
