@@ -1,0 +1,7 @@
+$footer-col-sizes: 180px, 250px, 260px, 210px, 100px;
+
+@each $size in $footer-col-sizes {
+  .footer-col-#{$size} {
+    width: $size;
+  }
+}

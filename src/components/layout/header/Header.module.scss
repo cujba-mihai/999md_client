@@ -94,19 +94,16 @@
 }
 
 .main-bar {
-  grid-column: 1 / -1;
+  @include span-page-grid;
 
   &__wrapper {
-    display: grid;
+    @include page-layout;
     height: 60px;
     background-color: $color-bg-light-gray;
-    grid-template-columns: auto minmax(320px, 1000px) auto;
-    grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
-    grid-auto-columns: auto minmax(320px, 1000px) auto;
   }
 
   &__container {
-    grid-column: 2 / span 1;
+    @include center-page;
     height: 29px;
     align-self: center;
     display: grid;

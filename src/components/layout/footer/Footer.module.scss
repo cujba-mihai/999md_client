@@ -1,0 +1,95 @@
+.main-container {
+  @include span-page-grid;
+  @include page-layout($padding: 25px 0px);
+
+  display: grid;
+  background-color: $background-dark-gray;
+  color: $footer-text;
+}
+
+.footer-columns {
+  &-container {
+    @include center-page;
+
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 195px));
+    column-gap: 5px;
+    row-gap: 10px;
+    border-bottom: dashed 1px #7d828b;
+
+    padding-bottom: 25px;
+  }
+
+  &-col {
+    @include fill-container;
+
+    &-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+
+      & > h3 {
+        margin: 0;
+      }
+    }
+  }
+
+  &-title {
+    font-size: 1.1rem;
+    margin-bottom: 13px;
+    color: $color-white;
+    text-transform: uppercase;
+  }
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  &-list-item {
+    display: flex;
+    flex-direction: row;
+    color: inherit;
+    font-weight: 400;
+    text-decoration: none;
+    gap: 3px;
+  }
+
+  &-item-link {
+    color: inherit;
+    &:hover {
+      color: $footer-text;
+      text-decoration: underline;
+    }
+  }
+}
+
+.copyright {
+  &-container {
+    @include span-page-grid;
+    background-color: $background-dark-gray;
+    display: flex;
+    gap: 5px;
+    color: $footer-text;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-text {
+    color: $footer-text;
+    cursor: pointer;
+    & > *,
+    & > :hover {
+      color: $footer-text;
+    }
+
+    &:hover {
+      color: $footer-text;
+
+      text-decoration: underline;
+    }
+  }
+}
