@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Advertising.module.scss';
 
-const Advertising = () => {
+const RightSideAdvertising = () => {
   return (
     <aside className={style['advertising-container']}>
       <img
@@ -22,4 +22,4 @@ const Advertising = () => {
   );
 };
 
-export default Advertising;
+export default RightSideAdvertising;

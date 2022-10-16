@@ -1,7 +1,8 @@
 .recommended-container {
   @include main-content-container;
-
   display: grid;
+  grid-column: 2 / span 2;
+  justify-content: space-evenly;
   grid-template-columns: repeat(auto-fit, 140px);
   grid-template-rows: repeat(auto-fit, 200px);
   row-gap: 5px;
@@ -13,7 +14,7 @@
   }
 
   &-label {
-    @include label(-10px, calc($recommended-container-width / 3));
+    @include label(-10px, 40%);
   }
 }
 
