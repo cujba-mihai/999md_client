@@ -1,50 +1,53 @@
-.recommended-container {
-  @include main-content-container;
-  display: grid;
-  grid-column: 2 / span 2;
-  justify-content: space-evenly;
-  grid-template-columns: repeat(auto-fit, 140px);
-  grid-template-rows: repeat(auto-fit, 200px);
-  row-gap: 5px;
-  column-gap: 10px;
-  color: inherit;
+.recommended {
+  &-container {
+    @include main-content-container;
 
-  // overflow: auto;
-  &:hover {
+    &-label {
+      @include label(-10px, 40%);
+    }
+  }
+
+  &-items-container {
+    @include fill-container;
+    display: grid;
+    grid-column: 2 / span 2;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fit, 140px);
+    grid-template-rows: repeat(auto-fit, 200px);
+    row-gap: 5px;
+    column-gap: 10px;
     color: inherit;
+
+    overflow: auto;
   }
 
-  &-label {
-    @include label(-10px, 40%);
-  }
-}
+  &-item {
+    @include fill-container;
 
-.recommended-item {
-  @include fill-container;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
 
-  cursor: pointer;
-  font-size: 1.2rem;
+    &:hover {
+      opacity: 0.7;
+    }
 
-  &:hover {
-    opacity: 0.7;
-  }
+    &-image {
+      @include full-width;
+      height: 105px;
+    }
 
-  &-image {
-    @include full-width;
-    height: 105px;
-  }
+    &-title {
+      color: $color-primary;
+      font-size: 1.1rem;
+    }
 
-  &-title {
-    color: $color-primary;
-    font-size: 1.1rem;
-  }
-
-  &-price {
-    color: $color-black;
-    font-size: 1.1rem;
+    &-price {
+      color: $color-black;
+      font-size: 1.1rem;
+    }
   }
 }

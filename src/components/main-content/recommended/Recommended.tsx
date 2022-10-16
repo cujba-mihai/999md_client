@@ -17,9 +17,11 @@ const Recommended = () => {
   return (
     <section className={style['recommended-container']}>
       <h2 className={style['recommended-container-label']}>Рекомендованные</h2>
-      {Array.from({ length: 12 }).map((_, index) => (
-        <RecommendedItem key={index} />
-      ))}
+      <div className={style['recommended-items-container']}>
+        {Array.from({ length: 12 }).map((_, index) => (
+          <RecommendedItem key={index} />
+        ))}
+      </div>
     </section>
   );
 };

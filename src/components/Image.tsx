@@ -1,18 +1,19 @@
 import React from 'react';
 
-interface ISvg {
+interface IImage {
   src: string;
   alt: string;
   className?: string;
 }
 
-const Svg = ({ src, alt, className }: ISvg) => {
+const Image = ({ src, alt, className }: IImage) => {
   return (
     <img
       src={require(`@/public/assets/${src}`).default.src}
-      alt={alt} className={className || ''}
+      alt={alt}
+      className={className || ''}
     />
   );
 };
 
-export default Svg;
+export default Image;
