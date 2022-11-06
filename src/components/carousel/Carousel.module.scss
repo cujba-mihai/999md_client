@@ -1,0 +1,75 @@
+.carousel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  gap: 10px;
+
+  position: relative;
+
+  .arrow-left {
+    position: absolute;
+    top: 45%;
+    left: 10px;
+    content: ' ';
+    background-image: url(/_next/static/media/carousel-arrow-left.724cdca1.svg);
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: center;
+    border-radius: 50%;
+    padding: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 5;
+  }
+
+  .arrow-right {
+    position: absolute;
+    top: 45%;
+    right: 10px;
+    content: ' ';
+    background-image: url('../../../public/assets/carousel-arrow-right.svg');
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: center;
+    border-radius: 50%;
+    padding: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 5;
+  }
+
+  & > * {
+    @include round-borders;
+    cursor: pointer;
+  }
+}
+
+.inner {
+  white-space: nowrap;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  position: relative;
+}
+
+.carousel-img-list {
+  white-space: nowrap;
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 6px;
+  cursor: pointer;
+  position: relative;
+}

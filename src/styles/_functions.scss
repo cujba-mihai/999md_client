@@ -1,6 +1,13 @@
 $footer-col-sizes: 180px, 250px, 260px, 210px, 100px;
+$char-sizes: 10ch, 12ch, 14ch, 16ch, 18ch, 20ch, 22ch, 24ch, 26ch, 28ch;
 
 @each $size in $footer-col-sizes {
+  .footer-col-#{$size} {
+    width: $size;
+  }
+}
+
+@each $size in $char-sizes {
   .footer-col-#{$size} {
     width: $size;
   }
