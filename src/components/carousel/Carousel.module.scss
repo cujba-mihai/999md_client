@@ -13,6 +13,7 @@
     position: absolute;
     top: 45%;
     left: 10px;
+    border-radius: 50%;
     content: ' ';
     background-image: url(/_next/static/media/carousel-arrow-left.724cdca1.svg);
     background-repeat: no-repeat;
@@ -30,6 +31,7 @@
     top: 45%;
     right: 10px;
     content: ' ';
+    border-radius: 50%;
     background-image: url('../../../public/assets/carousel-arrow-right.svg');
     background-repeat: no-repeat;
     background-color: white;
@@ -49,7 +51,7 @@
 
 .inner {
   white-space: nowrap;
-  transition: transform 0.3s;
+  transition: all ease-in-out 0.3s;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -62,7 +64,7 @@
 
 .carousel-img-list {
   white-space: nowrap;
-  transition: transform 0.3s;
+  transition: all ease-in-out 0.3s;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -72,4 +74,43 @@
   margin-top: 6px;
   cursor: pointer;
   position: relative;
+}
+
+.bottom-controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.arrow-left {
+  position: absolute;
+  top: 45%;
+  left: 10px;
+  border-radius: 50%;
+  content: ' ';
+  background-image: url(/_next/static/media/carousel-arrow-left.724cdca1.svg);
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: center;
+  border-radius: 50%;
+  padding: 16px;
+  opacity: 0.8;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.arrow-right {
+  position: absolute;
+  top: 45%;
+  right: 10px;
+  content: ' ';
+  border-radius: 50%;
+  background-image: url('../../../public/assets/carousel-arrow-right.svg');
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: center;
+  border-radius: 50%;
+  padding: 16px;
+  opacity: 0.8;
+  cursor: pointer;
+  z-index: 5;
 }
