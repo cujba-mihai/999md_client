@@ -2,12 +2,11 @@
 import style from './Product.module.scss';
 import Image from '../Image';
 import NextImage from 'next/image';
-import Carousel from '../carousel/Carousel';
 import { getKeyValue } from '@/utils/helpers';
 import ButtonWithIcon from '../button/ButtonWithIcon';
 import { useCallback, useEffect, useState } from 'react';
 import Button from '../button/Button';
-
+import Carousel2 from '../carousel/Carousel2';
 const productImages = [
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/b37c0f960015d83a2b5be91055aa8d3e.jpg',
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/aeddcfd83ff8d3fc2dd1a9ab89006a0c.jpg',
@@ -19,6 +18,9 @@ const productDetails = {
   author: 'Mihai Cujba',
   images: productImages,
   type: 'car',
+  description: '',
+  category: 'asdasd',
+  subCategory: 'asdasd',
   price: {
     titleRo: 'Preț',
     titleRu: 'Preț',
@@ -224,8 +226,9 @@ const Product = () => {
       </div>
       <div className={style['main-container']}>
         <article className={style['product-container']}>
-          <Carousel childrenWidth={320} childrenHeight={240} withPreview>
-            {productImages &&
+
+          <Carousel2 childrenWidth={320} childrenHeight={240} withBottomControls={true} show={2} infiniteLoop={false}>
+          {productImages &&
               productImages.map((imageUrl) => {
                 return (
                   <NextImage
@@ -237,7 +240,8 @@ const Product = () => {
                   />
                 );
               })}
-          </Carousel>
+          </Carousel2>
+
           <div className={style['product-description']}>
             <div className={style['product-general']}>
               <h3 className={style['description-type']}>General</h3>

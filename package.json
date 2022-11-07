@@ -23,6 +23,7 @@
     "next": "^13.0.2",
     "next-images": "^1.8.4",
     "next-seo": "^5.14.0",
+    "nuka-carousel": "^5.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
