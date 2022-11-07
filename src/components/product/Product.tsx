@@ -18,6 +18,9 @@ const productDetails = {
   author: 'Mihai Cujba',
   images: productImages,
   type: 'car',
+  description: '',
+  category: 'asdasd',
+  subCategory: 'asdasd',
   price: {
     titleRo: 'Preț',
     titleRu: 'Preț',
