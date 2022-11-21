@@ -54,8 +54,8 @@ module.exports = withBundleAnalyzer({
       "@import 'src/styles/_variables.scss'; @import 'src/styles/_mixins.scss';  @import 'src/styles/_functions.scss';",
   },
   i18n: {
-    locales: ['en', 'ro', 'ru'],
-    defaultLocale: 'ro',
+    locales: ['default','en', 'ro', 'ru'],
+    defaultLocale: 'default',
     localeDetection: false,
   },
   poweredByHeader: false,
@@ -65,4 +65,5 @@ module.exports = withBundleAnalyzer({
   // So, the source code is "basePath-ready".
   // You can remove `basePath` if you don't need it.
   reactStrictMode: true,
+  output: "standalone"
 });

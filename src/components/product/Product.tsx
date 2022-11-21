@@ -8,8 +8,6 @@ import { useCallback, useEffect, useState } from 'react';
 import Button from '../button/Button';
 import Carousel2 from '../carousel/Carousel2';
 
-import {useTranslation } from 'react-i18next';
-
 const productImages = [
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/b37c0f960015d83a2b5be91055aa8d3e.jpg',
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/aeddcfd83ff8d3fc2dd1a9ab89006a0c.jpg',
@@ -199,7 +197,7 @@ type ProductParticularKeys = keyof ProductParticular;
 
 const Product = () => {
   const [phoneNumber, setPhoneNumber] = useState('+373 78 ********');
-  const { t } = useTranslation();
+  const t = (str: string) => str;
 
   const togglePhNumber = useCallback(() => {
     setPhoneNumber((number) => {
