@@ -7,6 +7,7 @@ import ButtonWithIcon from '../button/ButtonWithIcon';
 import { useCallback, useEffect, useState } from 'react';
 import Button from '../button/Button';
 import Carousel2 from '../carousel/Carousel2';
+
 const productImages = [
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/b37c0f960015d83a2b5be91055aa8d3e.jpg',
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/aeddcfd83ff8d3fc2dd1a9ab89006a0c.jpg',
@@ -196,6 +197,7 @@ type ProductParticularKeys = keyof ProductParticular;
 
 const Product = () => {
   const [phoneNumber, setPhoneNumber] = useState('+373 78 ********');
+  const t = (str: string) => str;
 
   const togglePhNumber = useCallback(() => {
     setPhoneNumber((number) => {
@@ -221,7 +223,7 @@ const Product = () => {
         <Image
           className={style.favorite}
           src="favourite.svg"
-          alt="Adaugă în favorite"
+          alt={t('addToFav')}
         />
       </div>
       <div className={style['main-container']}>
@@ -244,7 +246,7 @@ const Product = () => {
 
           <div className={style['product-description']}>
             <div className={style['product-general']}>
-              <h3 className={style['description-type']}>General</h3>
+              <h3 className={style['description-type']}>{t('general')}</h3>
               <ul className={style['description-ul']}>
                 {productDetails?.general &&
                   Object.keys(productDetails.general).map(
@@ -278,7 +280,7 @@ const Product = () => {
               </ul>
             </div>
             <div className={style['product-particular']}>
-              <h3 className={style['description-type']}>Particularități</h3>
+              <h3 className={style['description-type']}>{t('particularities')}</h3>
               <ul className={style['description-ul']}>
                 {productDetails?.particular &&
                   Object.keys(productDetails.particular).map(

@@ -40,6 +40,7 @@
   },
   "ignorePatterns": ["commitlint.config.js", "*.cy.ts", "cypress.config.js", "jest.setup.js", "jest.config.js"],
   "rules": {
+    "react-hooks/exhaustive-deps": "off",
     "react/react-in-jsx-scope": [
       "off"
     ],

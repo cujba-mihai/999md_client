@@ -99,7 +99,7 @@ const Carousel = ({
     <>
       <div className={style.carousel}>
         <i
-          className={style['arrow-left']}
+          className={style.arrowLeft}
           onClick={() => updateIndex(activeIndex - 1)}
         ></i>
         <div
@@ -120,12 +120,12 @@ const Carousel = ({
           })}
         </div>
         <i
-          className={style['arrow-right']}
+          className={style.arrowRight}
           onClick={() => updateIndex(activeIndex + 1)}
         ></i>
       </div>
       {withPreview && (
-        <div className={style['carousel-img-list']}>
+        <div className={style.carouselImgList}>
           {React.Children.map(children, (child, index) => {
             return (
               <div

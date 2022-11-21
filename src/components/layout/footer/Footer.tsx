@@ -7,7 +7,7 @@ const Footer = () => {
     <>
       <footer className={style['main-container']}>
         <div className={style['footer-columns-container']}>
-          <div className="footer-col-180px">
+          <div className="footerCol180px">
             <div className={style['footer-columns-col-flex']}>
               <h3 className={style['footer-columns-title']}>INFO</h3>
               <ul className={style['footer-columns-list']}>
@@ -51,7 +51,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer-col-250px">
+          <div className="footerCol250px">
             <div className={style['footer-columns-col-flex']}>
               <h3 className={style['footer-columns-title']}>Support</h3>
               <ul className={style['footer-columns-list']}>
@@ -103,7 +103,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer-col-260px">
+          <div className="footerCol260px">
             <div className={style['footer-columns-col-flex']}>
               <h3 className={style['footer-columns-title']}>MOBILE</h3>
               <ul className={style['footer-columns-list']}>
@@ -136,7 +136,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer-col-210px">
+          <div className="footerCol210px">
             <div className={style['footer-columns-col-flex']}>
               <h3 className={style['footer-columns-title']}>PROMO</h3>
               <ul className={style['footer-columns-list']}>
@@ -159,7 +159,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="footer-col-100px">
+          <div className="footerCol100px">
             <div className={style['footer-columns-col-flex']}>
               <h3 className={style['footer-columns-title']}>Social</h3>
               <ul className={style['footer-columns-list']}>
