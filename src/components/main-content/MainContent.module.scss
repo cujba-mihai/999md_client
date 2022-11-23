@@ -1,0 +1,14 @@
+.main-container {
+  @include full-width;
+  display: grid;
+  grid-template-columns: 260px auto;
+  grid-template-rows: 100%;
+  grid-gap: 13px;
+  height: 100%;
+  // height: 675px;
+  padding-top: 30px;
+
+  & > * {
+    @include fill-container;
+  }
+}

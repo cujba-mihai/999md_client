@@ -1,0 +1,10 @@
+.main-page-layout {
+  @include page-layout;
+}
+
+.main-page-layout > * {
+  @include center-page;
+
+  display: grid;
+  align-items: center;
+}

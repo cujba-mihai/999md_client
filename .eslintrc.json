@@ -1,3 +1,78 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb-typescript",
+    "plugin:react/recommended",
+    "plugin:import/typescript",
+    "next",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["./tsconfig.json", "next.config.js"]
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "import"
+  ],
+
+  "settings": {
+    "import/extensions": [".js", ".jsx"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "project": "./"
+      }
+    }
+  },
+  "ignorePatterns": ["commitlint.config.js", "*.cy.ts", "cypress.config.js", "jest.setup.js", "jest.config.js"],
+  "rules": {
+    "react-hooks/exhaustive-deps": "off",
+    "react/react-in-jsx-scope": [
+      "off"
+    ],
+    "react/jsx-uses-react": [
+      "off"
+    ],
+    "react/jsx-props-no-spreading": [
+      "warn"
+    ],
+    "quotes":[
+      "off"
+    ],
+    "react/no-unescaped-entities": [
+      "off"
+    ],
+    "react/function-component-definition": [
+      2, {
+        "namedComponents": "arrow-function"
+      }
+    ],
+
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".ts", "tsx"] }]
+  }
 }

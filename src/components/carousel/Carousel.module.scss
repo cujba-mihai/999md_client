@@ -1,0 +1,116 @@
+.carousel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  gap: 10px;
+
+  position: relative;
+
+  .arrowLeft {
+    position: absolute;
+    top: 45%;
+    left: 10px;
+    border-radius: 50%;
+    content: ' ';
+    background-image: url(/_next/static/media/carousel-arrow-left.724cdca1.svg);
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: center;
+    border-radius: 50%;
+    padding: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 5;
+  }
+
+  .arrowRight {
+    position: absolute;
+    top: 45%;
+    right: 10px;
+    content: ' ';
+    border-radius: 50%;
+    background-image: url('../../../public/assets/carousel-arrow-right.svg');
+    background-repeat: no-repeat;
+    background-color: white;
+    background-position: center;
+    border-radius: 50%;
+    padding: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+    z-index: 5;
+  }
+
+  & > * {
+    @include round-borders;
+    cursor: pointer;
+  }
+}
+
+.inner {
+  white-space: nowrap;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+
+  position: relative;
+}
+
+.carouselImgList {
+  white-space: nowrap;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.bottomControls {
+  display: flex;
+  flex-direction: row;
+}
+
+.arrowLeft {
+  position: absolute;
+  top: 45%;
+  left: 10px;
+  border-radius: 50%;
+  content: ' ';
+  background-image: url(/_next/static/media/carousel-arrow-left.724cdca1.svg);
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: center;
+  border-radius: 50%;
+  padding: 16px;
+  opacity: 0.8;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.arrowRight {
+  position: absolute;
+  top: 45%;
+  right: 10px;
+  content: ' ';
+  border-radius: 50%;
+  background-image: url('../../../public/assets/carousel-arrow-right.svg');
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: center;
+  border-radius: 50%;
+  padding: 16px;
+  opacity: 0.8;
+  cursor: pointer;
+  z-index: 5;
+}

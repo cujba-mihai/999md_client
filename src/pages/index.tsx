@@ -1,35 +1,14 @@
-// import { useRouter } from 'next/router';
-
-import { Meta } from '@/layouts/Meta';
-import { Main } from '@/templates/Main';
-
+import BuyOnMarket from '@/components/buy-on-market/BuyOnMarket';
+import MainContent from '@/components/main-content/MainContent';
 const Index = () => {
-  // const router = useRouter();
-
   return (
-    <Main
-      meta={
-        <Meta
-          title="Clone - 999.md"
-          description="Built with NextJS"
-        />
-      }
-    >   
-     <p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione fuga
-    recusandae quidem. Quaerat molestiae blanditiis doloremque possimus labore
-    voluptatibus distinctio recusandae autem esse explicabo molestias officia
-    placeat, accusamus aut saepe.
-  </p>
-  <p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione fuga
-    recusandae quidem. Quaerat molestiae blanditiis doloremque possimus labore
-    voluptatibus distinctio recusandae autem esse explicabo molestias officia
-    placeat, accusamus aut saepe.
-  </p>
-     
-    </Main>
+    <>
+      <MainContent />
+      <BuyOnMarket />
+    </>
   );
 };
+
+Index.withLayout = true;
 
 export default Index;

@@ -1,0 +1,266 @@
+.title {
+  display: inline;
+  font-size: 2.58rem;
+  font-weight: 700;
+  word-wrap: break-word;
+  letter-spacing: 0.75px;
+  word-spacing: -1px;
+
+  &-container {
+    @include full-width;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 13px 0px;
+  }
+}
+
+.favorite {
+  margin-left: 10px;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.main-wrapper {
+  @include center-page;
+  & > * {
+    @include fill-container;
+  }
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 73% 25%;
+  grid-auto-rows: auto;
+  max-width: 100%;
+  padding-top: 1.3rem;
+  padding-bottom: 5rem;
+}
+
+.product {
+  &-container {
+    display: flex;
+    flex-direction: column;
+  }
+  &-description {
+    display: grid;
+    grid-template-columns: 53.33% 42.67%;
+    padding-top: 70px;
+    column-gap: 12px;
+  }
+}
+
+.description {
+  &-ul {
+    display: flex;
+    flex-direction: column;
+    padding-top: 4px;
+  }
+
+  &-type {
+    font-size: 1.4rem;
+    display: inline;
+    color: $color-light-gray;
+    font-weight: 700;
+    letter-spacing: -0.5pt;
+  }
+
+  &-list-item {
+    display: grid;
+    grid-template-columns: 47.5% 53%;
+    min-height: 26.5px;
+    overflow: hidden;
+    background-repeat: repeat-x;
+    background-position-x: 1px;
+    margin-left: -1px;
+    padding-left: 1px;
+    position: relative;
+    background-image: url('../../../public/assets/dot.gif');
+    background-position: right;
+
+    & > * {
+      display: block;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      word-wrap: break-word;
+      padding-top: 4px;
+    }
+  }
+
+  &-list {
+    &-title {
+      font-size: 15px;
+      background: white;
+      width: fit-content;
+    }
+
+    &-desc {
+      background: white;
+      font-size: 15px;
+    }
+  }
+}
+
+.price {
+  &-container {
+    display: flex;
+    align-content: center;
+    padding-top: 12vh;
+  }
+  &-label {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+    & > * {
+      font-size: 17px;
+      font-weight: 700;
+      color: $color-light-gray;
+      display: inline;
+      vertical-align: bottom;
+    }
+  }
+
+  &-product {
+    display: flex;
+    place-items: center;
+    position: relative;
+
+    &-container {
+      display: flex;
+      align-content: center;
+      width: 100%;
+      gap: 10px;
+    }
+
+    &:first-child > * {
+      font-size: 29px;
+      color: black;
+      font-weight: 700;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    &:not(:first-child) > * {
+      font-size: 18px;
+      opacity: 0.5;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    &:not(:first-child)::before {
+      content: '/';
+      margin-right: 15px;
+      font-size: 30px;
+      font-weight: 400;
+      opacity: 0.5;
+    }
+
+    &:not(:first-child)::after {
+      content: '≈';
+      position: absolute;
+      left: 10%;
+      margin-right: 15px;
+      font-size: 20px;
+      font-weight: 400;
+      opacity: 0.5;
+    }
+  }
+}
+
+.region {
+  &-container {
+    @include full-width;
+    display: flex;
+    align-content: center;
+    padding-top: 5px;
+  }
+  &-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-light-gray;
+  }
+  &-value {
+    font-size: 17px;
+    color: black;
+    font-weight: 700;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.product-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.phone-number {
+  &-star {
+    display: inline-block;
+    vertical-align: middle;
+    width: 6px;
+    height: 6px;
+    margin: 0 2px 3px;
+    background-color: #000;
+    border-radius: 50%;
+  }
+}
+
+.product-negotiation {
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+  height: 124px;
+  margin: 29px 0;
+  background-color: #f1f7e8;
+}
+
+.negotiation {
+  &-card {
+    @include full-width;
+    @include full-height;
+    display: grid;
+    padding: 20px;
+    position: relative;
+
+    & > button {
+      align-self: end;
+      & > * {
+        font-size: 15px;
+      }
+    }
+
+    & > span {
+      font-size: 15px;
+    }
+  }
+
+  &-img-container {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+  }
+
+  &-image {
+    position: absolute;
+
+    background: white;
+    border-radius: 50%;
+    top: 13px;
+    left: 16px;
+  }
+}
+
+.contact-author {
+  @include full-width;
+
+  &-textarea {
+    @include full-width;
+    padding: 10px;
+  }
+}

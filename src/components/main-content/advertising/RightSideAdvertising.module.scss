@@ -1,0 +1,27 @@
+.advertising {
+  @include main-content-container;
+
+  &-container {
+    @include fill-container;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: calc(65% - 5px) 35%;
+    gap: 5px;
+    cursor: pointer;
+
+    & > * {
+      @include fill-container;
+    }
+  }
+
+  &-upper-img {
+    object-fit: cover;
+    // aspect-ratio: 2/4;
+  }
+
+  &-bottom-img {
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+}
