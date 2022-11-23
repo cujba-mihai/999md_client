@@ -1,8 +1,7 @@
 [build]
   publish = "out"
   command = "npm run build-prod"
-  command = "mv ./out/en.html ./out/index.html"
-  command = "mv ./out/en/*.html ./out/"
 
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  NEXT_USE_NETLIFY_EDGE="true:
