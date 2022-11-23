@@ -79,7 +79,7 @@
   },
   "volta": {
     "node": "18.12.1",
-    "npm": "8.19.2"
+    "npm": "8.19.3"
   },
   "author": "Cujba Mihai, Daniel Raileanu"
 }
