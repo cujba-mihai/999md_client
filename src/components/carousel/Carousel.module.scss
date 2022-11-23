@@ -9,7 +9,7 @@
 
   position: relative;
 
-  .arrow-left {
+  .arrowLeft {
     position: absolute;
     top: 45%;
     left: 10px;
@@ -26,7 +26,7 @@
     z-index: 5;
   }
 
-  .arrow-right {
+  .arrowRight {
     position: absolute;
     top: 45%;
     right: 10px;
@@ -62,7 +62,7 @@
   position: relative;
 }
 
-.carousel-img-list {
+.carouselImgList {
   white-space: nowrap;
   transition: all ease-in-out 0.3s;
   display: flex;
@@ -76,12 +76,12 @@
   position: relative;
 }
 
-.bottom-controls {
+.bottomControls {
   display: flex;
   flex-direction: row;
 }
 
-.arrow-left {
+.arrowLeft {
   position: absolute;
   top: 45%;
   left: 10px;
@@ -98,7 +98,7 @@
   z-index: 5;
 }
 
-.arrow-right {
+.arrowRight {
   position: absolute;
   top: 45%;
   right: 10px;

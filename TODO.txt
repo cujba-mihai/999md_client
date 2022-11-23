@@ -1,7 +1,0 @@
-1. i18n next
-2. SignUp and Auth pages + services
-3. Create categories with subcategories
-4. Definit schemele / proprietatile pentru crearea produselor in anumita categorie
- 4.1 Categorie -> General 
- 4.2 SubCategorie -> Particularitati
-5.  
