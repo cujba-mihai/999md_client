@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 on:
   push:
     branches:
@@ -14,3 +15,23 @@ jobs:
         run: |
           npm ci
           npm run export
+=======
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag 999-md-client:$(date +%s)
+>>>>>>> 9c5eab268a4fadd340bf938091a89adbd8613c74
