@@ -1,0 +1,42 @@
+{
+    "extends": [
+        "config:base"
+    ],
+    "semanticCommits": true,
+    "stabilityDays": 3,
+    "prCreation": "not-pending",
+    "labels": [
+        "type: dependencies"
+    ],
+    "packageRules": [
+        {
+            "packageNames": [
+                "node"
+            ],
+            "enabled": false
+        },
+        {
+            "matchPackagePatterns": [
+                "eslint"
+            ],
+            "labels": [
+                "linting"
+            ]
+        },
+        {
+            "matchUpdateTypes": [
+                "minor",
+                "patch",
+                "pin",
+                "digest"
+            ],
+            "automerge": true
+        },
+        {
+            "matchDepTypes": [
+                "devDependencies"
+            ],
+            "automerge": true
+        }
+    ]
+}
