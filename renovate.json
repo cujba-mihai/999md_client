@@ -9,6 +9,7 @@
     "labels": [
         "type: dependencies"
     ],
+    "ignoreTests": true,
     "packageRules": [
         {
             "packageNames": [
