@@ -6,13 +6,20 @@ const createJestConfig = nextJest({
 });
 
 const customJestConfig = {
+  moduleDirectories: ['node_modules', '<rootDir>/'],
   moduleNameMapper: {
     // Handle module aliases (this will be automatically configured for you soon)
     '^@/(.*)$': '<rootDir>/src/$1',
 
-    '^@/public/(.*)$': '<rootDir>/public/$1',
+    '^@/components/(.*)$': '<rootDir>/components/$1',
+
+    '^@/public/(.*)$': '<rootDir>/public/assets/$1',
+
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/__mocks__/fileMock.js',
+
+    '\\.(scss)$': 'identity-obj-proxy',
   },
-  setupFilesAfterEnv: ['./jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   clearMocks: true,
   collectCoverage: true,
   collectCoverageFrom: [
