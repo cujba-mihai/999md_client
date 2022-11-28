@@ -7,9 +7,11 @@ export interface IImage {
   className?: string;
   priority?: boolean;
   id?: string;
+  width?: number;
+  height?: number;
 }
 
-const Image = ({ src, alt, id, className, priority  }: IImage) => {
+const Image = ({ src, alt, id, className, priority, width, height }: IImage) => {
 
   return (
     <NextImage
@@ -18,6 +20,8 @@ const Image = ({ src, alt, id, className, priority  }: IImage) => {
       className={className || ''}
       priority={Boolean(priority)}
       id={id || ''}
+      width={width || 24}
+      height={height || 24}
     />
   );
 };

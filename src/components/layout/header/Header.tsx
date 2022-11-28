@@ -1,6 +1,5 @@
-// import { useRouter } from 'next/router';
-
 import Image from '@/components/Image';
+import Link from 'next/link';
 import { Dispatch, SetStateAction } from 'react';
 import styles from './Header.module.scss';
 
@@ -15,14 +14,16 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
     <>
       <header className={styles.header}>
         <div className={styles['header__left-wrapper']}>
-          <a className={styles['header__logo-wrapper']} href="/">
+          <Link className={styles['header__logo-wrapper']} href="/">
             <Image
               className={styles.header__logo}
               key="logo999.svg"
               alt="999.md"
               src="logo999.svg"
+              width={73.33}
+              height= {44}
             />
-          </a>
+          </Link>
 
           <div className={styles.header__region}>
             <p className={styles['header__region-selection']}>Moldova</p>
@@ -35,20 +36,20 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
           </div>
 
           <div className={styles['header__general-info']}>
-            <a href="#">
+            <Link href="#">
               <p>Cum să vinzi mașina pe 999, ca să fie cumpărată?</p>
-            </a>
+            </Link>
           </div>
         </div>
 
         <div className={styles['header__right-wrapper']}>
           <nav className={styles['header__auth-container']}>
-            <a href="#" className={styles['header__auth-register']}>
+            <Link href="#" className={styles['header__auth-register']}>
               înregistrare
-            </a>
-            <a href="#" className={styles['header__auth-authenticate']}>
+            </Link>
+            <Link href="#" className={styles['header__auth-authenticate']}>
               autentificare
-            </a>
+            </Link>
           </nav>
         </div>
       </header>
@@ -62,6 +63,8 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
                   className={styles['main-bar__burger-icon']}
                   src="burger.svg"
                   alt="Categories Menu"
+                  width={24}
+                  height={24}
                 />
                 <p className={styles['main-bar__categories-title']}>
                   Categorii
@@ -69,11 +72,13 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
               </button>
             </div>
 
-            <a href="#" className={styles['main-bar__market-link']}>
+            <Link href="#" className={styles['main-bar__market-link']}>
               <Image
                 className={styles['main-bar__market-icon']}
                 src="home.svg"
                 alt="Market"
+                width={24}
+                height={24}
               />
               <p className={styles['main-bar__market-text']}>Market</p>
 
@@ -81,8 +86,10 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
                 className={styles['main-bar__market-new']}
                 src="new.svg"
                 alt="New market features"
+                width={24}
+                height={24}
               />
-            </a>
+            </Link>
 
             <div className={styles['main-bar__search-container']}>
               <input
@@ -97,15 +104,15 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
 
               <div className={showSearchResults ? '' : 'hidden'}>
                 <div className={styles['main-bar__search-results']}>
-                  <a className={styles['main-bar__search-result']} href="#">
+                  <Link className={styles['main-bar__search-result']} href="#">
                     <span>Electrocasnice</span>
-                  </a>
-                  <a className={styles['main-bar__search-result']} href="#">
+                  </Link>
+                  <Link className={styles['main-bar__search-result']} href="#">
                     <span>Imobiliare</span>
-                  </a>
-                  <a className={styles['main-bar__search-result']} href="#">
+                  </Link>
+                  <Link className={styles['main-bar__search-result']} href="#">
                     <span>Instrumente</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
