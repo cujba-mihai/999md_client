@@ -38,8 +38,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@/public/*": ["./public/*"],
-      "@/components/*": ["components/*"]
+      // "@/public/*": ["./public/*"],
+      // "@/components/*": ["components/*"]
     }
   },
   "exclude": ["./out/**/*", "./node_modules/**/*", "**/*.cy.ts"],
