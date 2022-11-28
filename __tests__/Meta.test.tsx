@@ -1,7 +1,7 @@
+import { Meta } from '@/components/layout/meta/Meta';
 import { render, waitFor } from '@testing-library/react';
 import type { ReactNode } from 'react';
 
-import { Meta } from './Meta';
 
 // Mock `next/head`: https://bradgarropy.com/blog/mocking-nextjs
 jest.mock(
