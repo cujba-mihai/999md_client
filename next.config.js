@@ -13,6 +13,11 @@ module.exports = withBundleAnalyzer({
     dirs: ['.'],
   },
   swcMinify: true,
+  experimental: {
+    appDir: true,
+    swcMinify: true,
+    forceSwcTransforms: true
+  },
   images: {
         // limit of 25 deviceSizes values
         deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -64,6 +69,6 @@ module.exports = withBundleAnalyzer({
   // The starter code load resources from `public` folder with `router.basePath` in React components.
   // So, the source code is "basePath-ready".
   // You can remove `basePath` if you don't need it.
-  reactStrictMode: true,
+  reactStrictMode: false,
   output: "standalone"
 });

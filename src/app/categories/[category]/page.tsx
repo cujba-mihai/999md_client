@@ -1,15 +1,14 @@
 import Breadcrumbs from '@/components/breadcrumbs/index';
-import Product from '@/components/product/Product';
+import Categories from '@/components/categories/Categories';
 
 const Index = () => {
   return (
     <>
       <Breadcrumbs />
-      <Product />
+      <Categories />
     </>
   );
 };
 
-Index.withLayout = true;
 
 export default Index;

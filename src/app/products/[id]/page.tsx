@@ -1,12 +1,12 @@
 import Breadcrumbs from '@/components/breadcrumbs/index';
-import Categories from '@/components/categories/Categories';
+import Product from '@/components/product/Product';
 
 const Index = () => {
   return (
-    <>
+    <div style={{maxWidth: '100%'}}>
       <Breadcrumbs />
-      <Categories />
-    </>
+      <Product />
+    </div>
   );
 };
 

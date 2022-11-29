@@ -3,10 +3,10 @@ import style from './Product.module.scss';
 import Image from '../Image';
 import NextImage from 'next/image';
 import { getKeyValue } from '@/utils/helpers';
-import ButtonWithIcon from '../button/ButtonWithIcon';
-import { useCallback, useEffect, useState } from 'react';
-import Button from '../button/Button';
 import Carousel2 from '../carousel/Carousel2';
+import PhoneNumber from './PhoneNumber';
+import NegotiateButton from './NegotiateButton';
+import SendMsgBtn from './SendMsgBtn';
 
 const productImages = [
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/b37c0f960015d83a2b5be91055aa8d3e.jpg',
@@ -196,25 +196,7 @@ type ProductGeneralKeys = keyof ProductGeneral;
 type ProductParticularKeys = keyof ProductParticular;
 
 const Product = () => {
-  const [phoneNumber, setPhoneNumber] = useState('+373 78 ********');
   const t = (str: string) => str;
-
-  const togglePhNumber = useCallback(() => {
-    setPhoneNumber((number) => {
-      if(number.includes('*')) {
-        return productDetails.contacts;
-      } 
-
-      const arr = phoneNumber.split(' ');
-      arr[arr.length - 1] = '*'.repeat(9);
-
-      return arr.join(' ');
-    })
-  }, [phoneNumber])
-
-  useEffect(() => {
-    togglePhNumber();
-  }, [])
 
   return (
     <main className={style['main-wrapper']} aria-label="product information">
@@ -363,35 +345,13 @@ const Product = () => {
             )
           }
 
-          {
-            productDetails.contacts && (
-              <>
-              <div className={style['region-container']}>
-                  <span className={style['region-label']}>Contacte: </span>
-                  <span className={style["region-value"]}>{
-                  /\*/.test(phoneNumber) 
-                  ? (phoneNumber.replace(/\*/g, '') && (Array.from(phoneNumber).map(num => {
-                    if(num === '*') {
-                      return <i className={style['phone-number-star']} key={`${Math.random()}-${new Date().getTime()}`}></i>
-                    } else {
-                      return null;
-                    }
-                  })))
-                  : phoneNumber
-                  }</span>
-                </div>
-
-              <ButtonWithIcon src='view-number.svg'  btnText={`${/\*/.test(phoneNumber) ? 'Arată' : 'Ascunde'} numărul`} onClick={togglePhNumber} />
-
-              </>
-            )
-          }
+          <PhoneNumber />
           </div>
 
           <div className={style["product-negotiation"]}>
             <div className={style["negotiation-card"]}>
             <span className={style['negotiation-text']}>Propuneți vânzătorului prețul Dvs.</span>
-            <Button btnText='Negociati' type='success' onClick={() => {}} />
+            <NegotiateButton />
            <div className={style["negotiation-img-container"]}>
            <Image src="negotiation.svg" alt="Negotiate" width={24} height={24} className={style['negotiation-image']}/>
            </div>
@@ -401,7 +361,7 @@ const Product = () => {
 
           <div className={style["contact-author"]}>
             <textarea placeholder={`Mesaj pentru ${productDetails.author}`} name="contact-author" id="contact-author" cols={30} rows={10} className={style['contact-author-textarea']}></textarea>
-            <Button btnText='Trimite mesaj' onClick={() => {}} type="primary" />
+            <SendMsgBtn />
           </div>
 
         </article>
