@@ -7,6 +7,7 @@ import Carousel2 from '../carousel/Carousel2';
 import PhoneNumber from './PhoneNumber';
 import NegotiateButton from './NegotiateButton';
 import SendMsgBtn from './SendMsgBtn';
+import { useTranslation } from 'next-i18next'
 
 const productImages = [
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/b37c0f960015d83a2b5be91055aa8d3e.jpg',
@@ -190,13 +191,17 @@ const productDetails = {
   },
 };
 
+
+
+
 type ProductGeneral = typeof productDetails.general;
 type ProductParticular = typeof productDetails.particular;
 type ProductGeneralKeys = keyof ProductGeneral;
 type ProductParticularKeys = keyof ProductParticular;
 
 const Product = () => {
-  const t = (str: string) => str;
+  const { t } = useTranslation();
+
 
   return (
     <main className={style['main-wrapper']} aria-label="product information">
