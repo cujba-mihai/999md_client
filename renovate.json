@@ -3,6 +3,9 @@
     "extends": [
         "config:base"
     ],
+    "baseBranches": [
+        "develop"
+    ],
     "semanticCommits": "auto",
     "stabilityDays": 3,
     "prCreation": "not-pending",
