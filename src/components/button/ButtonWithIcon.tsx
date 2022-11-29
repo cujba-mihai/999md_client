@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './Button.module.scss';
 import Image from 'next/image';
-
 interface IBtnWithIcon {
     src: string;
     btnText: string;

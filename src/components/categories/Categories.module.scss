@@ -1,0 +1,57 @@
+.header {
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  color: $color-black;
+  padding: 2rem 0;
+}
+
+.h3 {
+  font-weight: 700;
+  margin: 0 0 4px;
+  font-size: 15px;
+  line-height: 17px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.lisublist {
+  color: #333;
+  width: auto;
+  white-space: nowrap;
+  padding-left: 4px;
+  color: #999;
+  font-size: 15px;
+  line-height: 17px;
+}
+.link {
+  color: #333;
+
+  &:hover {
+    text-decoration: underline;
+    color: $color-primary;
+  }
+}
+
+.count {
+  margin-left: 10px;
+}
+
+.ulsublist {
+  padding-bottom: 20px;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.products-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ul {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: baseline;
+}

@@ -224,6 +224,8 @@ const Product = () => {
           className={style.favorite}
           src="favourite.svg"
           alt={t('addToFav')}
+          width={24}
+          height={24}
         />
       </div>
       <div className={style['main-container']}>
@@ -391,7 +393,7 @@ const Product = () => {
             <span className={style['negotiation-text']}>Propuneți vânzătorului prețul Dvs.</span>
             <Button btnText='Negociati' type='success' onClick={() => {}} />
            <div className={style["negotiation-img-container"]}>
-           <Image src="negotiation.svg" alt="Negotiate" className={style['negotiation-image']}/>
+           <Image src="negotiation.svg" alt="Negotiate" width={24} height={24} className={style['negotiation-image']}/>
            </div>
             </div>
           </div>

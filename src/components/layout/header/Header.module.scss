@@ -8,8 +8,6 @@
 
   &__logo {
     display: block;
-    width: 73.33px;
-    height: 44px;
   }
 
   &__region {
@@ -124,6 +122,8 @@
 
   &__burger-icon {
     width: 16px;
+    height: 16px;
+    align-self: center;
   }
 
   &__categories-button {
