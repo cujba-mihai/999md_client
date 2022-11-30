@@ -1,8 +1,7 @@
 import React from 'react'
 import {  Product240Pixels } from '../buy-on-market/BuyOnMarket'
-import Carousel from 'nuka-carousel/lib/carousel'
 import style from './Categories.module.scss'
-import carouseStyle from '../carousel/Carousel.module.scss';
+import CarouselNoPreview from '../carousel/CarouselNoPreview';
 import Link from 'next/link';
 import DUMMY_DATA from './DummyData';
 
@@ -10,29 +9,20 @@ import DUMMY_DATA from './DummyData';
 const Categories  = () => {
   return (
     <>
-    <Carousel
-                style={{...carouseStyle, display: 'flex', gap: '10px'}}
-                wrapAround={true} 
-                slidesToShow={4}
-                cellSpacing={10}
-                className={carouseStyle.carousel}
-                renderCenterLeftControls={({ previousSlide }) => (
-                    <i className={carouseStyle.arrowLeft} onClick={previousSlide}></i>
-                  )}
-                renderCenterRightControls={({  nextSlide }) => (
-                    <i className={carouseStyle.arrowRight} onClick={nextSlide} >
-                    </i>
-                  )}
-                renderBottomCenterControls={() => undefined}
-                autoplay
-    >
+    <CarouselNoPreview slidesToShow={4} >
     {
         Array.from({length: 6}).map((_, index) => (
-        <Product240Pixels key={index} imgSrc={`ex${index + 1}.jpg`} price={~~((index + 1)  * 242.35).toFixed(2)} productUrl={`/products/${index + 1}`} title={'Transport'} alt={'Transport'} />
-    ))
-
+            <Product240Pixels 
+                key={index} 
+                imgSrc={`ex${index + 1}.jpg`} 
+                price={~~((index + 1)  * 242.35).toFixed(2)} 
+                productUrl={`/products/${index + 1}`} 
+                title={'Transport'} 
+                alt={'Transport'} 
+            />
+        ))
     }
-    </Carousel>
+    </CarouselNoPreview>
 
     <header> 
         <h1 className={style.header}>Transport </h1> 

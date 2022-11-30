@@ -1,4 +1,6 @@
 const withImages = require('next-images');
+const { i18n } = require('./next-i18next.config');
+
 module.exports = withImages();
 
 /* eslint-disable import/no-extraneous-dependencies */
@@ -13,6 +15,11 @@ module.exports = withBundleAnalyzer({
     dirs: ['.'],
   },
   swcMinify: true,
+  experimental: {
+    appDir: true,
+    swcMinify: true,
+    forceSwcTransforms: true
+  },
   images: {
         // limit of 25 deviceSizes values
         deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -53,17 +60,13 @@ module.exports = withBundleAnalyzer({
     additionalData:
       "@import 'src/styles/_variables.scss'; @import 'src/styles/_mixins.scss';  @import 'src/styles/_functions.scss';",
   },
-  i18n: {
-    locales: ['default','en', 'ro', 'ru'],
-    defaultLocale: 'default',
-    localeDetection: false,
-  },
-  poweredByHeader: false,
+  i18n,
   trailingSlash: true,
+  poweredByHeader: false,
   basePath: '',
   // The starter code load resources from `public` folder with `router.basePath` in React components.
   // So, the source code is "basePath-ready".
   // You can remove `basePath` if you don't need it.
-  reactStrictMode: true,
+  reactStrictMode: false,
   output: "standalone"
 });

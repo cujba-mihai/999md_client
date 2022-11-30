@@ -1,3 +1,4 @@
+'use client';
 import Carousel from 'nuka-carousel';
 import style from './Carousel.module.scss';
 import React, {  } from 'react';
