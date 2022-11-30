@@ -1,7 +1,9 @@
+'use client'; // this directive should be at top of the file, before any imports.
 import PageLayout from '@/components/layout/page-layout/PageLayout';
 import Header from './header/Header';
 import { ReactNode, useState } from 'react';
 import Footer from './footer/Footer';
+
 
 const MainLayout = ({ children }: { children: ReactNode }): JSX.Element => {
   const [showSearchResults, setShowSearchResults] = useState(false);

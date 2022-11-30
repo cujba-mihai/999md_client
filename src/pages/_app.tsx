@@ -5,6 +5,8 @@ import type { AppProps } from 'next/app';
 import { NextPage } from 'next';
 import { ReactElement, ReactNode } from 'react';
 import MainLayout from '@/components/layout/_MainLayout';
+import { appWithTranslation } from 'next-i18next';
+
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -30,4 +32,4 @@ const App = ({ Component, pageProps }: AppPropsWithLayout): JSX.Element => {
 };
 
 
-export default App;
+export default appWithTranslation(App);
