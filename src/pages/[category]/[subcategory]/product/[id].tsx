@@ -1,11 +1,12 @@
 import Breadcrumbs from '@/components/breadcrumbs/index';
+import NextBreadcrumbs from '@/components/breadcrumbs/NextCrumbs';
 import Product from '@/components/product/Product';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Index = () => {
   return (
     <>
-      <Breadcrumbs />
+      <NextBreadcrumbs />
       <Product />
     </>
   );

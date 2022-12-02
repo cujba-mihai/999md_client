@@ -1,7 +1,16 @@
 import style from './BreadCrumbs.module.scss';
 import Link from 'next/link';
+import { useRouter } from 'next/router'
+import { useEffect } from 'react';
 
 const BreadCrumbs = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log(router)
+    console.log(router.components)
+  })
+
   return (
     <nav className={style.container} aria-label="breadcrumbs">
       <ol className={style.breadcrumb}>
