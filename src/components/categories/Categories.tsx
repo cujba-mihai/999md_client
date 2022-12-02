@@ -5,6 +5,9 @@ import CarouselNoPreview from '../carousel/CarouselNoPreview';
 import Link from 'next/link';
 import DUMMY_DATA from './DummyData';
 
+export const Header = ({text}: {text: string}) => (    <header> 
+    <h1 className={style.header}>{text}</h1> 
+</header>)
 
 const Categories  = () => {
   return (
