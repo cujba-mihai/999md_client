@@ -22,12 +22,14 @@
     "install-node": "volta install node"
   },
   "dependencies": {
+    "formik": "^2.2.9",
     "next": "^13.0.4",
     "next-images": "^1.8.4",
     "next-seo": "^5.14.1",
     "nuka-carousel": "^5.4.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.2.0",

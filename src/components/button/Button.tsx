@@ -3,21 +3,31 @@ import style from './Button.module.scss';
 
 interface IBtn {
     btnText: string;
-    onClick: () => void;
-    type?: 'primary' | 'success';
+    isLoading?: boolean;
+    isDisabled?: boolean;
+    isSubmit?: boolean;
+    onClick?: () => void;
+    type?: 'primary' | 'success' | 'ghost';
+    customClass?: string;
   }
 const Button = ({
     btnText,
+    isLoading=false,
+    isDisabled=false,
+    isSubmit=false,
     type="primary",
-    onClick 
+    onClick,
+    customClass="" 
 }: IBtn) => {
     
  return (
     <button 
-    className={style[`button-${type}`]} 
+    className={`${style['button-'+type]} ${customClass}`} 
+    type={isSubmit ? 'submit' : 'button'}
     onClick={onClick}
+    disabled={isDisabled}
     >
-        <span className="button-text"> {btnText} </span>
+        {isLoading ? <span>Loading...</span> : <span className="button-text"> {btnText} </span>}
     </button>
     )
 };

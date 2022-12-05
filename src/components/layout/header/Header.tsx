@@ -1,7 +1,8 @@
 // import { useRouter } from 'next/router';
 
-import Image from '@/components/Image';
 import { Dispatch, SetStateAction } from 'react';
+import Link from 'next/link';
+import Image from '@/components/Image';
 import styles from './Header.module.scss';
 
 interface IProps {
@@ -43,12 +44,16 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
 
         <div className={styles['header__right-wrapper']}>
           <nav className={styles['header__auth-container']}>
-            <a href="#" className={styles['header__auth-register']}>
+            <Link href="/authenticate" className={styles['header__auth-register']}>
               înregistrare
-            </a>
-            <a href="#" className={styles['header__auth-authenticate']}>
+            </Link>
+            
+            <Link href={{
+                  pathname: '/authenticate',
+                  query: { login: 'true' },
+                }} className={styles['header__auth-authenticate']}>
               autentificare
-            </a>
+            </Link>
           </nav>
         </div>
       </header>

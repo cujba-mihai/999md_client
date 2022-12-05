@@ -31,8 +31,9 @@ module.exports = withBundleAnalyzer({
       "@import 'src/styles/_variables.scss'; @import 'src/styles/_mixins.scss';  @import 'src/styles/_functions.scss';",
   },
   i18n: {
-    locales: ['en-US', 'ro-RO', 'ru-RU'],
-    defaultLocale: 'en-US',
+    locales: ['default','en', 'ro', 'ru'],
+    defaultLocale: 'default',
+    localeDetection: false,
   },
   poweredByHeader: false,
   trailingSlash: true,
