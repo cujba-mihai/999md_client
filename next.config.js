@@ -60,16 +60,7 @@ module.exports = withBundleAnalyzer({
     additionalData:
       "@import 'src/styles/_variables.scss'; @import 'src/styles/_mixins.scss';  @import 'src/styles/_functions.scss';",
   },
-<<<<<<< HEAD
-  i18n: {
-    locales: ['default','en', 'ro', 'ru'],
-    defaultLocale: 'default',
-    localeDetection: false,
-  },
-  poweredByHeader: false,
-=======
   i18n,
->>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
   trailingSlash: true,
   poweredByHeader: false,
   basePath: '',

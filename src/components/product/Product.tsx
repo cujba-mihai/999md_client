@@ -4,14 +4,10 @@ import Image from '../Image';
 import NextImage from 'next/image';
 import { getKeyValue } from '@/utils/helpers';
 import Carousel2 from '../carousel/Carousel2';
-<<<<<<< HEAD
-import { useLocalization } from '@/utils/languageClient';
-=======
 import PhoneNumber from './PhoneNumber';
 import NegotiateButton from './NegotiateButton';
 import SendMsgBtn from './SendMsgBtn';
 import { useTranslation } from 'next-i18next'
->>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
 
 const productImages = [
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/b37c0f960015d83a2b5be91055aa8d3e.jpg',
@@ -204,25 +200,7 @@ type ProductGeneralKeys = keyof ProductGeneral;
 type ProductParticularKeys = keyof ProductParticular;
 
 const Product = () => {
-<<<<<<< HEAD
-  const { translate } = useLocalization()
-  const [phoneNumber, setPhoneNumber] = useState('+373 78 ********');
-
-  const togglePhNumber = useCallback(() => {
-    setPhoneNumber((number) => {
-      if(number.includes('*')) {
-        return productDetails.contacts;
-      } 
-
-      const arr = phoneNumber.split(' ');
-      arr[arr.length - 1] = '*'.repeat(9);
-
-      return arr.join(' ');
-    })
-  }, [phoneNumber])
-=======
   const { t } = useTranslation();
->>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
 
 
   return (
@@ -232,13 +210,9 @@ const Product = () => {
         <Image
           className={style.favorite}
           src="favourite.svg"
-<<<<<<< HEAD
-          alt={translate.addToFav}
-=======
           alt={t('addToFav')}
           width={24}
           height={24}
->>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
         />
       </div>
       <div className={style['main-container']}>
@@ -261,11 +235,7 @@ const Product = () => {
 
           <div className={style['product-description']}>
             <div className={style['product-general']}>
-<<<<<<< HEAD
-              <h3 className={style['description-type']}>{translate.general}</h3>
-=======
               <h3 className={style['description-type']}>{t('general')}</h3>
->>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
               <ul className={style['description-ul']}>
                 {productDetails?.general &&
                   Object.keys(productDetails.general).map(
@@ -299,11 +269,7 @@ const Product = () => {
               </ul>
             </div>
             <div className={style['product-particular']}>
-<<<<<<< HEAD
-              <h3 className={style['description-type']}>{translate.particularities}</h3>
-=======
               <h3 className={style['description-type']}>{t('particularities')}</h3>
->>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
               <ul className={style['description-ul']}>
                 {productDetails?.particular &&
                   Object.keys(productDetails.particular).map(

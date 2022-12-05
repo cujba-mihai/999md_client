@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-// import { useRouter } from 'next/router';
-
-=======
-import Image from '@/components/Image';
-import Link from 'next/link';
->>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
 import { Dispatch, SetStateAction } from 'react';
 import Link from 'next/link';
 import Image from '@/components/Image';
@@ -51,7 +44,6 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
 
         <div className={styles['header__right-wrapper']}>
           <nav className={styles['header__auth-container']}>
-<<<<<<< HEAD
             <Link href="/authenticate" className={styles['header__auth-register']}>
               înregistrare
             </Link>
@@ -60,12 +52,6 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
                   pathname: '/authenticate',
                   query: { login: 'true' },
                 }} className={styles['header__auth-authenticate']}>
-=======
-            <Link href="#" className={styles['header__auth-register']}>
-              înregistrare
-            </Link>
-            <Link href="#" className={styles['header__auth-authenticate']}>
->>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
               autentificare
             </Link>
           </nav>

@@ -17,16 +17,8 @@
     "install-node": "volta install node"
   },
   "dependencies": {
-<<<<<<< HEAD
     "formik": "^2.2.9",
-    "next": "^13.0.4",
-    "next-images": "^1.8.4",
-    "next-seo": "^5.14.1",
-    "nuka-carousel": "^5.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "yup": "^0.32.11"
-=======
+    "yup": "^0.32.11",
     "i18next": "^22.0.6",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.0.2",
@@ -43,7 +35,6 @@
     "react-multi-carousel": "^2.8.2",
     "react-multi-carousel-18": "^2.8.1",
     "ua-parser-js": "^1.0.32"
->>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
   },
   "devDependencies": {
     "@commitlint/cli": "17.3.0",

@@ -9,7 +9,7 @@ import Button from '../button/Button';
 import style from './AuthForm.module.scss';
 import InputField from '../inputField/inputField';
 import CheckboxInputField from '../inputField/checkBoxInputField';
-import { useLocalization } from '@/utils/languageClient';
+import { useTranslation } from 'next-i18next';
 
 export const LoginForm = () => {
     // const router = useRouter();
@@ -52,7 +52,7 @@ export const LoginForm = () => {
     //   },
     // );
 
-    const { translate } = useLocalization()
+    const { t } = useTranslation();
     const loading = false;
     const error = false;
     const login = Promise.resolve;
@@ -62,8 +62,8 @@ export const LoginForm = () => {
       <Formik
         initialValues={{ username: '', password: '' }}
         validationSchema={Yup.object().shape({
-          username: Yup.string().required(translate.errors.isRequired(translate.usernameLabel)),
-          password: Yup.string().required(translate.errors.isRequired(translate.passwordLabel)),
+          username: Yup.string().required(t('errors')),
+          password: Yup.string().required(t('errors')),
         })}
         onSubmit={async (values, actions) => {
           actions.setSubmitting(true);
@@ -84,8 +84,8 @@ export const LoginForm = () => {
         >
           
             <div className={style['authenticate-form-section']}>
-                <Field label={translate.usernameLabel} name="username" component={InputField} />
-                <Field label={translate.passwordLabel} name="password" type="password" component={InputField} />
+                <Field label={t('usernameLabel')} name="username" component={InputField} />
+                <Field label={t('passwordLabel')} name="password" type="password" component={InputField} />
 
                 <Button btnText='Forgot password?' onClick={() => {}} type="ghost"/>
             </div>
@@ -215,7 +215,7 @@ export const LoginForm = () => {
   }
 
   const AuthForm = () => {
-  const { translate } = useLocalization()  
+  const { t } = useTranslation(); 
   const router = useRouter();
 
   const login = (router.query.login as string) === 'true';
@@ -236,7 +236,7 @@ export const LoginForm = () => {
        <section className={style['main-container']}>
            <section className={style['authenticate-form-container']}>
                <div  className={style['authenticate-form-section']}>
-               <div  className={style['authenticate-form-title']}>{loginPage ? translate.loginLabel : translate.registerLabel}</div>
+               <div  className={style['authenticate-form-title']}>{loginPage ? t('loginLabel') : t('registerLabel')}</div>
                    <div className={style['authenticate-form-section']}>
                        <ButtonWithIcon customClass={style['authenticate-form-login-google']} src='view-number.svg' btnText='Login with Google' onClick={() => {}} type="primary" />
                        <ButtonWithIcon customClass={style['authenticate-form-login-facebook']} src='view-number.svg' btnText='Login with Facebook' onClick={() => {}} type="primary" />
@@ -247,16 +247,16 @@ export const LoginForm = () => {
                 <LoginForm /> 
                 <div className={`${style['m-0']} ${style['authenticate-form-section']}`}>
                     <div>
-                        <span>{translate.registerSuggestionText}</span> 
-                        <Button  btnText={translate.registerSuggestionButton} onClick={changeToRegisterPage} type="ghost"/>
+                        <span>{t('registerSuggestionText')}</span> 
+                        <Button  btnText={t('registerSuggestionButton')} onClick={changeToRegisterPage} type="ghost"/>
                     </div>
                 </div>
                </>: <>
                     <RegisterForm />
                     <div className={`${style['m-0']} ${style['authenticate-form-section']}`}>
                         <div>
-                            <span>{translate.loginSuggestionText}</span> 
-                            <Button  btnText={translate.loginSuggestionButton} onClick={changeToLoginPage} type="ghost"/>
+                            <span>{t('loginSuggestionText')}</span> 
+                            <Button  btnText={t('loginSuggestionButton')} onClick={changeToLoginPage} type="ghost"/>
                         </div>
                     </div>
                </>}
