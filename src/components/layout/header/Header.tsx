@@ -1,6 +1,6 @@
-import Image from '@/components/Image';
-import Link from 'next/link';
 import { Dispatch, SetStateAction } from 'react';
+import Link from 'next/link';
+import Image from '@/components/Image';
 import styles from './Header.module.scss';
 
 interface IProps {
@@ -44,10 +44,14 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
 
         <div className={styles['header__right-wrapper']}>
           <nav className={styles['header__auth-container']}>
-            <Link href="#" className={styles['header__auth-register']}>
+            <Link href="/authenticate" className={styles['header__auth-register']}>
               înregistrare
             </Link>
-            <Link href="#" className={styles['header__auth-authenticate']}>
+            
+            <Link href={{
+                  pathname: '/authenticate',
+                  query: { login: 'true' },
+                }} className={styles['header__auth-authenticate']}>
               autentificare
             </Link>
           </nav>
