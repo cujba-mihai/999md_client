@@ -3,11 +3,15 @@ import style from './Product.module.scss';
 import Image from '../Image';
 import NextImage from 'next/image';
 import { getKeyValue } from '@/utils/helpers';
-import ButtonWithIcon from '../button/ButtonWithIcon';
-import { useCallback, useEffect, useState } from 'react';
-import Button from '../button/Button';
 import Carousel2 from '../carousel/Carousel2';
+<<<<<<< HEAD
 import { useLocalization } from '@/utils/languageClient';
+=======
+import PhoneNumber from './PhoneNumber';
+import NegotiateButton from './NegotiateButton';
+import SendMsgBtn from './SendMsgBtn';
+import { useTranslation } from 'next-i18next'
+>>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
 
 const productImages = [
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/b37c0f960015d83a2b5be91055aa8d3e.jpg',
@@ -191,12 +195,16 @@ const productDetails = {
   },
 };
 
+
+
+
 type ProductGeneral = typeof productDetails.general;
 type ProductParticular = typeof productDetails.particular;
 type ProductGeneralKeys = keyof ProductGeneral;
 type ProductParticularKeys = keyof ProductParticular;
 
 const Product = () => {
+<<<<<<< HEAD
   const { translate } = useLocalization()
   const [phoneNumber, setPhoneNumber] = useState('+373 78 ********');
 
@@ -212,10 +220,10 @@ const Product = () => {
       return arr.join(' ');
     })
   }, [phoneNumber])
+=======
+  const { t } = useTranslation();
+>>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
 
-  useEffect(() => {
-    togglePhNumber();
-  }, [])
 
   return (
     <main className={style['main-wrapper']} aria-label="product information">
@@ -224,7 +232,13 @@ const Product = () => {
         <Image
           className={style.favorite}
           src="favourite.svg"
+<<<<<<< HEAD
           alt={translate.addToFav}
+=======
+          alt={t('addToFav')}
+          width={24}
+          height={24}
+>>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
         />
       </div>
       <div className={style['main-container']}>
@@ -247,7 +261,11 @@ const Product = () => {
 
           <div className={style['product-description']}>
             <div className={style['product-general']}>
+<<<<<<< HEAD
               <h3 className={style['description-type']}>{translate.general}</h3>
+=======
+              <h3 className={style['description-type']}>{t('general')}</h3>
+>>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
               <ul className={style['description-ul']}>
                 {productDetails?.general &&
                   Object.keys(productDetails.general).map(
@@ -281,7 +299,11 @@ const Product = () => {
               </ul>
             </div>
             <div className={style['product-particular']}>
+<<<<<<< HEAD
               <h3 className={style['description-type']}>{translate.particularities}</h3>
+=======
+              <h3 className={style['description-type']}>{t('particularities')}</h3>
+>>>>>>> 2926ea82c0fa485a669fc60d7822177f9082d636
               <ul className={style['description-ul']}>
                 {productDetails?.particular &&
                   Object.keys(productDetails.particular).map(
@@ -362,37 +384,15 @@ const Product = () => {
             )
           }
 
-          {
-            productDetails.contacts && (
-              <>
-              <div className={style['region-container']}>
-                  <span className={style['region-label']}>Contacte: </span>
-                  <span className={style["region-value"]}>{
-                  /\*/.test(phoneNumber) 
-                  ? (phoneNumber.replace(/\*/g, '') && (Array.from(phoneNumber).map(num => {
-                    if(num === '*') {
-                      return <i className={style['phone-number-star']} key={`${Math.random()}-${new Date().getTime()}`}></i>
-                    } else {
-                      return null;
-                    }
-                  })))
-                  : phoneNumber
-                  }</span>
-                </div>
-
-              <ButtonWithIcon src='view-number.svg'  btnText={`${/\*/.test(phoneNumber) ? 'Arată' : 'Ascunde'} numărul`} onClick={togglePhNumber} />
-
-              </>
-            )
-          }
+          <PhoneNumber />
           </div>
 
           <div className={style["product-negotiation"]}>
             <div className={style["negotiation-card"]}>
             <span className={style['negotiation-text']}>Propuneți vânzătorului prețul Dvs.</span>
-            <Button btnText='Negociati' type='success' onClick={() => {}} />
+            <NegotiateButton />
            <div className={style["negotiation-img-container"]}>
-           <Image src="negotiation.svg" alt="Negotiate" className={style['negotiation-image']}/>
+           <Image src="negotiation.svg" alt="Negotiate" width={24} height={24} className={style['negotiation-image']}/>
            </div>
             </div>
           </div>
@@ -400,7 +400,7 @@ const Product = () => {
 
           <div className={style["contact-author"]}>
             <textarea placeholder={`Mesaj pentru ${productDetails.author}`} name="contact-author" id="contact-author" cols={30} rows={10} className={style['contact-author-textarea']}></textarea>
-            <Button btnText='Trimite mesaj' onClick={() => {}} type="primary" />
+            <SendMsgBtn />
           </div>
 
         </article>

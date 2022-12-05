@@ -1,18 +1,27 @@
-/* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import NextImage from 'next/image';
 
-interface IImage {
+export interface IImage {
   src: string;
   alt: string;
   className?: string;
+  priority?: boolean;
+  id?: string;
+  width?: number;
+  height?: number;
 }
 
-const Image = ({ src, alt, className }: IImage) => {
+const Image = ({ src, alt, id, className, priority, width, height }: IImage) => {
+
   return (
-    <img
-      src={require(`@/public/assets/${src}`).default.src}
-      alt={alt}
+    <NextImage
+      src={ require(`@/public/assets/${src}`)?.default?.src || "" }
+      alt={alt || ''}
       className={className || ''}
+      priority={Boolean(priority)}
+      id={id || ''}
+      width={width || 24}
+      height={height || 24}
     />
   );
 };

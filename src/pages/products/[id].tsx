@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/breadcrumbs/index';
 import Product from '@/components/product/Product';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Index = () => {
   return (
@@ -13,3 +14,21 @@ const Index = () => {
 Index.withLayout = true;
 
 export default Index;
+
+
+export const getStaticProps = async (context: any) => {
+  return {
+    props: { 
+      context,
+      ...(await serverSideTranslations(context.locale))
+    },
+    revalidate: 10,
+  };
+};
+
+export const getStaticPaths = async () => {
+  return {
+    paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
+    fallback: 'blocking', // can also be true or 'blocking'
+  }
+}

@@ -1,3 +1,4 @@
+'use client';
 import Carousel from 'nuka-carousel';
 import style from './Carousel.module.scss';
 import React, {  } from 'react';
@@ -29,10 +30,10 @@ const Carousel2 = ({
             cellSpacing={10}
             className={style.carousel}
             renderCenterLeftControls={({ previousSlide }) => (
-                <i className={style['arrow-left']} onClick={previousSlide}></i>
+                <i className={style.arrowLeft} onClick={previousSlide}></i>
               )}
             renderCenterRightControls={({  nextSlide }) => (
-                <i className={style['arrow-right']} onClick={nextSlide} >
+                <i className={style.arrowRight} onClick={nextSlide} >
                 </i>
               )}
             renderBottomCenterControls={() => undefined}
@@ -41,12 +42,12 @@ const Carousel2 = ({
                     <>
                     {
                         withBottomControls && (<div style={{position: 'absolute', bottom: '-50px'}}>
-                        <div className={style['carousel-img-list']}>
+                        <div className={style.carouselImgList}>
                             {
                                 React.Children.map(children, (child, index) => {
                                     return (
                                       <div
-                                        className={style['bottom-controls']}
+                                        className={style.bottomControls}
                                         key={`image-preview-${index}-${new Date().getTime()}`}
                                         onClick={() => props.goToSlide(index)}
                                       >

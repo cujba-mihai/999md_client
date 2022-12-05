@@ -1,21 +1,46 @@
+import Link from 'next/link';
 import React from 'react';
 import Image from '../Image';
 import style from './BuyOnMarkset.module.scss';
+
+interface IProductProps {
+  imgSrc: string;
+  price: number;
+  productUrl: string;
+  title: string;
+  alt: string;
+}
+
+export const Product240Pixels = ({ imgSrc, alt, productUrl, price, title }: IProductProps) => {
+  return (
+    <Link href={productUrl} className={style['category-item-container']}>
+    <Image
+      src={imgSrc}
+      alt={alt}
+      className={style['category-item-image']}
+    />
+    <p className={style['category-item-name']}> {title} </p>
+    <p className={style['category-item-price']}>{price} леев</p>
+  </Link>
+  )
+}
+
+export const CategoryTitle = ({value}: {value: string;}) => (<h3 className={style['category-item-title']}>{value}</h3>)
 
 const BuyOnMarket = () => {
   const PopularCategories = () => (
     <div className={style['popular-categories-wrapper']}>
       {Array.from({ length: 7 }).map((_, index) => (
-        <div key={index} className={style['popular-categories-container']}>
-          <h3 className={style['popular-categories-title']}>
-            Аксессуары для авто
-          </h3>
-          <Image
-            src="car.png"
-            alt="Car category"
-            className={style['popular-categories-image']}
-          />
-        </div>
+            <div key={index} className={style['popular-categories-container']}>
+            <h3 className={style['popular-categories-title']}>
+              Аксессуары для авто
+            </h3>
+            <Image
+              src="car.png"
+              alt="Car category"
+              className={style['popular-categories-image']}
+            />
+          </div>
       ))}
     </div>
   );
@@ -23,21 +48,11 @@ const BuyOnMarket = () => {
   const CategoryWithItems = () => (
     <>
       <div>
-        <h3 className={style['category-item-title']}>Готовимся к холодам</h3>
+        <CategoryTitle value="Готовимся к холодам" />
       </div>
       <div className={style['category-item-wrapper']}>
         {Array.from({ length: 12 }).map((_, index) => (
-          <a key={index} href="#" className={style['category-item-container']}>
-            <Image
-              src="calorifer.jpg"
-              alt="Calorifer"
-              className={style['category-item-image']}
-            />
-            <p className={style['category-item-name']}>
-              Конвектор Zanussi Zch/S-1500 Er
-            </p>
-            <p className={style['category-item-price']}>2 699 леев</p>
-          </a>
+          <Product240Pixels alt={"Calorifer"} title='Конвектор Zanussi Zch/S-1500 Er' price={2550} imgSrc='calorifer.jpg' key={index} productUrl='/products/1/' />
         ))}
       </div>
     </>
@@ -50,9 +65,9 @@ const BuyOnMarket = () => {
           Купить онлайн на Market
         </h1>
         <div className={style['all-products-container']}>
-          <a href="#" className={style['buy-on-market-all-products']}>
+          <Link href="#" className={style['buy-on-market-all-products']}>
             Все товары
-          </a>
+          </Link>
 
           <Image
             src="arrow-to-delivery.svg"
