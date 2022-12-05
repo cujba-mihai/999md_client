@@ -1,0 +1,31 @@
+.list-style,
+.currency{
+    justify-self: end;
+    align-self: start;
+}
+
+.product-list {
+    // TODO: CREATE A COMPONENT OR MIXIN
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    &-container{
+        display: grid;
+    }
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 73% 25%;
+    grid-auto-rows: auto;
+    max-width: 100%;
+    padding-top: 1.3rem;
+    padding-bottom: 5rem;
+}
+
+.filters-container {
+    display: grid;
+    place-self: start;
+    width: 100%;
+}

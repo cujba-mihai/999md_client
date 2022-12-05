@@ -9,6 +9,7 @@ interface IBtnWithIcon {
     iconH?: number;
     iconPosition?: 'start' | 'end';
     type?: 'primary';
+    customClass?: string;
   }
 const ButtonWithIcon = ({
     src,
@@ -17,12 +18,13 @@ const ButtonWithIcon = ({
     iconPosition = 'start',
     btnText,
     type="primary",
+    customClass="",
     onClick 
 }: IBtnWithIcon) => {
     
  return (
     <button 
-    className={style[`button-${type}-${iconPosition}`]} 
+    className={`${style[`button-${type}-${iconPosition}`]} ${customClass}`} 
     onClick={onClick}
     >
         <Image 
