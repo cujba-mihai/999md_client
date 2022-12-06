@@ -6,7 +6,7 @@
         }
       },
       "collect": {
-        "staticDistDir": "./.next"
+        "startServerCommand": "npm run start"
       }
     }
   }
