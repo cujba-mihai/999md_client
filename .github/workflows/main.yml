@@ -10,4 +10,10 @@ jobs:
           node-version: 18
       - run: npm install && npm install -g @lhci/cli@0.8.x
       - run: npm run build
-      - run: lhci autorun --config=./.github/workflows/lighthouserc.json
+      - uses: actions/checkout@v3
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          configPath: './.github/workflows/lighthouserc.json'
+          uploadArtifacts: true # save results as an action artifacts
+          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
