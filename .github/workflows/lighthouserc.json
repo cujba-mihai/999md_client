@@ -1,15 +1,21 @@
 {
-    "ci": {
-      "assert": {
-        "assertions": {
-          "first-contentful-paint": ["error", { "minScore": 0.6 }]
-        }
+  "ci": {
+    "collect": {
+      "numberOfRuns": 1,
+      "settings": {
+        "hostname": "127.0.0.1"
       },
-      "collect": {
-        "settings": {
-            "hostname": "127.0.0.1"
-        },
-        "staticDistDir": "./.next"
+      "staticDistDir": "./.next"
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "offscreen-images": "off",
+        "uses-webp-images": "off"
       }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
     }
   }
+}

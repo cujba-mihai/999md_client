@@ -9,6 +9,8 @@
     "export": "next build",
     "build-prod": "run-s clean build",
     "clean": "rimraf .next out",
+    "lighthouse": "lhci autorun --config=./.github/workflows/lighthouserc.json",
+    "serve:lhci": "npm start",
     "lint": "next lint",
     "check-types": "tsc --noEmit --pretty",
     "prepare": "husky install",
