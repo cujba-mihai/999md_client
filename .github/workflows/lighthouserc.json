@@ -6,7 +6,7 @@
         }
       },
       "collect": {
-        "startServerCommand": "curl https://get.volta.sh | bash | source ~/.bashrc && volta install node && npm i && npm run build && npm run start"
+        "staticDistDir": "./.next"
       }
     }
   }
