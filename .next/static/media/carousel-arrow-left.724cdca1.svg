@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="12px" viewBox="0 0 8 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>icon/arr_left</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Ad-views" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Ad-View---Second-photo" transform="translate(-96.000000, -522.000000)" fill="#333333" fill-rule="nonzero">
+            <g id="ad-photos" transform="translate(70.000000, 408.000000)">
+                <g id="btn/left" transform="translate(15.000000, 104.000000)">
+                    <path d="M17.0419537,10.2981598 C17.4771988,9.8890292 18.1973526,9.90264238 18.6504622,10.3285656 C19.0582609,10.7118966 19.1107713,11.298555 18.7999017,11.7103096 L18.6828089,11.8405643 L14.216433,16.0378616 L18.5857689,20.1898415 C18.9935676,20.5731725 19.046078,21.1598309 18.7352084,21.5715855 L18.6181156,21.7018402 C18.226395,22.0700577 17.6038984,22.0958528 17.1529993,21.7868316 L17.0096071,21.6714344 L11,15.9775989 L17.0419537,10.2981598 Z" id="icon/arr_left"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
