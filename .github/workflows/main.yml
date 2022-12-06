@@ -1,17 +1,13 @@
-name: Lighthouse CI
-on: push
+name: CI
+on: [push]
 jobs:
-  lighthouse:
+  lighthouseci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v9
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          urls: |
-            https://999md-client.vercel.app/en-US/
-            https://999md-client.vercel.app/
-          budgetPath: './.github/workflows/budget.json' # test performance budgets
-          configPath: './.github/workflows/lighthouserc.json'
-          uploadArtifacts: true # save results as an action artifacts
-          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
+          node-version: 18
+      - run: npm install && npm install -g @lhci/cli@0.8.x
+      - run: npm run build
+      - run: lhci autorun
