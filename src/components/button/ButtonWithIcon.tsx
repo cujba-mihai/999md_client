@@ -24,7 +24,7 @@ const ButtonWithIcon = ({
     
  return (
     <button 
-    className={`${style[`button-${type}-${iconPosition}`]} ${customClass}`} 
+    className={`icon-button-start button-${type} ${customClass}`} 
     onClick={onClick}
     >
         <Image 

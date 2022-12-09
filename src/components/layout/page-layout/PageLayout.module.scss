@@ -1,5 +1,10 @@
 .main-page-layout {
   @include page-layout;
+
+  @include breakpoint-max($bp-lg) {
+    padding: 0 20px;
+  }
+
 }
 
 .main-page-layout > * {
@@ -8,4 +13,6 @@
   display: grid;
   align-items: center;
   grid-auto-columns: 100%;
+
+
 }

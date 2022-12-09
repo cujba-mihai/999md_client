@@ -1,9 +1,60 @@
 .header {
   display: flex;
 
+  @include breakpoint-max($bp-md-l) {
+    background-color: $background-gray;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &__mobile{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30px, 33.33%));
+    @include fill-container;
+    align-items: center;
+    @include breakpoint-min($bp-md-l) {
+      display: none;
+    }
+
+    &-menu,
+    &-search {
+      min-width: 24px;
+      max-width: 24px;
+
+      position: relative;
+
+      // reset btn with icon styles
+      background: none !important;
+      outline: none !important;
+      border: none !important;
+      
+      & > img {
+        position: absolute;
+        @include center(both);
+      }
+
+      @include breakpoint-min($bp-md-l) {
+        display: none;
+      }
+    }
+
+    &-menu {
+      justify-self: start;
+    }
+
+    &-search {
+      justify-self: end;
+      margin-right: 5px;
+    }
+  }
+
   &__logo-wrapper {
     width: 73.33px;
     height: 44px;
+
+    justify-self: center;
   }
 
   &__logo {
@@ -13,12 +64,19 @@
   &__region {
     display: inline-block;
     width: fit-content;
+    @include breakpoint-max($bp-md-l) {
+      display: none;
+    }
   }
 
   &__left-wrapper {
     display: flex;
     align-items: center;
     gap: 13px;
+
+    @include breakpoint-max($bp-md-l) {
+      display: none;
+    }
   }
 
   &__region-selection {
@@ -52,6 +110,16 @@
     & > * > * {
       font-weight: 700;
     }
+
+    @include breakpoint-max($bp-md-l) {
+      display: none;
+    }
+  }
+
+  &__ads-count-wrapper {
+    @include breakpoint-max($bp-md-l) {
+      display: none;
+    }
   }
 
   //   &__ads-count-wrapper {
@@ -62,6 +130,9 @@
 
   &__right-wrapper {
     margin-left: auto;
+    @include breakpoint-max($bp-md-l) {
+      display: none;
+    }
   }
 
   &__auth-container {
@@ -94,10 +165,21 @@
 .main-bar {
   @include span-page-grid;
 
+  @include breakpoint-max($bp-md-l) {
+    display: none;
+  }
+
   &__wrapper {
     @include page-layout;
     height: 60px;
     background-color: $color-bg-light-gray;
+
+    @include breakpoint-max($bp-lg) {
+      margin: 0 -20px;
+      padding: 0 20px;
+    }
+
+
   }
 
   &__container {

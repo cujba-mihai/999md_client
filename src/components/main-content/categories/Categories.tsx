@@ -98,7 +98,7 @@ const Categories = () => {
         </div>
         {CATEGORIES.map((category) => (
           <li key={category.url} className={style.category}>
-            <Link className={style.category} href={`/${category.url}`}>
+            <Link className={style.category} href={`/categories/${category.url}`}>
               <p className={style['link-text']}>{category.name}</p>
             </Link>
           </li>

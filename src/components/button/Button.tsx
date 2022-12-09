@@ -23,7 +23,7 @@ const Button = ({
     
  return (
     <button 
-    className={`${style['button-'+type]} ${customClass}`} 
+    className={`button-${type} ${customClass}`} 
     type={isSubmit ? 'submit' : 'button'}
     onClick={onClick}
     disabled={isDisabled}

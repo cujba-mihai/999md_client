@@ -12,7 +12,7 @@ export const Header = ({text}: {text: string}) => (    <header>
 const Categories  = () => {
   return (
     <>
-    <CarouselNoPreview slidesToShow={4} >
+    <CarouselNoPreview slidesToShow={4} autoplay={true} >
     {
         Array.from({length: 6}).map((_, index) => (
             <Product240Pixels 
@@ -40,7 +40,7 @@ const Categories  = () => {
                     {
                         DUMMY_DATA?.[data].map((el: {subcat: string;}, i: number) => (
                             <li key={`${el.subcat} - ${i}`} className={style.lisublist}>
-                            <Link href='#' className={style.link}>
+                            <Link href='/subcategory/telephone' className={style.link}>
                                {el.subcat}
                             </Link>
                                 <span className={style.count}>48 060</span>

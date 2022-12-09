@@ -7,11 +7,15 @@ import React from 'react';
 interface IProps {
     children: JSX.Element[];
     slidesToShow: number;
+    showArrows?: boolean;
+    autoplay?: boolean;
 }
 
 const CarouselNoPreview = ({
     children,
-    slidesToShow
+    slidesToShow,
+    showArrows = true,
+    autoplay = false
 }: IProps): JSX.Element => {
 
     return   (
@@ -22,14 +26,14 @@ const CarouselNoPreview = ({
         cellSpacing={10}
         className={style.carousel}
         renderCenterLeftControls={({ previousSlide }) => (
-            <i className={style.arrowLeft} onClick={previousSlide}></i>
+            showArrows && <i className={style.arrowLeft} onClick={previousSlide}></i>
           )}
         renderCenterRightControls={({  nextSlide }) => (
-            <i className={style.arrowRight} onClick={nextSlide} >
+            showArrows && <i className={style.arrowRight} onClick={nextSlide} >
             </i>
           )}
         renderBottomCenterControls={() => undefined}
-        autoplay
+        autoplay={autoplay}
 >
 {
 children

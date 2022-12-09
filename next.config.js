@@ -16,7 +16,6 @@ module.exports = withBundleAnalyzer({
   },
   swcMinify: true,
   experimental: {
-    appDir: true,
     swcMinify: true,
     forceSwcTransforms: true
   },

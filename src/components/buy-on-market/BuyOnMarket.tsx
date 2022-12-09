@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import CarouselNoPreview from '../carousel/CarouselNoPreview';
 import Image from '../Image';
 import style from './BuyOnMarkset.module.scss';
 
@@ -30,18 +31,20 @@ export const CategoryTitle = ({value}: {value: string;}) => (<h3 className={styl
 const BuyOnMarket = () => {
   const PopularCategories = () => (
     <div className={style['popular-categories-wrapper']}>
-      {Array.from({ length: 7 }).map((_, index) => (
-            <div key={index} className={style['popular-categories-container']}>
-            <h3 className={style['popular-categories-title']}>
-              Аксессуары для авто
-            </h3>
-            <Image
-              src="car.png"
-              alt="Car category"
-              className={style['popular-categories-image']}
-            />
-          </div>
-      ))}
+      <CarouselNoPreview slidesToShow={3} showArrows={false}>
+        {Array.from({ length: 7 }).map((_, index) => (
+              <div key={index} className={style['popular-categories-container']}>
+              <p className={style['popular-categories-title']}>
+                Аксессуары для авто
+              </p>
+              <Image
+                src="car.png"
+                alt="Car category"
+                className={style['popular-categories-image']}
+              />
+            </div>
+        ))}
+      </CarouselNoPreview>
     </div>
   );
 
@@ -51,9 +54,11 @@ const BuyOnMarket = () => {
         <CategoryTitle value="Готовимся к холодам" />
       </div>
       <div className={style['category-item-wrapper']}>
-        {Array.from({ length: 12 }).map((_, index) => (
-          <Product240Pixels alt={"Calorifer"} title='Конвектор Zanussi Zch/S-1500 Er' price={2550} imgSrc='calorifer.jpg' key={index} productUrl='/products/1/' />
-        ))}
+        <CarouselNoPreview showArrows={false} slidesToShow={2.5} autoplay={false}>
+          {Array.from({ length: 12 }).map((_, index) => (
+            <Product240Pixels alt={"Calorifer"} title='Конвектор Zanussi Zch/S-1500 Er' price={2550} imgSrc='calorifer.jpg' key={index} productUrl='/products/1/' />
+          ))}
+        </CarouselNoPreview>
       </div>
     </>
   );
