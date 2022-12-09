@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import style from './Button.module.scss';
 
 interface IBtn {
     btnText: string;

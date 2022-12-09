@@ -142,7 +142,7 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
               </div>
             </div>
             <div className={styles['main-bar__add-post-container']}>
-              <button className={styles['main-bar__add-post-button']}>
+              <button className='button-success'>
                 <p>Adaugă anunţ</p>
               </button>
             </div>

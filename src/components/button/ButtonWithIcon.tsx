@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './Button.module.scss';
 import Image from 'next/image';
+
 interface IBtnWithIcon {
     src: string;
     btnText: string;
@@ -24,11 +24,10 @@ const ButtonWithIcon = ({
     
  return (
     <button 
-    className={`icon-button-start button-${type} ${customClass}`} 
+    className={`icon-button-${iconPosition} button-${type} ${customClass}`} 
     onClick={onClick}
     >
         <Image 
-        className={style[`button-icon-${iconPosition}`]}
         src={require(`@/public/assets/${src}`).default.src} 
         width={iconW} 
         height={iconH} 

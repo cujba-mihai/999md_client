@@ -6,8 +6,7 @@
     align-items: center;
     place-items: center;
 
-    max-width: 180px;
-    min-width: 35px;
+    width: 180px;
     min-height: 35px;
     max-height: 35px;
   
@@ -27,12 +26,14 @@
     }
 
     &-primary {
+        @extend.button;
         border-color: $color-primary;
         color: $color-primary;
         background-color: $color-primary;
     }
 
     &-ghost {
+        @extend.button;
         border-color: transparent;
         color: $color-primary;
         background-color: transparent;
@@ -41,6 +42,18 @@
             text-decoration: underline;
             color: $color-primary !important;
         }
+    }
+
+    &-success {
+        @extend.button;
+        background-color: transparent;
+        border: 1px solid $color-light-green;
+        color: $color-light-green;
+
+        &:hover {
+            color: $color-white;
+            background-color: $color-light-green;
+          }
     }
 
     & > * {
@@ -53,10 +66,12 @@
     @extend.button;
 
     &-start {
+        @extend.button;
         grid-template-columns: 30% 70%;
     }
 
     &-end {
+        @extend.button;
         grid-template-columns: 80% 20%;
 
         & > span {
