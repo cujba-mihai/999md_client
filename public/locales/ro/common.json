@@ -7,7 +7,37 @@
   "info": "Info",
   "Market": "Market",
   "auth": "Autentificare",
-  "signup": "Înregistrare",
+  "signUp": "Înregistrare",
+  "signIn": "Intră în cont",
   "language": "Limba",
-  "fullVersion": "Versiunea completă"
+  "fullVersion": "Versiunea completă",
+  "recommended": "Recomandate",
+  "buyOnMarket": "Cumpără pe market",
+  "allProducts": "Toate produsele",
+  "getRdyForWinter": "Pregătește-te de iarnă",
+  "MDL": "lei",
+  "EUR": "€",
+  "USD": "$",
+  "forms": {
+    "registerLabel": "Înregistrare",
+    "loginLabel": "Intră în cont",
+    "loginWith": "Conectați-vă prin",
+    "usernameLabel": "Nume utilizator",
+    "passwordLabel": "Parola",
+    "username": "Nume utilizator",
+    "password": "Parola",
+    "email": "Adresa de email",
+    "forgotPassword": "Am uitat parola",
+    "registerSuggestionButton": "Înregistrează-te",
+    "registerSuggestionText": "Nu ai un cont?",
+    "agreeTermsConditions": "Sunt de acord cu termenii și condițiile",
+    "loginSuggestionText": "Ai deja un cont?",
+    "loginSuggestionButton": "Intră în cont",
+    "confirmPassword": "Confirmă parola"
+  },
+  "errors": {
+    "forms": {
+      "errors": "errors"
+    }
+  }
 }

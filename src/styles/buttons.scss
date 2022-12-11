@@ -1,89 +1,87 @@
 .button {
-    position: relative;
-    
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    place-items: center;
+  position: relative;
 
-    width: 180px;
-    min-height: 35px;
-    max-height: 35px;
-  
-    border-radius: 4px;
-  
-    color: $color-primary;
-    font-size: 15px;
-    
-    cursor: pointer;
-  
-    border: 1px solid $color-primary;
-    background-color: $background-light-gray;
-  
-    &:hover {
-      background-color: $background-dark-gray;
-      border-color: $background-dark-gray;
-    }
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
 
-    &-primary {
-        @extend.button;
-        border-color: $color-primary;
-        color: $color-primary;
-        background-color: $color-primary;
-    }
+  width: 180px;
+  min-height: 35px;
+  max-height: 35px;
 
-    &-ghost {
-        @extend.button;
-        border-color: transparent;
-        color: $color-primary;
-        background-color: transparent;
+  border-radius: 4px;
 
-        &:hover {
-            text-decoration: underline;
-            color: $color-primary !important;
-        }
-    }
+  color: $color-primary;
+  font-size: 15px;
 
-    &-success {
-        @extend.button;
-        background-color: transparent;
-        border: 1px solid $color-light-green;
-        color: $color-light-green;
+  cursor: pointer;
 
-        &:hover {
-            color: $color-white;
-            background-color: $color-light-green;
-          }
-    }
+  border: 1px solid $color-primary;
+  background-color: $background-light-gray;
 
-    & > * {
-        font-size: inherit;
-    }
+  &:hover {
+    background-color: $background-dark-gray;
+    border-color: $background-dark-gray;
+  }
 
-}
-  
-.icon-button {
+  &-primary {
     @extend.button;
+    border-color: $color-primary;
+    color: $color-primary;
+    background-color: $color-primary;
+  }
 
-    &-start {
-        @extend.button;
-        grid-template-columns: 30% 70%;
+  &-ghost {
+    @extend.button;
+    border-color: transparent;
+    color: $color-primary;
+    background-color: transparent;
+
+    &:hover {
+      text-decoration: underline;
+      color: $color-primary !important;
+      background-color: transparent;
+    }
+  }
+
+  &-success {
+    @extend.button;
+    background-color: transparent;
+    border: 1px solid $color-light-green;
+    color: $color-light-green;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-light-green;
+    }
+  }
+
+  & > * {
+    font-size: inherit;
+  }
+}
+
+.icon-button {
+  @extend.button;
+
+  &-start {
+    @extend.button;
+    grid-template-columns: 30% 70%;
+  }
+
+  &-end {
+    @extend.button;
+    grid-template-columns: 80% 20%;
+
+    & > span {
+      grid-column: 1 / span 1;
+      grid-row: 1;
     }
 
-    &-end {
-        @extend.button;
-        grid-template-columns: 80% 20%;
-
-        & > span {
-            grid-column: 1 / span 1;
-            grid-row: 1;
-        }
-
-        & > img {
-            grid-column: 2 / span 1;
-            grid-row: 1;
-        }
-        
+    & > img {
+      grid-column: 2 / span 1;
+      grid-row: 1;
     }
-  
+  }
 }

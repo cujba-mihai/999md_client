@@ -26,7 +26,7 @@ export const MenuItems = [
       icon: 'auth.svg',
     },
     {
-      name: 'signup',
+      name: 'signUp',
       href: '/authenticate',
       icon: 'signup.svg',
     },
