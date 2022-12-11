@@ -1,27 +1,38 @@
 'use client'; // this directive should be at top of the file, before any imports.
 import PageLayout from '@/components/layout/page-layout/PageLayout';
 import Header from './header/Header';
-import { ReactNode, useState } from 'react';
+import {  PropsWithChildren, useState } from 'react';
 import Footer from './footer/Footer';
+import DrawerMenu from './header/drawerMenu/DrawerMenu';
 
-
-const MainLayout = ({ children }: { children: ReactNode }): JSX.Element => {
+const MainLayout = ({ children }: PropsWithChildren): JSX.Element => {
   const [showSearchResults, setShowSearchResults] = useState(false);
+
+  const [isDrawerMenuOpen, setIsDrawerMenuOpen ] = useState(false);
+
+  const toggleDrawerMenu = () => {
+    setIsDrawerMenuOpen((previous) => !previous)
+  }
 
   const toggleSearchResults = () => {
     setShowSearchResults((show) => !show);
   };
 
   return (
-    <PageLayout>
+    <>
+    <DrawerMenu isDrawerMenuOpen={isDrawerMenuOpen} />
+    <PageLayout isDrawerMenuOpen={isDrawerMenuOpen}>
       <Header
+        toggleDrawerMenu={toggleDrawerMenu}
         toggleSearchResults={toggleSearchResults}
         showSearchResults={showSearchResults}
         setShowSearchResults={setShowSearchResults}
       />
-      {children}
+      { children }
       <Footer />
     </PageLayout>
+    </>
+
   );
 };
 

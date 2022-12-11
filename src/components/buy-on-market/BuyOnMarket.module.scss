@@ -87,6 +87,13 @@
   &-title {
     @include title($padding: 0);
   }
+
+  &-price-primary {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
   &-container {
     min-width: 233px;
     max-width: 233px;

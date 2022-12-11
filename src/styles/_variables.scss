@@ -2,6 +2,7 @@ $color-primary: rgba(0, 92, 195, 1);
 $color-primary-light: rgba($color-primary, 0.15);
 $color-white: #ffffff;
 $color-bg-light-gray: #f0f1f4;
+$button-light-gray: #e8f1fc;
 $color-light-gray: #a4a5a6;
 $color-black: #292929;
 $color-dark-gray: #555555;
@@ -9,11 +10,26 @@ $color-light-green: #73b222;
 $color-link-hover: #c01;
 $color-darker-gray: #333;
 $border-light-gray: #ddd;
+
 $background-light-gray: #f2f6fa;
+$background-gray: #ececef;
 $background-dark-gray: #454c59;
+$background-mid-gray: #5c626e;
+
 $footer-text: #c2c2c2;
 $recommended-container-width: calc(100% - 260px);
 
 :export {
   primaryColor: $color-primary;
 }
+
+$bp-sm: 360px;
+$bp-md: 600px;
+$bp-md-l: 820px;
+$bp-lg: 1080px;
+$bp-xl: 1284px;
+
+$drawer-transition-time: 0.35s;
+
+$svg-white: invert(99%) sepia(76%) saturate(2%) hue-rotate(270deg)
+  brightness(110%) contrast(101%);

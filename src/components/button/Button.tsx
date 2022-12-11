@@ -1,13 +1,12 @@
 'use client';
 import React from 'react';
-import style from './Button.module.scss';
 
 interface IBtn {
     btnText: string;
     isLoading?: boolean;
     isDisabled?: boolean;
     isSubmit?: boolean;
-    onClick?: () => void;
+    onClick?: (e: any) => void;
     type?: 'primary' | 'success' | 'ghost';
     customClass?: string;
   }
@@ -23,7 +22,7 @@ const Button = ({
     
  return (
     <button 
-    className={`${style['button-'+type]} ${customClass}`} 
+    className={`button-${type} ${customClass}`} 
     type={isSubmit ? 'submit' : 'button'}
     onClick={onClick}
     disabled={isDisabled}
