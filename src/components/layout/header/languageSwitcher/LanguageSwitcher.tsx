@@ -1,8 +1,7 @@
 import Button from '@/components/button/Button';
-import React, { SyntheticEvent, useCallback, useState } from 'react'
+import React, { SyntheticEvent, useState } from 'react'
 import styles from './LanguageSwitcher.module.scss';
-import { useRouter } from 'next/router';
-import { setCookie } from 'cookies-next';
+import useLocale from '@/hooks/useLocale';
 
 export interface ILangSwitcherProps {
   className?: string;
@@ -10,10 +9,7 @@ export interface ILangSwitcherProps {
 
 export const LanguageSwitcher = ({ className }: ILangSwitcherProps) => {
   const [isOpen, setIsOpen ] = useState(false);
-  const router = useRouter();
-  const currentLocale = router.locale || 'RO';
-
-  const otherLocales = ['ro', 'ru', 'en'].filter(locale => locale !== currentLocale);
+  const { userLocale, otherLocales, switchToLocale } = useLocale();
 
   const toggleOpen = (e: SyntheticEvent<Element, Event>) => {
     e.stopPropagation();
@@ -21,20 +17,9 @@ export const LanguageSwitcher = ({ className }: ILangSwitcherProps) => {
     setIsOpen((prev) => !prev);
   };
 
-  const switchToLocale = useCallback(
-    (locale: string) => {
-      const path = router.asPath;
-
-      setCookie("NEXT_LOCALE", locale);
-
-      return router.push(path, path, { locale });
-    },
-    [router]
-  );
-
   return (
     <div className={`${styles.container} round ${className ? className : ''}`}>
-      <Button onClick={toggleOpen} btnText={currentLocale} type='ghost' customClass={styles.language} />
+      <Button onClick={toggleOpen} btnText={userLocale} type='ghost' customClass={styles.language} />
         {
           isOpen && (
             <div className={styles.options}>
