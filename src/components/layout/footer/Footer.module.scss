@@ -5,6 +5,13 @@
   display: grid;
   background-color: $background-dark-gray;
   color: $footer-text;
+
+  @include breakpoint-max($bp-lg) {
+    margin-right: -20px;
+    margin-left: -20px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }
 
 .footer-columns {
@@ -74,6 +81,14 @@
     align-items: center;
 
     padding-bottom: 25px;
+    padding-top: 25px;
+
+    @include breakpoint-max($bp-lg) {
+      margin-right: -20px;
+      margin-left: -20px;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
   }
 
   &-text {

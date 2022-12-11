@@ -1,0 +1,65 @@
+.drawer-menu {
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50%, 50vh));
+  overflow-y: scroll;
+
+  top: 0;
+  left: 0;
+
+  width: 265px;
+  height: 100vh;
+  max-height: 100%;
+  padding-bottom: 7px;
+  padding-top: 7px;
+
+  background-color: $background-dark-gray;
+  transition: left $drawer-transition-time;
+
+  &.open {
+    left: 0px;
+  }
+
+  &.closed {
+    left: -265px;
+  }
+}
+
+.link {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 40px calc(100% - 40px);
+  align-items: center;
+  padding: 12.5px 15px;
+  color: white;
+
+  & > img {
+    object-fit: scale-down;
+  }
+  & > span {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+  }
+
+  &:hover {
+    color: white;
+  }
+}
+
+.divider {
+  background-color: $background-mid-gray;
+  height: 10px;
+  width: 100%;
+}
+
+.lang-switcher {
+  @include center;
+  position: absolute;
+  right: 0;
+  left: unset;
+}
+
+.contact-details {
+  align-self: end;
+}

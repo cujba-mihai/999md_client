@@ -1,10 +1,43 @@
 {
-    "addToFav": "Добавить в список желаний",
-    "general": "Общее",
-    "particularities": "Свойства",
-    "translation": {
-        "addToFav": "Добавить в список желаний",
-        "general": "Общее",
-        "particularities": "Свойства"
+  "addToFav": "Добавить в список желаний",
+  "general": "Общее",
+  "particularities": "Свойства",
+  "home": "Главная",
+  "blog": "Блог",
+  "info": "Инфо",
+  "Market": "Маркет",
+  "auth": "Вход",
+  "signUp": "Регистрация",
+  "signIn": "Вход",
+  "language": "Язык",
+  "fullVersion": "Полная версия",
+  "recommended": "Рекомендованные",
+  "buyOnMarket": "Купить онлайн на Market",
+  "allProducts": "Все товары",
+  "getRdyForWinter": "Готовимся к холодам",
+  "MDL": "леев",
+  "EUR": "€",
+  "USD": "$",
+  "forms": {
+    "registerLabel": "Регистрация",
+    "loginLabel": "Вход",
+    "loginWith": "Войти через",
+    "usernameLabel": "Имя пользователя",
+    "passwordLabel": "Пароль",
+    "username": "Имя пользователя",
+    "password": "Пароль",
+    "email": "Электронная почта",
+    "forgotPassword": "Забыл пароль?",
+    "registerSuggestionButton": "Регистрация",
+    "registerSuggestionText": "Нет аккаунта?",
+    "agreeTermsConditions": "Согласен с правилами",
+    "loginSuggestionText": "Уже есть аккаунт?",
+    "loginSuggestionButton": "Вход",
+    "confirmPassword": "Потдвердите пароль"
+  },
+  "errors": {
+    "forms": {
+      "errors": "errors"
     }
+  }
 }

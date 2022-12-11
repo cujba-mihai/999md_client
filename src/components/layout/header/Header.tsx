@@ -2,18 +2,24 @@ import { Dispatch, SetStateAction } from 'react';
 import Link from 'next/link';
 import Image from '@/components/Image';
 import styles from './Header.module.scss';
+import ButtonWithIcon from '@/components/button/ButtonWithIcon';
 
 interface IProps {
   toggleSearchResults: () => void;
   showSearchResults: boolean;
   setShowSearchResults: Dispatch<SetStateAction<boolean>>;
+  toggleDrawerMenu: () => void;
 }
 
-const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
+const Header = ({ toggleSearchResults, showSearchResults, toggleDrawerMenu }: IProps) => {
+
   return (
     <>
       <header className={styles.header}>
-        <div className={styles['header__left-wrapper']}>
+        {/* TODO: RENDER CONDTIONALLY BASED ON DEVICE */}
+        <div className={styles.header__mobile}>
+          <ButtonWithIcon onClick={toggleDrawerMenu} customClass={styles['header__mobile-menu']} src='burger.svg' iconH={24} iconW={24} btnText=''/>
+
           <Link className={styles['header__logo-wrapper']} href="/">
             <Image
               className={styles.header__logo}
@@ -24,6 +30,22 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
               height= {44}
             />
           </Link>
+          
+          <ButtonWithIcon customClass={styles['header__mobile-search']} src='search.svg' iconH={24} iconW={24} btnText='' onClick={() => {} }/>
+        </div>
+        <div className={styles['header__left-wrapper']}>
+
+
+          <Link className={styles['header__logo-wrapper']} href="/">
+              <Image
+                className={styles.header__logo}
+                key="logo999.svg"
+                alt="999.md"
+                src="logo999.svg"
+                width={73.33}
+                height= {44}
+              />
+            </Link>
 
           <div className={styles.header__region}>
             <p className={styles['header__region-selection']}>Moldova</p>
@@ -121,7 +143,7 @@ const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
               </div>
             </div>
             <div className={styles['main-bar__add-post-container']}>
-              <button className={styles['main-bar__add-post-button']}>
+              <button className='button-success'>
                 <p>Adaugă anunţ</p>
               </button>
             </div>

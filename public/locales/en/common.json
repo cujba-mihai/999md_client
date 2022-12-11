@@ -1,10 +1,43 @@
 {
-    "addToFav": "Add to favourites",
-    "general": "General",
-    "particularities": "Particularities",
-    "translation": {
-        "addToFav": "Add to favourites",
-        "general": "General",
-        "particularities": "Particularities"
+  "addToFav": "Add to favourites",
+  "general": "General",
+  "particularities": "Particularities",
+  "home": "Home",
+  "blog": "Blog",
+  "info": "Info",
+  "Market": "Market",
+  "auth": "Authenticate",
+  "signUp": "Sign up",
+  "signIn": "Sign in",
+  "language": "Language",
+  "fullVersion": "Full version",
+  "recommended": "Recommended",
+  "buyOnMarket": "Buy on market",
+  "allProducts": "All products",
+  "getRdyForWinter": "Get ready for winter",
+  "MDL": "lei",
+  "EUR": "€",
+  "USD": "$",
+  "forms": {
+    "registerLabel": "Sign up",
+    "loginLabel": "Login",
+    "loginWith": "Login with",
+    "usernameLabel": "Username",
+    "passwordLabel": "Password",
+    "username": "Username",
+    "password": "Password",
+    "email": "Email",
+    "forgotPassword": "Forgot password?",
+    "confirmPassword": "Confirm password",
+    "registerSuggestionButton": "Register",
+    "registerSuggestionText": "Don't have an account?",
+    "agreeTermsConditions": "I agree with terms and conditions",
+    "loginSuggestionText": "Already have an account?",
+    "loginSuggestionButton": "Login"
+  },
+  "errors": {
+    "forms": {
+      "errors": "errors"
     }
+  }
 }
