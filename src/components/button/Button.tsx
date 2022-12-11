@@ -6,7 +6,7 @@ interface IBtn {
     isLoading?: boolean;
     isDisabled?: boolean;
     isSubmit?: boolean;
-    onClick?: () => void;
+    onClick?: (e: any) => void;
     type?: 'primary' | 'success' | 'ghost';
     customClass?: string;
   }

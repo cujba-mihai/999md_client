@@ -8,16 +8,17 @@ interface IProps {
   toggleSearchResults: () => void;
   showSearchResults: boolean;
   setShowSearchResults: Dispatch<SetStateAction<boolean>>;
+  toggleDrawerMenu: () => void;
 }
 
-const Header = ({ toggleSearchResults, showSearchResults }: IProps) => {
+const Header = ({ toggleSearchResults, showSearchResults, toggleDrawerMenu }: IProps) => {
 
   return (
     <>
       <header className={styles.header}>
         {/* TODO: RENDER CONDTIONALLY BASED ON DEVICE */}
         <div className={styles.header__mobile}>
-          <ButtonWithIcon customClass={styles['header__mobile-menu']} src='burger.svg' iconH={24} iconW={24} btnText='' onClick={() => {} }/>
+          <ButtonWithIcon onClick={toggleDrawerMenu} customClass={styles['header__mobile-menu']} src='burger.svg' iconH={24} iconW={24} btnText=''/>
 
           <Link className={styles['header__logo-wrapper']} href="/">
             <Image

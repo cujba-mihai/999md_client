@@ -18,7 +18,7 @@ const CarouselNoPreview = ({
     autoplay = false,
 }: IProps): JSX.Element => {
 
-    const disableDrag = (e) => {
+    const disableDrag = (e: React.SyntheticEvent) => {
         e.preventDefault();
         return false;
     }

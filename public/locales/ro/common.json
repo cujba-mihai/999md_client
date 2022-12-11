@@ -1,5 +1,13 @@
 {
-    "addToFav": "Adauga la favorite",
-    "general": "General",
-    "particularities": "Particularități"
+  "addToFav": "Adauga la favorite",
+  "general": "General",
+  "particularities": "Particularități",
+  "home": "Acasă",
+  "blog": "Blog",
+  "info": "Info",
+  "Market": "Market",
+  "auth": "Autentificare",
+  "signup": "Înregistrare",
+  "language": "Limba",
+  "fullVersion": "Versiunea completă"
 }

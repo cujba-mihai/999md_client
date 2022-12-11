@@ -1,5 +1,13 @@
 {
-    "addToFav": "Добавить в список желаний",
-    "general": "Общее",
-    "particularities": "Свойства"
+  "addToFav": "Добавить в список желаний",
+  "general": "Общее",
+  "particularities": "Свойства",
+  "home": "Главная",
+  "blog": "Блог",
+  "info": "Инфо",
+  "Market": "Маркет",
+  "auth": "Вход",
+  "signup": "Регистрация",
+  "language": "Язык",
+  "fullVersion": "Полная версия"
 }

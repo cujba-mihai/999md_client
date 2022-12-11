@@ -1,18 +1,29 @@
 .main-page-layout {
   @include page-layout;
 
+  position: relative;
+
+  transition: left $drawer-transition-time;
+
   @include breakpoint-max($bp-lg) {
     padding: 0 20px;
   }
+}
 
+.drawer {
+  &-open {
+    position: fixed;
+    left: 265px;
+  }
+  &-closed {
+    left: 0px;
+  }
 }
 
 .main-page-layout > * {
   @include center-page;
-  
+
   display: grid;
   align-items: center;
   grid-auto-columns: 100%;
-
-
 }

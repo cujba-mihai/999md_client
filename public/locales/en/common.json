@@ -1,5 +1,13 @@
 {
-    "addToFav": "Add to favourites",
-    "general": "General",
-    "particularities": "Particularities"
+  "addToFav": "Add to favourites",
+  "general": "General",
+  "particularities": "Particularities",
+  "home": "Home",
+  "blog": "Blog",
+  "info": "Info",
+  "Market": "Market",
+  "auth": "Authenticate",
+  "signup": "Sign up",
+  "language": "Language",
+  "fullVersion": "Full version"
 }
