@@ -1,0 +1,54 @@
+.container {
+  display: grid;
+  place-items: center;
+  background-color: $color-white;
+
+  width: 30px;
+  height: 30px;
+}
+
+.language {
+  color: $color-black;
+  text-transform: uppercase;
+}
+
+button.language {
+  max-width: 30px;
+  max-height: 30px;
+  padding: 0;
+  min-height: 30px;
+  text-decoration: none;
+
+  &:hover {
+    border: none;
+    outline: none;
+    background-color: $color-white;
+    text-decoration: none;
+  }
+
+  & > span {
+    color: $color-black;
+    &:hover {
+      color: $color-black;
+    }
+  }
+}
+
+.options {
+  position: absolute;
+  top: 27px;
+  left: 0;
+  width: 30px;
+  border-radius: 0 0 4px 4px;
+  background-color: $color-white;
+
+  & > p {
+    display: grid;
+    place-items: center;
+    padding: 5px;
+
+    &:hover {
+      background-color: $background-mid-gray;
+    }
+  }
+}

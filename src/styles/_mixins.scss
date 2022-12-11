@@ -1,3 +1,47 @@
+@mixin breakpoint-max($bp) {
+  @media (max-width: $bp) {
+      @content;
+  }
+}
+
+@mixin breakpoint-min($bp) {
+  @media (min-width: $bp) {
+      @content;
+  }
+}
+
+@mixin center($axis: "both") {
+  @if $axis == "both" or $axis == "vertical" {
+    top: 50%;
+  }
+  @if $axis == "both" or $axis == "horizontal" {
+    left: 50%;
+  }
+  transform: 
+    if($axis == "horizontal", translateX(-50%), if($axis == "both", translateX(-50%), null))
+    if($axis == "vertical", translateY(-50%), if($axis == "both", translateY(-50%), null))
+  ;
+}
+
+
+@mixin stretched-link($value: "before") {
+  @if index("before" "after", $value) {
+    &#{"::" + $value} {
+      content: "";
+      position: absolute;
+      pointer-events: auto;
+      background-color: rgba(0, 0, 0, 0);
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+  } @else {
+    @error "'#{$value}' is a wrong argument. This mixin accepts 'before' or 'after' as an argument. If you don't pass any argument default it will target the '::before' pseudo-element of the selected element.";
+  }
+}
+
 @mixin round-borders($radius: 4px) {
   border: none;
   border-radius: $radius;
@@ -121,7 +165,7 @@
   $icon-position: true
 ) {
   display: grid;
-  background-color: $background;
+  background-color: $background-light-gray;
 
   @if ($icon-position) {
     grid-template-columns: 30% 70%;

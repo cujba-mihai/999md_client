@@ -1,73 +1,22 @@
 import Link from 'next/link';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Image from '../Image';
-import style from './BuyOnMarkset.module.scss';
-
-interface IProductProps {
-  imgSrc: string;
-  price: number;
-  productUrl: string;
-  title: string;
-  alt: string;
-}
-
-export const Product240Pixels = ({ imgSrc, alt, productUrl, price, title }: IProductProps) => {
-  return (
-    <Link href={productUrl} className={style['category-item-container']}>
-    <Image
-      src={imgSrc}
-      alt={alt}
-      className={style['category-item-image']}
-    />
-    <p className={style['category-item-name']}> {title} </p>
-    <p className={style['category-item-price']}>{price} леев</p>
-  </Link>
-  )
-}
-
-export const CategoryTitle = ({value}: {value: string;}) => (<h3 className={style['category-item-title']}>{value}</h3>)
+import style from './BuyOnMarket.module.scss';
+import CategoryWithItems from './CategoryWithItems';
+import PopularCategories from './PopularCategories';
 
 const BuyOnMarket = () => {
-  const PopularCategories = () => (
-    <div className={style['popular-categories-wrapper']}>
-      {Array.from({ length: 7 }).map((_, index) => (
-            <div key={index} className={style['popular-categories-container']}>
-            <h3 className={style['popular-categories-title']}>
-              Аксессуары для авто
-            </h3>
-            <Image
-              src="car.png"
-              alt="Car category"
-              className={style['popular-categories-image']}
-            />
-          </div>
-      ))}
-    </div>
-  );
-
-  const CategoryWithItems = () => (
-    <>
-      <div>
-        <CategoryTitle value="Готовимся к холодам" />
-      </div>
-      <div className={style['category-item-wrapper']}>
-        {Array.from({ length: 12 }).map((_, index) => (
-          <Product240Pixels alt={"Calorifer"} title='Конвектор Zanussi Zch/S-1500 Er' price={2550} imgSrc='calorifer.jpg' key={index} productUrl='/products/1/' />
-        ))}
-      </div>
-    </>
-  );
+  const { t } = useTranslation();
 
   return (
     <div className={style['main-container']}>
+
       <div className={style['buy-on-market-head-container']}>
-        <h1 className={style['buy-on-market-title']}>
-          Купить онлайн на Market
-        </h1>
+        <h1 className={style['buy-on-market-title']}>{t('buyOnMarket')}</h1>
         <div className={style['all-products-container']}>
-          <Link href="#" className={style['buy-on-market-all-products']}>
-            Все товары
-          </Link>
+
+          <Link href="#" className={style['buy-on-market-all-products']}> {t('allProducts')} </Link>
 
           <Image
             src="arrow-to-delivery.svg"
@@ -76,12 +25,12 @@ const BuyOnMarket = () => {
           />
         </div>
       </div>
+
       <hr />
 
       <PopularCategories />
-      {Array.from({ length: 5 }).map((_, index) => (
-        <CategoryWithItems key={index} />
-      ))}
+
+      {Array.from({ length: 5 }).map((_, index) => ( <CategoryWithItems key={index} /> ))}
     </div>
   );
 };

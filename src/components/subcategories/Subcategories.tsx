@@ -1,6 +1,6 @@
 import React from 'react'
 import Accordion from '../accordion/Accordion';
-import { Product240Pixels } from '../buy-on-market/BuyOnMarket';
+import  Product240Pixels from '../buy-on-market/Product240Pixels';
 import { Header } from '../categories/Categories';
 import style from './Subcategories.module.scss';
 
@@ -15,6 +15,7 @@ const Subcategories  = () => {
                     {
                         Array.from({length: 6}).map((_, index) => (
                             <Product240Pixels 
+                                currency='MDL'
                                 key={index} 
                                 imgSrc={`ex${index + 1}.jpg`} 
                                 price={~~((index + 1)  * 242.35).toFixed(2)} 

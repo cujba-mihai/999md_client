@@ -2,6 +2,14 @@
   &-container {
     @include main-content-container;
 
+    display: grid;
+    max-height: 664px;
+    min-height: 664px;
+
+    @include breakpoint-max($bp-md-l) {
+     grid-column: 1 / -1;
+    }
+
     &-label {
       @include label(-10px, 40%);
     }
@@ -9,16 +17,20 @@
 
   &-items-container {
     @include fill-container;
+    position: relative;
     display: grid;
-    grid-column: 2 / span 2;
+    grid-column: 1 / -1;
     justify-content: space-evenly;
     grid-template-columns: repeat(auto-fit, 140px);
     grid-template-rows: repeat(auto-fit, 200px);
-    row-gap: 5px;
+    grid-row-gap: 16px;
     column-gap: 10px;
     color: inherit;
 
     overflow: hidden;
+    max-height: 636px;
+    overflow: hidden;
+
   }
 
   &-item {

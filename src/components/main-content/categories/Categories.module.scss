@@ -1,12 +1,24 @@
+.categories-container {
+  min-height: 100%;
+
+  @include breakpoint-max($bp-md-l) {
+    display: none;
+  }
+}
+
 .categories {
   @include main-content-container;
 
   padding-top: 30px;
+  min-height: 664px;
+  
+
 
   &-label {
     @include label(-10px, 10px);
   }
 }
+
 
 .category {
   @include full-width;

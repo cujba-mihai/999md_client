@@ -1,21 +1,16 @@
-import BuyOnMarket from '@/components/buy-on-market/BuyOnMarket';
-import MainContent from '@/components/main-content/MainContent';
+import AuthForm from '@/components/auth-form/AuthForm';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
-
 
 const Index = () => {
   return (
     <>
-      <MainContent />
-      <BuyOnMarket />
+      <AuthForm />
     </>
   );
 };
 
-Index.withLayout = true;
-
 export default Index;
+
 
 export const getStaticProps = async (context: any) => {
   return {

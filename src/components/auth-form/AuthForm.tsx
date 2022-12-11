@@ -10,6 +10,7 @@ import style from './AuthForm.module.scss';
 import InputField from '../inputField/inputField';
 import CheckboxInputField from '../inputField/checkBoxInputField';
 import { useTranslation } from 'next-i18next';
+import TextTranslate from '../typography/TextTranslate';
 
 export const LoginForm = () => {
     // const router = useRouter();
@@ -62,12 +63,12 @@ export const LoginForm = () => {
       <Formik
         initialValues={{ username: '', password: '' }}
         validationSchema={Yup.object().shape({
-          username: Yup.string().required(t('errors')),
-          password: Yup.string().required(t('errors')),
+          username: Yup.string().required(t('errors.forms.errors')),
+          password: Yup.string().required(t('errors.forms.errors')),
         })}
         onSubmit={async (values, actions) => {
           actions.setSubmitting(true);
-          console.log('logining');
+
           await login({ variables: { ...values } });
 
           if (isError)
@@ -84,19 +85,20 @@ export const LoginForm = () => {
         >
           
             <div className={style['authenticate-form-section']}>
-                <Field label={t('usernameLabel')} name="username" component={InputField} />
-                <Field label={t('passwordLabel')} name="password" type="password" component={InputField} />
+                <Field label={t('forms.usernameLabel')} name="username" component={InputField} />
+                <Field label={t('forms.passwordLabel')} name="password" type="password" component={InputField} />
 
-                <Button btnText='Forgot password?' onClick={() => {}} type="ghost"/>
+                <Button btnText={t('forms.forgotPassword')} onClick={() => {}} type="ghost"/>
             </div>
             <div className={`${style['m-0']} ${style['authenticate-form-section']}`}>
                 <Button 
                     customClass={style['authenticate-form-submit']} 
-                    btnText='Sign in' 
+                    btnText={t('signIn')}
                     isSubmit
                     isLoading={isLoading}
                     isDisabled={isLoading}
-                    type="primary" />
+                    type="primary" 
+                  />
             </div>
         </Form>
       </Formik>
@@ -104,6 +106,7 @@ export const LoginForm = () => {
   }
 
   export const RegisterForm = () => {
+    const {t} = useTranslation();
     // const router = useRouter();
     // const [login, { loading, error }] = useMutation<any, LoginValuesTypes>(
     //   LOGIN_USER,
@@ -171,7 +174,7 @@ export const LoginForm = () => {
       })}
         onSubmit={async (values, actions) => {
           actions.setSubmitting(true);
-          console.log('logining');
+
           await login({ variables: { ...values } });
 
           if (isError)
@@ -188,22 +191,22 @@ export const LoginForm = () => {
         >
           
             <div className={style['authenticate-form-section']}>
-                <Field name="username" component={InputField} />
-                <Field name="email" type="email" component={InputField} />
-                <Field name="password" type="password" component={InputField} />
+                <Field name="username" label={t('forms.username')} component={InputField} />
+                <Field name="email" label={t('forms.email')} type="email" component={InputField} />
+                <Field name="password" label={t('forms.password')} type="password" component={InputField} />
                 <Field
                     name="password2"
-                    label="confirm password"
+                    label={t('forms.confirmPassword')}
                     type="password"
                     component={InputField}
                 />
 
-                <Field name="agreeWithTerms" label="I agree with terms and conditions" component={CheckboxInputField} />
+                <Field name="agreeWithTerms" label={t('forms.agreeTermsConditions')} component={CheckboxInputField} />
             </div>
             <div className={`${style['m-0']} ${style['authenticate-form-section']}`}>
                 <Button 
                     customClass={style['authenticate-form-submit']} 
-                    btnText='Sign Up' 
+                    btnText={t('signUp')}
                     isSubmit
                     isLoading={isLoading}
                     isDisabled={isLoading}
@@ -236,27 +239,27 @@ export const LoginForm = () => {
        <section className={style['main-container']}>
            <section className={style['authenticate-form-container']}>
                <div  className={style['authenticate-form-section']}>
-               <div  className={style['authenticate-form-title']}>{loginPage ? t('loginLabel') : t('registerLabel')}</div>
+               <div  className={style['authenticate-form-title']}>{loginPage ? t('forms.loginLabel') : t('forms.registerLabel')}</div>
                    <div className={style['authenticate-form-section']}>
-                       <ButtonWithIcon customClass={style['authenticate-form-login-google']} src='view-number.svg' btnText='Login with Google' onClick={() => {}} type="primary" />
-                       <ButtonWithIcon customClass={style['authenticate-form-login-facebook']} src='view-number.svg' btnText='Login with Facebook' onClick={() => {}} type="primary" />
+                       <ButtonWithIcon customClass={style['authenticate-form-login-google']} src='view-number.svg' btnText={`${t('forms.loginWith')} Google`} onClick={() => {}} type="primary" />
+                       <ButtonWithIcon customClass={style['authenticate-form-login-facebook']} src='view-number.svg' btnText={`${t('forms.loginWith')} Facebook`} onClick={() => {}} type="primary" />
                    </div>
                </div>
                <div className={style['authenticate-form-textLine']}><h3><span>Or</span></h3></div>
                {loginPage ? <>
                 <LoginForm /> 
                 <div className={`${style['m-0']} ${style['authenticate-form-section']}`}>
-                    <div>
-                        <span>{t('registerSuggestionText')}</span> 
-                        <Button  btnText={t('registerSuggestionButton')} onClick={changeToRegisterPage} type="ghost"/>
+                    <div className={style['suggestion-text-container']}>
+                        <TextTranslate tag='span' className={style['suggestion-text']} value='forms.registerSuggestionText' />
+                        <Button  btnText={t('forms.registerSuggestionButton')} onClick={changeToRegisterPage} type="ghost"/>
                     </div>
                 </div>
                </>: <>
                     <RegisterForm />
                     <div className={`${style['m-0']} ${style['authenticate-form-section']}`}>
-                        <div>
-                            <span>{t('loginSuggestionText')}</span> 
-                            <Button  btnText={t('loginSuggestionButton')} onClick={changeToLoginPage} type="ghost"/>
+                        <div className={style['suggestion-text-container']} >
+                            <TextTranslate tag='span' className={style['suggestion-text']} value='forms.loginSuggestionText' />
+                            <Button  btnText={t('forms.loginSuggestionButton')} onClick={changeToLoginPage} type="ghost"/>
                         </div>
                     </div>
                </>}

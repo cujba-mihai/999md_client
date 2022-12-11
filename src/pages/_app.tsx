@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import '../styles/reset.scss';
 import '../styles/global.scss';
+import '../styles/buttons.scss';
 
 import type { AppProps } from 'next/app';
 import { NextPage } from 'next';
