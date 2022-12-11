@@ -15,12 +15,19 @@ const CarouselNoPreview = ({
     children,
     slidesToShow,
     showArrows = true,
-    autoplay = false
+    autoplay = false,
 }: IProps): JSX.Element => {
+
+    const disableDrag = (e) => {
+        e.preventDefault();
+        return false;
+    }
 
     return   (
         <Carousel
-        style={{...style, width: '100%', overflow: 'hidden', display: 'flex', gap: '10px'}}
+        style={{...style, width: '100%', overflow: 'hidden', display: 'flex', gap: '10px',
+    }}
+       onDragStart={disableDrag}
         wrapAround={true} 
         slidesToShow={slidesToShow}
         cellSpacing={10}
