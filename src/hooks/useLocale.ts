@@ -41,10 +41,6 @@ const useLocale = () => {
     );
   
     useEffect(() => {
-      const ok = supportedLocales.includes(router.locale || '');
-  
-      if(!ok) switchToLocale(currentLocale)
-
       setUserLocale(currentLocale);
     }, [])
   

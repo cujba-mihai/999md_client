@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/breadcrumbs/index';
 import Product from '@/components/product/Product';
+import nextI18NextConfig from 'next-i18next.config.js';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Index = () => {
@@ -20,7 +21,7 @@ export const getStaticProps = async (context: any) => {
   return {
     props: { 
       context,
-      ...(await serverSideTranslations(context.locale))
+      ...(await serverSideTranslations(context.locale, ['translation', 'common', 'footer'], nextI18NextConfig))
     },
     revalidate: 10,
   };
