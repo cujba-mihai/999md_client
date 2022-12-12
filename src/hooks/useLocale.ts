@@ -1,7 +1,6 @@
 import { setCookie, getCookie } from 'cookies-next';
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react'
- 
 
 /**
  * Checks for cases when user's preferred locale is set to locale
@@ -34,8 +33,10 @@ const useLocale = () => {
         setCookie(localeCookie, locale);
 
         setUserLocale(locale);
-
-        return router.push(path, path, { locale });
+        
+        return window.location.replace(path);
+        
+        // return router.push(path, path, { locale });
       },
       [router]
     );

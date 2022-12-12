@@ -21,7 +21,7 @@ export const getStaticProps = async (context: any) => {
   return {
     props: { 
       context,
-      ...(await serverSideTranslations(context.locale, ['translation', 'common', 'footer'], nextI18NextConfig))
+      ...(await serverSideTranslations(context.locale, ['translation', 'common'], nextI18NextConfig))
     },
     revalidate: 10,
   };

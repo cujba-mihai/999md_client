@@ -2,40 +2,17 @@ const { initReactI18next } = require('react-i18next');
 const path = require('path');
 
 module.exports = {
-    i18n: {
-      nonExplicitSupportedLngs: true, // if true, will consider variants as supported when the main language is. E.g. en-US will be valid if en is in supportedLngs
-      preload: ["en", "ru", "ro"],
-      use: [initReactI18next],
+  nonExplicitSupportedLngs: true, // if true, will consider variants as supported when the main language is. E.g. en-US will be valid if en is in supportedLngs
+  // debug: true,
+  serializeConfig: false,
+  use: [initReactI18next],
+  missingKeyNoValueFallbackToKey: true,
+  i18n: {
       localeDetection: true,
-      debug: true,
-      serializeConfig: false,
       locales: [ 
         'en', 
         'ro',
         'ru', 
-        'ru-MD', 
-        'ru-mo', 
-        'ru-RU', 
-        'ro-MD', 
-        'ro-RO',
-        'en-AU',
-        'en-BZ',
-        'en-CA',
-        'en-cb',
-        'en-GB',
-        'en-IE',
-        'en-IN',
-        'en-JM',
-        'en-MT',
-        'en-MY',
-        'en-NZ',
-        'en-PH',
-        'en-SG',
-        'en-TT',
-        'en-US',
-        'en-ZA',
-        'en-ZW',
-      
       ],
         defaultLocale: 'en',
       },
