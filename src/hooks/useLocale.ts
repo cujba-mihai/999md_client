@@ -1,5 +1,5 @@
 import { setCookie, getCookie } from 'cookies-next';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react'
  
 
@@ -26,16 +26,20 @@ const useLocale = () => {
     const [ userLocale, setUserLocale ] = useState<string>(currentLocale);
 
     const otherLocales = supportedLocales.filter(locale => locale !== currentLocale);
+
+    Router.events.on("routeChangeError", (err, url) => {
+      console.log("Navigating to: " + "url: " + url, {cancelled: err.cancelled} )
+    });
   
     const switchToLocale = useCallback(
       (locale: string) => {
         const path = router.asPath;
   
-        setCookie(localeCookie, locale);
+        setCookie(localeCookie, locale, {sameSite: "strict"});
 
         setUserLocale(locale);
 
-        return router.push(path, path, { locale });
+        return router.push(path, path, { locale, shallow: false });
       },
       [router]
     );

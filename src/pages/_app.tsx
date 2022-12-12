@@ -33,5 +33,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout): JSX.Element => {
   return getLayout(<Component {...pageProps} />) as JSX.Element;
 };
 
+const MyApp = appWithTranslation(App)
 
-export default appWithTranslation(App);
+
+export default MyApp;

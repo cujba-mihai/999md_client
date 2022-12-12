@@ -1,4 +1,7 @@
 module.exports = {
+    react: {
+      useSuspense: 'false'
+    },
     i18n: {
       localeDetection: true,
       locales: [ 
