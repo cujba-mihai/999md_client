@@ -1,14 +1,12 @@
 const { initReactI18next } = require('react-i18next');
-const path = require('path');
 
 module.exports = {
   nonExplicitSupportedLngs: true, // if true, will consider variants as supported when the main language is. E.g. en-US will be valid if en is in supportedLngs
-  // debug: true,
   serializeConfig: false,
   use: [initReactI18next],
   missingKeyNoValueFallbackToKey: true,
   i18n: {
-      localeDetection: true,
+      localeDetection: false,
       locales: [ 
         'en', 
         'ro',

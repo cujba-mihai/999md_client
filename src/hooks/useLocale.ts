@@ -30,18 +30,22 @@ const useLocale = () => {
       (locale: string) => {
         const path = router.asPath;
   
-        setCookie(localeCookie, locale);
+        setCookie(localeCookie, locale, {
+          sameSite: 'none'
+        });
 
         setUserLocale(locale);
         
-        return window.location.replace(path);
-        
-        // return router.push(path, path, { locale });
+        return router.push(path, path, { locale });
       },
       [router]
     );
   
     useEffect(() => {
+      const ok = supportedLocales.includes(currentLocale);
+  
+      if(!ok) switchToLocale(currentLocale)
+
       setUserLocale(currentLocale);
     }, [])
   
