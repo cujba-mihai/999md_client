@@ -3,7 +3,7 @@ import TextTranslate from '@/components/typography/TextTranslate';
 import Link from 'next/link';
 import React from 'react'
 import { categories } from './dummyData';
-import styles from './CategoriesAdd.module.scss';
+import styles from './AdvertisingAdd.module.scss';
 
 const CategoriesAdd = () => {
   return (

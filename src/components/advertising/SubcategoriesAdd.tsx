@@ -2,7 +2,7 @@ import TextTranslate from '@/components/typography/TextTranslate';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { subcategories } from './dummyData';
-import styles from './CategoriesAdd.module.scss';
+import styles from './AdvertisingAdd.module.scss';
 import { useRouter } from 'next/router';
 import Button from '../button/Button';
 import { useSearchParams } from 'next/navigation';

@@ -10,7 +10,6 @@ $color-light-green: #73b222;
 $color-link-hover: #c01;
 $color-darker-gray: #333;
 $border-light-gray: #ddd;
-
 $background-light-gray: #f2f6fa;
 $background-gray: #ececef;
 $background-dark-gray: #454c59;
@@ -31,5 +30,16 @@ $bp-xl: 1284px;
 
 $drawer-transition-time: 0.35s;
 
-$svg-white: invert(99%) sepia(76%) saturate(2%) hue-rotate(270deg)
+$svg-filter-white: invert(99%) sepia(76%) saturate(2%) hue-rotate(270deg)
   brightness(110%) contrast(101%);
+
+$list-of-directions: (
+  "top",
+  "top-right",
+  "right",
+  "bottom-right",
+  "bottom",
+  "bottom-left",
+  "left",
+  "top-left"
+)
