@@ -1,0 +1,24 @@
+.categories {
+    &-list {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 40px;
+    }
+
+    &-title-container {
+        display: grid;
+        grid-template-columns: min-content min-content;
+        gap: 10px;
+        align-items: baseline;
+        
+    }
+
+    &-link {
+        display: grid; 
+        grid-template-columns: 20px calc(100% - 25px); 
+        align-items: center; 
+        justify-items: start; 
+        padding: 15px; 
+        gap: 10px;
+    };   
+}

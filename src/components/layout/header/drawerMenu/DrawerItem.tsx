@@ -1,6 +1,5 @@
 import Image from '@/components/Image';
 import Link from 'next/link';
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from '../languageSwitcher/LanguageSwitcher';
 import styles from './DrawerMenu.module.scss';
@@ -8,11 +7,6 @@ import { IDrawerItem } from './menuItems';
 
 export const DrawerItem = ({ name, href, icon, withDivider, withLanguageSwitcher }: IDrawerItem) => {
     const { t } = useTranslation();
-
-    useEffect(() => {
-      console.log('RENDERED li');
-      console.log('RENDERED li', withLanguageSwitcher);
-    });
 
     return (
       <>
