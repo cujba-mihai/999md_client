@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>icon/computer</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icon/computer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(1.000000, 5.000000)" fill="#999999" fill-rule="nonzero">
+            <path d="M18.5,0.15 C19.4664983,0.15 20.25,0.933501688 20.25,1.9 L20.25,1.9 L20.25,12.15 L22,12.1507169 C22,13.0896009 21.2388841,13.8507169 20.3,13.8507169 L1.7,13.8507169 C0.761115925,13.8507169 0,13.0896009 0,12.1507169 L1.75,12.15 L1.75,1.9 C1.75,0.981826603 2.45711027,0.22880766 3.35647279,0.1558012 L3.5,0.15 Z M18.5,1.65 L3.5,1.65 C3.36192881,1.65 3.25,1.76192881 3.25,1.9 L3.25,1.9 L3.25,12.15 L18.75,12.15 L18.75,1.9 C18.75,1.78165327 18.6677666,1.68251318 18.5573227,1.65660268 L18.5573227,1.65660268 L18.5,1.65 Z"/>
+        </g>
+    </g>
+</svg>
