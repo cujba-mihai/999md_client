@@ -144,7 +144,7 @@ const Header = ({ toggleSearchResults, showSearchResults, toggleDrawerMenu }: IP
             </div>
             <div className={styles['main-bar__add-post-container']}>
               <button className='button-success'>
-                <a href="/advertising/add">Adaugă anunţ</a>
+                <Link href="/advertising/add">Adaugă anunţ</Link>
               </button>
             </div>
           </div>
