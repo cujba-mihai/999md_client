@@ -21,7 +21,7 @@ const CategoriesProduct = ({ categories, subcategories, formik }: IProps) => {
         <Field name="subcategory" label={t('forms.subcategory')} component={InputField} />
         <DropDown required onSelect={() => {}} label='categories' values={categories} selected={formik.values.category} />
         <DropDown onSelect={() => {}} label='subcategories' values={subcategories} selected={formik.values.subcategory} />
-        <SelectInputs options={['as', 'vbb', 'asdasd']} type="checkbox" />
+        <SelectInputs formik={formik} valueKey={'options'} options={['as', 'vbb', 'asdasd']} type="checkbox" />
       </form>
   )
 }

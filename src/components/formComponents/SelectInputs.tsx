@@ -1,59 +1,74 @@
-import React, { useState } from 'react'
+import { useDebounce } from '@/hooks/useDebounce';
+import React, { MutableRefObject, useEffect, useRef } from 'react'
 
 interface ISelectInputs {
     options: string[];
     type: 'checkbox' | 'radio',
     onSelect?: () => void;
+    formik: any;
+    valueKey: string;
 };
 
 interface ICheckbox {
     option: string;
     index: number;
-    setSelectedOptions: (args?: any) => void;
+    handleOnChange: any;
+    checkedState: boolean[];
 }
 
 
-const Checkbox = ({ option, index, setSelectedOptions }: ICheckbox) => {
-    const identifier = `${option}-${index}`;
-    const [ checked, setChecked ] = useState(false);
+export const Checkbox = ({option, index, checkedState, handleOnChange}: ICheckbox): JSX.Element => (
+    <label key={`${index}-${option}`} htmlFor={`${index}-${option}`}>
+        <input
+        key={`${index}-${option}`}
+        type="checkbox"
+        id={`custom-checkbox-${index}`}
+        name={option}
+        value={option}
+        checked={checkedState[index]}
+        onChange={() => handleOnChange(index)}
+        />
+        <span>{option}</span>
+    </label>
+)
 
-    const clickHandler = () => {
-        setChecked(prev => !prev);
+const SelectInputs = ({ formik, valueKey, options }: ISelectInputs) => {
+    const checkedState = useRef(new Array(options.length).fill(false));
 
-        if(checked) setSelectedOptions((prev: string[]) => ([...prev.slice(0, index), option, ...prev.slice(index, prev.length + 1)]));
-        if(!checked) setSelectedOptions((prev: string[]) => prev.filter(( optionSelect ) => optionSelect !== option));
+    const handleOnChange = useDebounce((position: number) => {
+        const updatedCheckedState = checkedState.current.map((item, index) => index === position ? !item : item);
+      
+        checkedState.current = updatedCheckedState;
 
-        return option;
-    };
-    
-    return (
-        <label key={identifier} htmlFor={identifier}>
-            <input
-                value={option}
-                onChange={clickHandler}
-                type="checkbox"
-                checked={checked}
-                id={identifier} 
-            />
-            <span>{option}</span>
-        </label>
-    )
-}
+        const getCheckedOptions = checkedState.current.reduce((result, checked, index) => {
 
-const SelectInputs = ({ options }: ISelectInputs) => {
-  const [ selectedOptions, setSelectedOptions ] = useState([]);
+            if(checked) result.push(options[index]);
 
-  console.log('SELECTED OPTIONS: ', selectedOptions);
+            return result;
+        }, [])
+
+        
+        formik.setFieldValue(valueKey, getCheckedOptions);
+
+        console.log(formik.values);
+        console.log(getCheckedOptions);
+    }, 100)
+
+    useEffect(() => {
+        formik.setFieldValue(valueKey, []);  
+    }, [])
+      
 
   return (
     <div>
         {
             options.map((option: string, index: number) => (
                 <Checkbox 
+                    checkedState={checkedState} 
+                    handleOnChange={handleOnChange} 
                     index={index} 
                     option={option} 
-                    setSelectedOptions={setSelectedOptions} 
-                    key={`${option}-${index}`} 
+                    key={`${index}-${option}`} 
                 />
             ))
         }
@@ -61,4 +76,4 @@ const SelectInputs = ({ options }: ISelectInputs) => {
   )
 }
 
-export default SelectInputs
+export default SelectInputs;
