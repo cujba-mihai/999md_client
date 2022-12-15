@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from '@/components/Image';
 import styles from './Header.module.scss';
 import ButtonWithIcon from '@/components/button/ButtonWithIcon';
+import { useTranslation } from 'react-i18next';
 
 interface IProps {
   toggleSearchResults: () => void;
@@ -12,6 +13,7 @@ interface IProps {
 }
 
 const Header = ({ toggleSearchResults, showSearchResults, toggleDrawerMenu }: IProps) => {
+  const { t } = useTranslation() ;
 
   return (
     <>
@@ -144,7 +146,7 @@ const Header = ({ toggleSearchResults, showSearchResults, toggleDrawerMenu }: IP
             </div>
             <div className={styles['main-bar__add-post-container']}>
               <button className='button-success'>
-                <Link href="/advertising/add">Adaugă anunţ</Link>
+                <Link href="/advertising/new">{t('addAdverting')}</Link>
               </button>
             </div>
           </div>

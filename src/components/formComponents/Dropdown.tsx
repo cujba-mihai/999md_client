@@ -51,7 +51,7 @@ const DropDown: React.FC<IDropDownProps> = ({
       <div ref={ref} className={ `${showDropDown ? styles['select-active'] : styles.select} round`} onClick={togglePopper} >
         <TextTranslate tag='span' value={selectedOption} />
         <div className={`${styles.dropdown} ${showDropDown ? styles['dropdown-active'] : ''}`}>
-          {values.map(
+          {(values || []).map(
             (value: string, index: number): JSX.Element => {
               return (
                 <p

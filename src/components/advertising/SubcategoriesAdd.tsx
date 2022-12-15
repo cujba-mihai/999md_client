@@ -1,41 +1,40 @@
 import TextTranslate from '@/components/typography/TextTranslate';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react'
-import { subcategories } from './dummyData';
+import React from 'react'
 import styles from './AdvertisingAdd.module.scss';
 import { useRouter } from 'next/router';
 import Button from '../button/Button';
-import { useSearchParams } from 'next/navigation';
+import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
+interface IProps {
+    category: string;
+    subcategories: any;
+}
+  
 
-const SubcategoriesAdd = () => {
+const SubcategoriesAdd = ({ category, subcategories }: IProps) => {
   const router = useRouter();
-  const query = useSearchParams();
 
-  const [ category, setCategory ] = useState<string | null>(null);
-
-  useEffect(() => {
-    const queryCategory = query.get('category');
-
-    setCategory(queryCategory);
-  }, [query])
+  const { t } = useTranslation();
+  const path = router.asPath.replace(/\?.*/, '');
 
   return (
     <>
         <div className={styles['categories-title-container']}>
-            <TextTranslate tag='h2' value='chooseSubcategory' />
+            <TextTranslate tag='h2' value='chooseCategory' />
             <Link href="#">
-                <TextTranslate tag='p' value='dontKnowSubcategory'/>
+                <TextTranslate tag='p' value='dontKnowCategory'/>
             </Link>
         </div>
 
-        <Button onClick={() => { router.push(router.basePath) } } type='ghost' btnText={category || 'Back'} />
+        <Button onClick={() => { router.push(router.basePath) } } type='ghost' btnText={t(category) || 'Back'} />
 
         <ul className={styles['categories-list']}>
             {
-                subcategories.map(subcategory => (
+                subcategories.map((subcategory: { name: string; }) => (
                     <li key={`${subcategory.name}`}>
-                            <Link href={`/advertising/add?category=${category}&subcategory=${subcategory.name}`} className={styles['categories-link']}>
+                            <Link href={`${path}${subcategory.name}`} className={styles['categories-link']}>
                                 <TextTranslate tag="p" value={subcategory.name} />
                             </Link>
                     </li>

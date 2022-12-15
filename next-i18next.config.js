@@ -5,6 +5,10 @@ module.exports = {
   serializeConfig: false,
   use: [initReactI18next],
   missingKeyNoValueFallbackToKey: true,
+  react: {
+    useSuspence: true
+  },
+  useSuspence: false,
   i18n: {
       localeDetection: false,
       locales: [ 

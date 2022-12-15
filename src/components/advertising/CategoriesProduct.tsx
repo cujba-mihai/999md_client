@@ -17,11 +17,11 @@ const CategoriesProduct = ({ categories, subcategories, formik }: IProps) => {
 
   return (
       <form onSubmit={formik.handleSubmit}>
-        <Field name="category" label={t('forms.category')} component={InputField} />
-        <Field name="subcategory" label={t('forms.subcategory')} component={InputField} />
+        <Field name="category" id="category" label={t('forms.category')} component={InputField} />
+        <Field name="subcategory" id="subcategory" label={t('forms.subcategory')} component={InputField} />
         <DropDown required onSelect={() => {}} label='categories' values={categories} selected={formik.values.category} />
         <DropDown onSelect={() => {}} label='subcategories' values={subcategories} selected={formik.values.subcategory} />
-        <SelectInputs formik={formik} valueKey={'options'} options={['as', 'vbb', 'asdasd']} type="checkbox" />
+        <SelectInputs formik={formik} valueKey={'options'} options={['Сканер отпечатка пальца', 'USB Type-C', '5G', 'Поддержка карт памяти']} type="checkbox" />
       </form>
   )
 }
