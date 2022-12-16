@@ -107,7 +107,7 @@
     border: none;
 
     & > img {
-      filter: $svg-white;
+      filter: $svg-filter-white;
     }
 
     &:hover {
@@ -124,7 +124,7 @@
     border: none;
 
     & > img {
-      filter: $svg-white;
+      filter: $svg-filter-white;
     }
 
     &:hover {
