@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import Image from '../Image';
 import style from './BuyOnMarket.module.scss';
 import CategoryWithItems from './CategoryWithItems';
