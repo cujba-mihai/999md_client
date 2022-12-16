@@ -4,23 +4,10 @@ import React from 'react'
 import nextI18NextConfig from 'next-i18next.config.js';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetServerSideProps } from 'next';
-
-interface ISubcategory {
-  name: string;
-}
-
-interface ICategory extends ISubcategory {
-  icon: string;
-}
+import { ISubcategoryAddProps } from '@/types/pages';
 
 
-interface IProps {
-  category: string;
-  subcategory: string;
-  categories: string[];
-  subcategories: string[];
-}
-const SubcategoryAdd = ({ categories, subcategories, category, subcategory }: IProps) => {
+const SubcategoryAdd = ({ subcategories, category }: ISubcategoryAddProps) => {
 
   return (<SubcategoriesAdd category={category} subcategories={subcategories} />)
 }

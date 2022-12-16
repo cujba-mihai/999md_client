@@ -4,7 +4,6 @@ import React from 'react'
 import styles from './AdvertisingAdd.module.scss';
 import { useRouter } from 'next/router';
 import Button from '../button/Button';
-import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
 interface IProps {

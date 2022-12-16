@@ -2,6 +2,7 @@ import Breadcrumbs from '@/components/breadcrumbs/index';
 import Product from '@/components/product/Product';
 import nextI18NextConfig from 'next-i18next.config.js';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { TLocales, TSupportedLocales } from '../categories/[category]';
 
 const Index = () => {
   return (
@@ -27,9 +28,21 @@ export const getStaticProps = async (context: any) => {
   };
 };
 
-export const getStaticPaths = async () => {
+// export const getStaticPaths = async () => {
+//   return {
+//     paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
+//     fallback: 'blocking', // can also be true or 'blocking'
+//   }
+// }
+
+export const getStaticPaths = async ({ locales }: { locales: TLocales}) => {
+  const productIds = ['1', '2' ];
+
+  const paths = locales.map((locale: TSupportedLocales) => productIds.map(id => ({ params: { id }, locale })) ).flat()
+
+  console.log('PATHS: ', paths)
   return {
-    paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
-    fallback: 'blocking', // can also be true or 'blocking'
+    paths,
+    fallback: true, // can also be true or 'blocking'
   }
 }

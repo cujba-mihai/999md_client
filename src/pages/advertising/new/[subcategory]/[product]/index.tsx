@@ -6,24 +6,10 @@ import React from 'react';
 import nextI18NextConfig from 'next-i18next.config.js';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetServerSideProps } from 'next';
+import { ICategory, IProductAddProps, ISubcategory } from '@/types/pages';
 
-interface ISubcategory {
-  name: string;
-}
 
-interface ICategory extends ISubcategory {
-  icon: string;
-}
-
-interface IProps {
-  category: string;
-  subcategory: string;
-  categories: string[];
-  subcategories: string[];
-}
-
-const Add = ({ categories, subcategories, category, subcategory }: IProps) => {
-
+const Add = ({ categories, subcategories, category, subcategory }: IProductAddProps) => {
 
   const formik = useFormik({
     initialValues: {
@@ -62,8 +48,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       category,
       subcategory,
-      categories: categories.map(e => e.name),
-      subcategories: subcategories.map(e => e.name),
+      categories: categories.map((category: ICategory) => category.name),
+      subcategories: subcategories.map((subcategory: ISubcategory) => subcategory.name),
       ...(await serverSideTranslations(context.locale || 'en', ['translation', 'common'], nextI18NextConfig))
     },
   }

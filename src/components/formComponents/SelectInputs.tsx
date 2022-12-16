@@ -1,19 +1,5 @@
+import { ICheckbox, ICheckedState, ISelectInputs, TCheckedState } from '@/types/form-components';
 import React, { useEffect, useState } from 'react'
-
-interface ISelectInputs {
-    options: string[];
-    type: 'checkbox' | 'radio',
-    onSelect?: () => void;
-    formik: any;
-    valueKey: string;
-};
-
-interface ICheckbox {
-    option: string;
-    handleOnChange: any;
-    checked: boolean;
-}
-
 
 export const Checkbox = ({option, checked, handleOnChange}: ICheckbox): JSX.Element => (
     <label key={option} htmlFor={option}>
@@ -30,14 +16,7 @@ export const Checkbox = ({option, checked, handleOnChange}: ICheckbox): JSX.Elem
     </label>
 )
 
-interface ICheckedState {
-    name: string;
-    checked: boolean;
-}
-
-type TCheckedState = ICheckedState[];
-
-const SelectInputs =  ({ formik, valueKey, options }: ISelectInputs) => {
+const SelectInputs =  ({ formik, valueKey, options, row = false, className }: ISelectInputs) => {
     const [ checkedState, setCheckedState ] = useState<TCheckedState>([]);
 
     const handleOnChange =  (ev: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,9 +43,9 @@ const SelectInputs =  ({ formik, valueKey, options }: ISelectInputs) => {
       
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: row ? 'row' : 'column', flexWrap: 'wrap' }} className={className}>
         {
-            checkedState.map((option: {name: string; checked: boolean;}, index: number) => (
+            checkedState.map((option: ICheckedState, index: number) => (
                 <Checkbox 
                     handleOnChange={handleOnChange} 
                     checked={option.checked}

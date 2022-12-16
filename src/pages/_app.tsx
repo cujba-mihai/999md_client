@@ -3,7 +3,6 @@
 import '../styles/reset.scss';
 import '../styles/global.scss';
 import '../styles/buttons.scss';
-import { useSSR } from 'react-i18next';
 import type { AppProps } from 'next/app';
 import { NextPage } from 'next';
 import { ReactElement, ReactNode } from 'react';
@@ -37,9 +36,3 @@ const App = ({ Component, pageProps }: AppPropsWithLayout): JSX.Element => {
 
 
 export default appWithTranslation(App, nextI18NextConfig);
-
-export const InitSSR = ({ initialI18nStore = nextI18NextConfig , initialLanguage = 'en' }) => {
-  useSSR(initialI18nStore, initialLanguage);
-
-  return <App  />;
-};

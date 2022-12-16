@@ -1,15 +1,9 @@
 import { useClickOutside } from '@/hooks/useClickOutside';
+import { IDropDownProps } from '@/types/form-components';
 import React, { useEffect, useRef, useState } from 'react';
 import TextTranslate from '../typography/TextTranslate';
 import styles from './Dropdown.module.scss';
 
-interface IDropDownProps {
-    values: string[];
-    selected: string;
-    label: string;
-    required?: boolean;
-    onSelect: () => void;
-}
 
 const DropDown: React.FC<IDropDownProps> = ({
     values,
