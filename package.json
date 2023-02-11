@@ -75,7 +75,7 @@
     "rimraf": "4.1.2",
     "sass": "1.58.0",
     "start-server-and-test": "1.15.3",
-    "tailwindcss": "3.2.4",
+    "tailwindcss": "3.2.6",
     "typescript": "4.9.5"
   },
   "volta": {
