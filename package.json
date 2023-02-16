@@ -38,8 +38,8 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.4.2",
-    "@commitlint/config-conventional": "17.4.2",
+    "@commitlint/cli": "17.4.3",
+    "@commitlint/config-conventional": "17.4.3",
     "@next/bundle-analyzer": "13.1.6",
     "@testing-library/react": "13.4.0",
     "@types/i18next-sprintf-postprocessor": "^0.2.0",
