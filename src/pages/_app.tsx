@@ -9,7 +9,8 @@ import { ReactElement, ReactNode } from 'react';
 import MainLayout from '@/components/layout/_MainLayout';
 import { appWithTranslation } from 'next-i18next';
 import nextI18NextConfig from '../../next-i18next.config';
-
+import { useApollo } from '@/hooks/withApollo';
+import { ApolloProvider } from '@apollo/client';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -22,6 +23,7 @@ type AppPropsWithLayout = AppProps & {
 
 
 const App = ({ Component, pageProps }: AppPropsWithLayout): JSX.Element => {
+  const apolloClient = useApollo(pageProps);
 
   if (Component?.withLayout) {
     Component.getLayout = function (page: ReactElement) {
@@ -31,7 +33,11 @@ const App = ({ Component, pageProps }: AppPropsWithLayout): JSX.Element => {
 
   const getLayout = Component.getLayout || ((page) => page);
 
-  return getLayout(<Component {...pageProps} />) as JSX.Element;
+  return getLayout(
+    <ApolloProvider client={apolloClient}>
+      <Component {...pageProps} />
+    </ApolloProvider>
+  ) as JSX.Element
 };
 
 
