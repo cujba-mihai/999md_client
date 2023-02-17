@@ -12,7 +12,6 @@ export interface IHomePageProps {
 
 const Index = ({ categories }: IHomePageProps) => {
 
-  console.log('PROPS: ', categories);
   return (
     <>
       <MainContent categories={categories} />

@@ -57,7 +57,7 @@ const createApolloClient = (ctx?: GetServerSidePropsContext) => {
 
 export function initializeApollo(ctx: GetServerSidePropsContext<ParsedUrlQuery, PreviewData> | undefined, initialState = null) {
   const client = apolloClient ?? createApolloClient(ctx);
-  console.log(client);
+
   // If your page has Next.js data fetching methods that use Apollo Client,
   // the initial state gets hydrated here
   if (initialState) {

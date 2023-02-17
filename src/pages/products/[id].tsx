@@ -40,7 +40,6 @@ export const getStaticPaths = async ({ locales }: { locales: TLocales}) => {
 
   const paths = locales.map((locale: TSupportedLocales) => productIds.map(id => ({ params: { id }, locale })) ).flat()
 
-  console.log('PATHS: ', paths)
   return {
     paths,
     fallback: true, // can also be true or 'blocking'
