@@ -1,0 +1,20 @@
+.phone-number-input {
+    height: 36px;
+    min-width: 200px;
+    max-width: 250px;
+    display: grid;
+    padding-left: 8px;
+
+    border: 1px solid $color-light-gray;
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+.phone-number-container {
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+    gap: 10px;
+    align-items: end;
+}

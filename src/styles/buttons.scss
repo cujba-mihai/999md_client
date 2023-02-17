@@ -28,8 +28,13 @@
   &-primary {
     @extend.button;
     border-color: $color-primary;
-    color: $color-primary;
+    color: $color-white;
     background-color: $color-primary;
+
+    &:hover {
+      background-color: $color-primary;
+      background-color: $color-primary;
+    }
   }
 
   &-ghost {
@@ -39,6 +44,7 @@
     background-color: transparent;
 
     &:hover {
+      border-color: transparent;
       text-decoration: underline;
       color: $color-primary !important;
       background-color: transparent;
