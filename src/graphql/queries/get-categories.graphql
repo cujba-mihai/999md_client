@@ -1,0 +1,14 @@
+query GetAllCategories {
+  getCategories {
+    id
+    name
+    subcategories {
+      id
+      name
+      childSubcategories {
+        id
+        name
+      }
+    }
+  }
+}

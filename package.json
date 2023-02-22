@@ -2,7 +2,7 @@
   "name": "next-js-boilerplate",
   "version": "2.1.1",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run codegen && next dev",
     "build": "next build",
     "start": "next start",
     "codegen": "env-cmd graphql-codegen",

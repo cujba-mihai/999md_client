@@ -1,0 +1,31 @@
+query Product($productId: GetByIdDTO!) {
+  product(id: $productId) {
+    id
+    name
+    author {
+      _id
+      email
+      firstName
+      lastName
+    }
+
+    images
+
+    price
+    currency
+
+    category {
+      id
+      name
+    }
+
+    subcategory {
+      id
+      name
+      childSubcategories {
+        id
+        name
+      }
+    }
+  }
+}

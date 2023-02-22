@@ -14,6 +14,13 @@ export type Scalars = {
   Float: number;
 };
 
+export type CategoriesDto = {
+  __typename?: 'CategoriesDTO';
+  id: Scalars['String'];
+  name: Scalars['String'];
+  subcategories: Array<SubcategoriesDto>;
+};
+
 export type Category = {
   __typename?: 'Category';
   id: Scalars['String'];
@@ -23,6 +30,11 @@ export type Category = {
 
 export type CreateCategoriesInput = {
   categoriesToAdd: Array<Scalars['String']>;
+};
+
+export type CreateCategoryDto = {
+  name: Scalars['String'];
+  subcategories?: InputMaybe<Array<CreateSubcategoriesInput>>;
 };
 
 export type CreateFieldFromStringDto = {
@@ -43,10 +55,15 @@ export type CreateProductInput = {
   thumbnail: Scalars['String'];
 };
 
-export type CreateSubcategoriesInput = {
+export type CreateSubcategoriesDto = {
+  __typename?: 'CreateSubcategoriesDTO';
+  childSubcategories?: Maybe<Array<CreateSubcategoriesDto>>;
   name: Scalars['String'];
-  parentCategory: Scalars['String'];
-  subcategories?: InputMaybe<Array<CreateSubcategoriesInput>>;
+};
+
+export type CreateSubcategoriesInput = {
+  childSubcategories?: InputMaybe<Array<CreateSubcategoriesInput>>;
+  name: Scalars['String'];
 };
 
 export type CreateSubcategoryInput = {
@@ -63,6 +80,40 @@ export type FormField = {
   validationSchema: Scalars['String'];
 };
 
+export type GetByIdDto = {
+  id: Scalars['ID'];
+};
+
+export type GetOneSubcategoryDto = {
+  id: Scalars['ID'];
+};
+
+export type GetProductsDto = {
+  __typename?: 'GetProductsDTO';
+  author: UserDto;
+  category: CategoriesDto;
+  currency: Scalars['String'];
+  description: Scalars['String'];
+  id: Scalars['String'];
+  images: Array<Scalars['String']>;
+  name: Scalars['String'];
+  price: Scalars['Float'];
+  productDetails: Scalars['String'];
+  subcategory: SubcategoriesDto;
+  thumbnail: Scalars['String'];
+};
+
+export type GetSubcategoryByRelationDto = {
+  category: Scalars['String'];
+  subcategory: Scalars['String'];
+};
+
+export type ListProductsBySubcategoryDto = {
+  limit?: Scalars['Float'];
+  offset?: Scalars['Float'];
+  subCategoryId: Scalars['ID'];
+};
+
 export type Locations = {
   __typename?: 'Locations';
   _id: Scalars['ID'];
@@ -76,6 +127,7 @@ export type Mutation = {
   LogIn: User;
   Register: UserType;
   createCategories: Array<Category>;
+  createCategory: Category;
   /**
    * Allows us to create form field with validation from string.
    *       Example of validationString: string,oneOf['one','two],required,min[0],max[50]
@@ -116,6 +168,11 @@ export type MutationCreateCategoriesArgs = {
 };
 
 
+export type MutationCreateCategoryArgs = {
+  category: CreateCategoryDto;
+};
+
+
 export type MutationCreateFieldFromStringArgs = {
   createField: CreateFieldFromStringDto;
 };
@@ -126,23 +183,18 @@ export type MutationCreateProductArgs = {
 };
 
 
-export type MutationCreateSubcategoriesArgs = {
-  input: CreateSubcategoriesInput;
-};
-
-
 export type MutationCreateSubcategoryArgs = {
   createSubcategoryInput: CreateSubcategoryInput;
 };
 
 
 export type MutationRemoveProductArgs = {
-  id: Scalars['Int'];
+  id: GetByIdDto;
 };
 
 
 export type MutationRemoveSubcategoryArgs = {
-  id: Scalars['Int'];
+  id: GetOneSubcategoryDto;
 };
 
 
@@ -178,26 +230,45 @@ export type Product = {
 
 export type Query = {
   __typename?: 'Query';
-  categories: Array<Category>;
   findAllFields: Array<FormField>;
+  findByRelation: SubcategoriesDto;
   findRegion: Regions;
   findRegions: Array<Regions>;
+  getCategories: Array<Category>;
+  getCategoryByName: Category;
+  getProducts: Array<GetProductsDto>;
+  getProductsBySubcategory: Array<GetProductsDto>;
   me: User;
-  product: Product;
+  product: GetProductsDto;
   products: Array<Product>;
   subcategories: Array<Subcategory>;
-  subcategory: Subcategory;
+  subcategory: SubcategoriesDto;
   users: Array<UserType>;
 };
 
 
+export type QueryFindByRelationArgs = {
+  filter: GetSubcategoryByRelationDto;
+};
+
+
+export type QueryGetCategoryByNameArgs = {
+  categoryName: Scalars['String'];
+};
+
+
+export type QueryGetProductsBySubcategoryArgs = {
+  listProductByCategoryInput: ListProductsBySubcategoryDto;
+};
+
+
 export type QueryProductArgs = {
-  id: Scalars['Int'];
+  id: GetByIdDto;
 };
 
 
 export type QuerySubcategoryArgs = {
-  id: Scalars['Int'];
+  subcategoryId: GetOneSubcategoryDto;
 };
 
 export type Regions = {
@@ -207,12 +278,24 @@ export type Regions = {
   region: Scalars['String'];
 };
 
+export type SubcategoriesDto = {
+  __typename?: 'SubcategoriesDTO';
+  childSubcategories?: Maybe<Array<SubcategoriesDto>>;
+  id: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
+};
+
+export type SubcategoriesInputDto = {
+  childSubcategories?: InputMaybe<Array<SubcategoriesInputDto>>;
+  id: Scalars['String'];
+  name?: InputMaybe<Scalars['String']>;
+};
+
 export type Subcategory = {
   __typename?: 'Subcategory';
-  _id: Scalars['String'];
-  childCategories: Array<Subcategory>;
-  name?: Maybe<Scalars['String']>;
-  parentCategory: Scalars['String'];
+  childSubcategories?: Maybe<Array<Subcategory>>;
+  id: Scalars['String'];
+  name: Scalars['String'];
 };
 
 export type UpdateProductInput = {
@@ -247,6 +330,17 @@ export type User = {
   refresh_token?: Maybe<Scalars['String']>;
 };
 
+export type UserDto = {
+  __typename?: 'UserDTO';
+  _id: Scalars['String'];
+  access_token?: Maybe<Scalars['String']>;
+  email: Scalars['String'];
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
+  products: Array<GetProductsDto>;
+  refresh_token?: Maybe<Scalars['String']>;
+};
+
 export type UserInput = {
   email: Scalars['String'];
   firstName: Scalars['String'];
@@ -263,18 +357,155 @@ export type UserType = {
   products: Array<Product>;
 };
 
-export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+export type CategoryPageQueryVariables = Exact<{
+  categoryName: Scalars['String'];
+}>;
 
 
-export type GetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', id: string, name: string }> };
+export type CategoryPageQuery = { __typename?: 'Query', getCategoryByName: { __typename?: 'Category', id: string, name: string, subcategories?: Array<{ __typename?: 'Subcategory', id: string, name: string, childSubcategories?: Array<{ __typename?: 'Subcategory', id: string, name: string }> | null }> | null }, getProducts: Array<{ __typename?: 'GetProductsDTO', id: string, thumbnail: string, name: string, price: number, currency: string, description: string }> };
+
+export type GetAllCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export const GetCategoriesDocument = gql`
-    query getCategories {
-  categories {
+export type GetAllCategoriesQuery = { __typename?: 'Query', getCategories: Array<{ __typename?: 'Category', id: string, name: string, subcategories?: Array<{ __typename?: 'Subcategory', id: string, name: string, childSubcategories?: Array<{ __typename?: 'Subcategory', id: string, name: string }> | null }> | null }> };
+
+export type ProductIdsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ProductIdsQuery = { __typename?: 'Query', products: Array<{ __typename?: 'Product', _id: string }> };
+
+export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HomePageQuery = { __typename?: 'Query', getCategories: Array<{ __typename?: 'Category', id: string, name: string }>, getProducts: Array<{ __typename?: 'GetProductsDTO', id: string, name: string, thumbnail: string, price: number, description: string }> };
+
+export type ProductQueryVariables = Exact<{
+  productId: GetByIdDto;
+}>;
+
+
+export type ProductQuery = { __typename?: 'Query', product: { __typename?: 'GetProductsDTO', id: string, name: string, images: Array<string>, price: number, currency: string, author: { __typename?: 'UserDTO', _id: string, email: string, firstName: string, lastName: string }, category: { __typename?: 'CategoriesDTO', id: string, name: string }, subcategory: { __typename?: 'SubcategoriesDTO', id: string, name?: string | null, childSubcategories?: Array<{ __typename?: 'SubcategoriesDTO', id: string, name?: string | null }> | null } } };
+
+export type SubcategoryPageQueryVariables = Exact<{
+  listProductByCategoryInput: ListProductsBySubcategoryDto;
+  subcategoryId: GetOneSubcategoryDto;
+}>;
+
+
+export type SubcategoryPageQuery = { __typename?: 'Query', getProductsBySubcategory: Array<{ __typename?: 'GetProductsDTO', id: string, name: string, thumbnail: string, price: number, description: string }>, subcategory: { __typename?: 'SubcategoriesDTO', id: string, name?: string | null } };
+
+
+export const CategoryPageDocument = gql`
+    query CategoryPage($categoryName: String!) {
+  getCategoryByName(categoryName: $categoryName) {
+    id
+    name
+    subcategories {
+      id
+      name
+      childSubcategories {
+        id
+        name
+      }
+    }
+  }
+  getProducts {
+    id
+    thumbnail
+    name
+    price
+    currency
+    description
+  }
+}
+    `;
+export type CategoryPageQueryResult = Apollo.QueryResult<CategoryPageQuery, CategoryPageQueryVariables>;
+export const GetAllCategoriesDocument = gql`
+    query GetAllCategories {
+  getCategories {
+    id
+    name
+    subcategories {
+      id
+      name
+      childSubcategories {
+        id
+        name
+      }
+    }
+  }
+}
+    `;
+export type GetAllCategoriesQueryResult = Apollo.QueryResult<GetAllCategoriesQuery, GetAllCategoriesQueryVariables>;
+export const ProductIdsDocument = gql`
+    query ProductIds {
+  products {
+    _id
+  }
+}
+    `;
+export type ProductIdsQueryResult = Apollo.QueryResult<ProductIdsQuery, ProductIdsQueryVariables>;
+export const HomePageDocument = gql`
+    query HomePage {
+  getCategories {
+    id
+    name
+  }
+  getProducts {
+    id
+    name
+    thumbnail
+    price
+    description
+  }
+}
+    `;
+export type HomePageQueryResult = Apollo.QueryResult<HomePageQuery, HomePageQueryVariables>;
+export const ProductDocument = gql`
+    query Product($productId: GetByIdDTO!) {
+  product(id: $productId) {
+    id
+    name
+    author {
+      _id
+      email
+      firstName
+      lastName
+    }
+    images
+    price
+    currency
+    category {
+      id
+      name
+    }
+    subcategory {
+      id
+      name
+      childSubcategories {
+        id
+        name
+      }
+    }
+  }
+}
+    `;
+export type ProductQueryResult = Apollo.QueryResult<ProductQuery, ProductQueryVariables>;
+export const SubcategoryPageDocument = gql`
+    query SubcategoryPage($listProductByCategoryInput: ListProductsBySubcategoryDTO!, $subcategoryId: GetOneSubcategoryDTO!) {
+  getProductsBySubcategory(
+    listProductByCategoryInput: $listProductByCategoryInput
+  ) {
+    id
+    name
+    thumbnail
+    price
+    description
+  }
+  subcategory(subcategoryId: $subcategoryId) {
     id
     name
   }
 }
     `;
-export type GetCategoriesQueryResult = Apollo.QueryResult<GetCategoriesQuery, GetCategoriesQueryVariables>;
+export type SubcategoryPageQueryResult = Apollo.QueryResult<SubcategoryPageQuery, SubcategoryPageQueryVariables>;

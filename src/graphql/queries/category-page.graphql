@@ -1,0 +1,22 @@
+query CategoryPage($categoryName: String!) {
+  getCategoryByName(categoryName: $categoryName) {
+    id
+    name
+    subcategories {
+      id
+      name
+      childSubcategories {
+        id
+        name
+      }
+    }
+  }
+  getProducts {
+    id
+    thumbnail
+    name
+    price
+    currency
+    description
+  }
+}

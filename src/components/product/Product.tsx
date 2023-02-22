@@ -8,6 +8,7 @@ import PhoneNumber from './PhoneNumber';
 import NegotiateButton from './NegotiateButton';
 import SendMsgBtn from './SendMsgBtn';
 import { useTranslation } from 'next-i18next'
+import { Product } from '@/graphql/__generated__/graphql';
 
 const productImages = [
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/b37c0f960015d83a2b5be91055aa8d3e.jpg',
@@ -199,14 +200,17 @@ type ProductParticular = typeof productDetails.particular;
 type ProductGeneralKeys = keyof ProductGeneral;
 type ProductParticularKeys = keyof ProductParticular;
 
-const Product = () => {
-  const { t } = useTranslation();
+interface IProductProps {
+  product: Product;
+}
 
+const ProductPage = ({ product }: IProductProps) => {
+  const { t } = useTranslation();
 
   return (
     <main className={style['main-wrapper']} aria-label="product information">
       <div className={style['title-container']}>
-        <h1 className={style.title}>Toyota Rav 4</h1>
+        <h1 className={style.title}>{t(product?.name || '')}</h1>
         <Image
           className={style.favorite}
           src="favourite.svg"
@@ -219,15 +223,15 @@ const Product = () => {
         <article className={style['product-container']}>
 
           <Carousel2 childrenWidth={320} childrenHeight={240} withBottomControls={true} show={2} infiniteLoop={false}>
-          {productImages &&
-              productImages.map((imageUrl) => {
+          {
+              (product.images || []).map((imageUrl) => {
                 return (
                   <NextImage
                     key={`${new Date().getTime()}-${imageUrl}`}
                     src={imageUrl}
                     width={320}
                     height={240}
-                    alt="Masina"
+                    alt={`Photo: ${product.name}`}
                   />
                 );
               })}
@@ -251,7 +255,7 @@ const Product = () => {
                       return (
                         <li
                           className={style['description-list-item']}
-                          key={`${new Date().getTime()}-${index}`}
+                          key={`${new Date().getTime()}-${new Date(index)}`}
                         >
                           <span
                             className={style['description-list-title']}
@@ -285,7 +289,7 @@ const Product = () => {
                       return (
                         <li
                           className={style['description-list-item']}
-                          key={`${new Date().getTime()}-${index}`}
+                          key={`${new Date().getTime()}-${new Date(index)}`}
                         >
                           <span
                             className={style['description-list-title']}
@@ -376,4 +380,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default ProductPage;

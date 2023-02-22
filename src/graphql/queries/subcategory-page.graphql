@@ -1,0 +1,16 @@
+query SubcategoryPage($listProductByCategoryInput: ListProductsBySubcategoryDTO!, $subcategoryId: GetOneSubcategoryDTO!) {
+
+  getProductsBySubcategory(listProductByCategoryInput: $listProductByCategoryInput) {
+      id
+      name
+      thumbnail
+      price
+      description
+  }
+
+  subcategory(subcategoryId: $subcategoryId) {
+    id
+    name
+  }
+
+}

@@ -4,13 +4,15 @@ import Image from '../Image';
 import style from './BuyOnMarket.module.scss';
 import TextTranslate from '../typography/TextTranslate';
 
+export type TCurrency = 'MDL' | 'EUR' | 'USD';
+
 interface IProductProps {
     imgSrc: string;
     price: number;
     productUrl: string;
     title: string;
     alt: string;
-    currency: 'MDL' | 'EUR' | 'USD'
+    currency: TCurrency
 }
 
 const Product240Pixels = ({ imgSrc, alt, productUrl, price, title, currency }: IProductProps) => {
