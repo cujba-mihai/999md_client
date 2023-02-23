@@ -11,6 +11,7 @@ import InputField from '../inputField/inputField';
 import CheckboxInputField from '../inputField/checkBoxInputField';
 import { useTranslation } from 'next-i18next';
 import TextTranslate from '../typography/TextTranslate';
+import { LogInFormValidation } from '@999md-clone/packages/yup-schemas';
 
 export const LoginForm = () => {
     // const router = useRouter();
@@ -62,10 +63,7 @@ export const LoginForm = () => {
     return (
       <Formik
         initialValues={{ username: '', password: '' }}
-        validationSchema={Yup.object().shape({
-          username: Yup.string().required(t('errors.forms.errors')),
-          password: Yup.string().required(t('errors.forms.errors')),
-        })}
+        validationSchema={LogInFormValidation}
         onSubmit={async (values, actions) => {
           actions.setSubmitting(true);
 

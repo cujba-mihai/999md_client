@@ -39,6 +39,9 @@
       "@/*": [
         "./src/*"
       ],
+      "@999md-clone/packages/*": [
+        "packages/*"
+      ],
       "@/public/*": [
         "./public/*"
       ]
