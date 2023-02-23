@@ -13,9 +13,19 @@ export interface IImage {
 
 const Image = ({ src, alt, id, className, priority, width, height }: IImage) => {
 
+  let srcImage = "";
+
+  try {
+    srcImage = require(`@/public/assets/${src}`)?.default?.src;
+  } catch(err) {
+    const isURL = /https?/.test(src);
+    
+    if(isURL) srcImage = src;
+  }
+
   return (
     <NextImage
-      src={ require(`@/public/assets/${src}`)?.default?.src || "" }
+      src={srcImage}
       alt={alt || ''}
       className={className || ''}
       priority={Boolean(priority)}

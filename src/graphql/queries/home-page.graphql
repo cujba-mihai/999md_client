@@ -1,0 +1,13 @@
+query HomePage {
+  getCategories {
+    id
+    name
+  }
+  getProducts {
+    id
+    name
+    thumbnail
+    price
+    description
+  }
+}

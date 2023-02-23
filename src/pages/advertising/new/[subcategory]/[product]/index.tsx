@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 import CategoriesProduct from '@/components/advertising/CategoriesProduct';
-import { FormikProvider, useFormik } from 'formik';
-// import { GetServerSideProps } from 'next';
 import React from 'react';
 import nextI18NextConfig from 'next-i18next.config.js';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -9,26 +6,16 @@ import { GetServerSideProps } from 'next';
 import { ICategory, IProductAddProps, ISubcategory } from '@/types/pages';
 
 
-const Add = ({ categories, subcategories, category, subcategory }: IProductAddProps) => {
-
-  const formik = useFormik({
-    initialValues: {
-      category,
-      subcategory
-    },
-    onSubmit:() => {}
-  });
+const Add = ({ categories, subcategories, subcategory, category }: IProductAddProps) => {
 
   return (
-    <FormikProvider value={formik}>
 
-          <CategoriesProduct 
-            formik={formik}
+          <CategoriesProduct
+            subcategory={subcategory}
+            category={category}
             subcategories={subcategories} 
             categories={categories} 
           />
-
-    </FormikProvider>
   )
 }
 
@@ -48,8 +35,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       category,
       subcategory,
-      categories: categories.map((category: ICategory) => category.name),
-      subcategories: subcategories.map((subcategory: ISubcategory) => subcategory.name),
+      categories: categories.map((_category: ICategory) => _category.name),
+      subcategories: subcategories.map((_subcategory: ISubcategory) => _subcategory.name),
       ...(await serverSideTranslations(context.locale || 'en', ['translation', 'common'], nextI18NextConfig))
     },
   }

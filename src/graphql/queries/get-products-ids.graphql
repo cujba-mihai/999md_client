@@ -1,0 +1,5 @@
+query ProductIds {
+  products {
+    _id
+  }
+}
