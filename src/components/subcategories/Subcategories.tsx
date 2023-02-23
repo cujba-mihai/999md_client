@@ -1,27 +1,35 @@
+import { Product } from '@/graphql/__generated__/graphql';
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import Accordion from '../accordion/Accordion';
-import  Product240Pixels from '../buy-on-market/Product240Pixels';
+import  Product240Pixels, { TCurrency } from '../buy-on-market/Product240Pixels';
 import { Header } from '../categories/Categories';
 import style from './Subcategories.module.scss';
 
-const Subcategories  = () => {
+interface ISubcategoriesProps {
+    upperLayerProducts: Partial<Product & { id?: string }>[]
+    subcategoryName: string;
+}
+
+const Subcategories  = ({ upperLayerProducts, subcategoryName }: ISubcategoriesProps) => {
+const { t } = useTranslation()
   return (
     <>
-        <Header text="Automobile" />
+        <Header text={t(subcategoryName)} />
         <div className={style['main-container']}>
             <div className={style['product-list-container']}>
                 <div className={style['list-style']}> кратко | подробно | фото </div>
                 <div className={style["product-list"]}>
                     {
-                        Array.from({length: 6}).map((_, index) => (
+                        upperLayerProducts.map((product) => (
                             <Product240Pixels 
-                                currency='MDL'
-                                key={index} 
-                                imgSrc={`ex${index + 1}.jpg`} 
-                                price={~~((index + 1)  * 242.35).toFixed(2)} 
-                                productUrl={`/products/${index + 1}`} 
-                                title={'Transport'} 
-                                alt={'Transport'} 
+                                currency={product?.currency as TCurrency || 'MDL'}
+                                key={product._id} 
+                                imgSrc={product?.thumbnail || ''} 
+                                price={product.price || 0} 
+                                productUrl={`/products/${product._id || product?.id || ''}`} 
+                                title={product.name || ''} 
+                                alt={product.name || ''} 
                             />
                         ))
                     }
