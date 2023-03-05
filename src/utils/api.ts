@@ -3,31 +3,19 @@ import { initializeApollo } from '@/hooks/withApollo';
 import { QueryOptions } from '@apollo/client';
 import _ from 'lodash';
 
-interface IResponseResult {
-  data: any;
-}
-
 const serverSideAPI = async (context: any, query: QueryOptions) => {
   const apolloClient = initializeApollo(context);
 
-  let result: IResponseResult = {
-    data: null
-  };
-
   try {
-    result = await apolloClient.query(query)
+    const { data } = await apolloClient.query(query)
+
+    return data;
 
   } catch( err ) {
-    console.error('Error occured in /categories. ', err);
-    
-    return {
-      redirect: {
-        destination: "/",
-      },
-    }
+    console.error('Error occurred in /categories. ', err);
+
   }
 
-  return result?.data;
 }
 
 

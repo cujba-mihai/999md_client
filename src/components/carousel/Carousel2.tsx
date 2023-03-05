@@ -48,12 +48,12 @@ const Carousel2 = ({
                                     return (
                                       <div
                                         className={style.bottomControls}
-                                        key={`image-preview-${index}-${new Date().getTime()}`}
+                                        key={`image-preview-${index}-${new Date().getTime() * Math.random() * Math.random()}`}
                                         onClick={() => props.goToSlide(index)}
                                       >
                                         {React.cloneElement(child, {
                                           ...previewStyles,
-                                          key: `image-${index}-${new Date().getTime()}`,
+                                          key: `image-${index}-${new Date().getTime() * Math.random() * Math.random()}`,
                                         })}
                                       </div>
                                     );

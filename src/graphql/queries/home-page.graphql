@@ -1,13 +1,14 @@
 query HomePage {
   getCategories {
-    id
+    _id
     name
   }
   getProducts {
-    id
+    _id
     name
     thumbnail
     price
     description
+    currency
   }
 }

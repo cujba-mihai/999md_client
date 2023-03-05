@@ -7,23 +7,32 @@ interface IBreadCrumbsProps {
   paths: string[];
 }
 
+interface IBreadCrumbItem {
+  path: string;
+  isActive: boolean;
+  label: string;
+}
+
+const BreadCrumbItem = ({ path, isActive, label }: IBreadCrumbItem) => (
+  <li key={path} className={style[`item-${isActive ? 'active' : 'inactive'}`]}>
+    <Link href={path}>{label}</Link>
+  </li>
+);
+
+
 const BreadCrumbs = ({ paths }: IBreadCrumbsProps) => {
   const { t } = useTranslation();
 
-  const items = useMemo(() => {
+  const breadCrumbItems = useMemo(() => {
     return paths.map((path, index) => {
       const isActive = index === paths.length - 1;
-      const href = paths.slice(0, index + 1).join('/').replace(/\/{2,}/, '/');
+      const label = t(path.replace(/\/\w+\//g, ''));
+      const href = `${paths.slice(0, index + 1).join('/')}/`.replace(/\/{2,}/g, '/');
 
-      return (
-        <li key={path} className={style[`item-${isActive ? 'active' : 'inactive'}`]}>
-          <Link href={href} about={path}>
-            {t(path)}
-          </Link>
-      </li>
-      )
-    })
-  }, [paths])
+      return <BreadCrumbItem key={path} path={href} isActive={isActive} label={label} />;
+    });
+  }, [paths]);
+  
 
   return (
     <nav className={style.container} aria-label="breadcrumbs">
@@ -33,7 +42,7 @@ const BreadCrumbs = ({ paths }: IBreadCrumbsProps) => {
             {t('home')}
           </Link>
         </li>
-        {items}
+        {breadCrumbItems}
       </ol>
     </nav>
   );

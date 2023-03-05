@@ -1,12 +1,12 @@
 query GetAllCategories {
   getCategories {
-    id
+    _id
     name
     subcategories {
-      id
+      _id
       name
       childSubcategories {
-        id
+        _id
         name
       }
     }

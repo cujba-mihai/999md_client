@@ -38,7 +38,15 @@
       }
     }
   },
-  "ignorePatterns": ["commitlint.config.js", "*.cy.ts", "cypress.config.js", "jest.setup.js", "jest.config.js", "next-i18next.config.js", "i18n.js"],
+  "ignorePatterns": ["commitlint.config.js", 
+  "*.cy.ts", 
+  "cypress.config.js", 
+  "jest.setup.js", 
+  "jest.config.js", 
+  "next-i18next.config.js", 
+  "i18n.js", 
+  "**/src/graphql/__generated__/page.tsx"
+],
   "rules": {
     "react-hooks/exhaustive-deps": "off",
     "react/react-in-jsx-scope": [

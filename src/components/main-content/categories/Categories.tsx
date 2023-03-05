@@ -1,10 +1,10 @@
-import { IHomePageProps } from '@/pages';
+import { Category } from '@/graphql/__generated__/graphql';
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import style from './Categories.module.scss';
 
-const Categories = ({categories}: IHomePageProps) => {
+const Categories = ({categories}: {categories: Category[]}) => {
   const { t } = useTranslation();
   return (
     <section className={style['categories-container']}>
@@ -13,7 +13,7 @@ const Categories = ({categories}: IHomePageProps) => {
           <h2 className={style['categories-label']}>{t('advertisings')}</h2>
         </div>
         {categories.map((category) => (
-          <li key={category.id} className={style.category}>
+          <li key={category._id} className={style.category}>
             <Link className={style.category} href={`/categories/${category.name.toLowerCase()}`}>
               <p className={style['link-text']}>{t(category.name)}</p>
             </Link>

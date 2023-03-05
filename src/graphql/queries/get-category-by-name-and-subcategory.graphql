@@ -1,5 +1,4 @@
-query SubcategoryPage($categoryName: String!, $subcategoryName: String!) {
-
+query GetCategoryByNameAndSubcategory($categoryName: String!, $subcategoryName: String!) {
   getCategoryByNameAndSubcategory(categoryName: $categoryName, subcategoryName: $subcategoryName) {
     _id
     name
@@ -10,5 +9,4 @@ query SubcategoryPage($categoryName: String!, $subcategoryName: String!) {
       }
     }
   }
-
 }

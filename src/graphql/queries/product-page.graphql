@@ -1,6 +1,6 @@
 query Product($productId: GetByIdDTO!) {
-  product(id: $productId) {
-    id
+  product(_id: $productId) {
+    _id
     name
     author {
       _id
@@ -15,15 +15,15 @@ query Product($productId: GetByIdDTO!) {
     currency
 
     category {
-      id
+      _id
       name
     }
 
     subcategory {
-      id
+      _id
       name
       childSubcategories {
-        id
+        _id
         name
       }
     }

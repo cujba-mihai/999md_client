@@ -1,7 +1,8 @@
 {
-  "name": "next-js-boilerplate",
-  "version": "2.1.1",
+  "name": "999md-client",
+  "version": "1.0.0",
   "scripts": {
+    "find:unused": "next-unused",
     "dev": "npm run codegen && next dev",
     "build": "next build",
     "start": "next start",
@@ -46,12 +47,18 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.0.0",
+    "react-toastify": "^9.1.1",
     "ua-parser-js": "^1.0.32",
     "yup": "^1.0.0"
   },
   "devDependencies": {
+    "next-unused": "^0.0.6",
     "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.4",
+    "@graphql-codegen/cli": "^3.2.1",
+    "@graphql-codegen/client-preset": "^2.1.0",
+    "@graphql-codegen/import-types-preset": "^2.2.6",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@next/bundle-analyzer": "13.1.6",
     "@testing-library/react": "14.0.0",
     "@types/i18next-sprintf-postprocessor": "^0.2.0",
@@ -88,11 +95,20 @@
     "sass": "1.58.3",
     "start-server-and-test": "1.15.4",
     "tailwindcss": "3.2.7",
-    "typescript": "4.9.5"
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
   },
   "volta": {
     "node": "18.12.1",
     "npm": "9.5.0"
+  },
+  "next-unused": {
+    "alias": {},
+    "include": [],
+    "exclude": [],
+    "entrypoints": [
+      "src"
+    ]
   },
   "author": "Cujba Mihai, Daniel Raileanu"
 }

@@ -8,20 +8,20 @@ import style from './Subcategories.module.scss';
 
 interface ISubcategoriesProps {
     upperLayerProducts: Partial<Product & { id?: string }>[]
-    subcategoryName: string;
+    subcategoryName: string | undefined;
 }
 
 const Subcategories  = ({ upperLayerProducts, subcategoryName }: ISubcategoriesProps) => {
 const { t } = useTranslation()
   return (
     <>
-        <Header text={t(subcategoryName)} />
+        <Header text={t(subcategoryName || '')} />
         <div className={style['main-container']}>
             <div className={style['product-list-container']}>
                 <div className={style['list-style']}> кратко | подробно | фото </div>
                 <div className={style["product-list"]}>
                     {
-                        upperLayerProducts.map((product) => (
+                        (upperLayerProducts || []).map((product) => (
                             <Product240Pixels 
                                 currency={product?.currency as TCurrency || 'MDL'}
                                 key={product._id} 

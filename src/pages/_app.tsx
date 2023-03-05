@@ -11,6 +11,8 @@ import { appWithTranslation } from 'next-i18next';
 import nextI18NextConfig from '../../next-i18next.config';
 import { useApollo } from '@/hooks/withApollo';
 import { ApolloProvider } from '@apollo/client';
+import { ToastContainer as SnackbarContainer } from 'react-toastify';
+
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -35,6 +37,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout): JSX.Element => {
 
   return getLayout(
     <ApolloProvider client={apolloClient}>
+      <SnackbarContainer />
       <Component {...pageProps} />
     </ApolloProvider>
   ) as JSX.Element

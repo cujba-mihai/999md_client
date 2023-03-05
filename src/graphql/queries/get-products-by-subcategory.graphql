@@ -1,0 +1,10 @@
+query GetProductsBySubcategory($listProductByCategoryInput: ListProductsBySubcategoryDTO!) {
+  getProductsBySubcategory(listProductByCategoryInput: $listProductByCategoryInput) {
+    _id
+    currency
+    description
+    name
+    price
+    thumbnail
+  }
+}

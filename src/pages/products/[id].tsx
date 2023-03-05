@@ -5,6 +5,7 @@ import { initializeApollo } from '@/hooks/withApollo';
 import nextI18NextConfig from 'next-i18next.config.js';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { TLocales, TSupportedLocales } from '../categories/[category]';
 
 const Index = (props: ProductQueryResult) => {
@@ -12,14 +13,20 @@ const Index = (props: ProductQueryResult) => {
   const router = useRouter()
 
   const product = props.data?.product;
-  const subcategory = product?.subcategory.name
-  const category = product?.category.name;
+  const subcategory = product?.subcategory?.name
+  const category = product?.category?.name;
 
-  const path = [ category, subcategory, product?.name]
+  const path = [ '/categories/' + category, subcategory, product?.name]
 
-  if(!product) {
-    router.push("/")
-  }
+  useEffect(() => {
+
+    if(!product) {
+      router.push("/404")
+    }
+
+  }, [])
+
+
 
   return (
     <>
@@ -39,27 +46,21 @@ export default Index;
 export const getStaticProps = async (context: any) => {
   const apolloClient = initializeApollo(context);
 
-  let result = {};
+  let result = {}; 
 
   try {
     result = await apolloClient.query({
       query: ProductDocument,
       variables: { 
-          "productId": {
-            "id": context.params.id
+        "productId": {
+          "_id": `${context.params.id}`
         }
       },
-      context
     })
 
   } catch( err ) {
-    console.error('Error occured in /categories. ', err);
-    
-    return {
-      redirect: {
-        destination: "/",
-      },
-    }
+    console.error('Error occurred in /products/[id]. ', err);
+
   }
 
   return {
@@ -73,36 +74,48 @@ export const getStaticProps = async (context: any) => {
 };
 
 
+interface IGetStaticPathsResponse {
+  data: {
+    products: Pick<ProductType, '_id'>[]
+  }
+}
+
+interface IProductPaths {
+  params: {
+      id: string;
+  };
+  locale: TSupportedLocales;
+}
+
 export const getStaticPaths = async (context: any) => {
   const { locales }: { locales: TLocales} = context;
   const apolloClient = initializeApollo(context);
 
-  const result = [];
+  let products: Pick<ProductType, '_id'>[] = [];
 
   try {
-    const { data } = await apolloClient.query({
+    const { data }: IGetStaticPathsResponse = await apolloClient.query({
       query: ProductIdsDocument,
     })
 
-    result.push(...data.products)
-
+    products = data.products;
   } catch( err ) {
-    console.error('Error occured in /categories. ', err);
-    
-    return {
-      redirect: {
-        destination: "/",
-      },
-    }
+    console.error('Error occurred in /products. ', err);
   }
 
-  const productIds = result.map(product => product._id)
+  const productPaths = products.reduce((acc: IProductPaths[], product) => {
+    const id = product._id;
 
+    const paths = locales.map((locale: TSupportedLocales) => ({ params: { id }, locale }));
 
-  const paths = locales.map((locale: TSupportedLocales) => productIds.map(id => ({ params: { id }, locale })) ).flat()
+    acc.push(...paths);
+
+    return acc;
+  }, [])
+
 
   return {
-    paths,
+    paths: productPaths,
     fallback: 'blocking', // can also be true or 'blocking'
   }
 }

@@ -2,20 +2,22 @@ import React from 'react'
 import style from './Categories.module.scss'
 import CarouselNoPreview from '../carousel/CarouselNoPreview';
 import Link from 'next/link';
-import Product240Pixels from '../buy-on-market/Product240Pixels';
+import Product240Pixels, { TCurrency } from '../buy-on-market/Product240Pixels';
 import { Category } from '@/graphql/__generated__/graphql';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
+import { GetProductsBySubcategory } from '@/types/subcategories';
 
 export const Header = ({text}: {text: string}) => (    <header> 
     <h1 className={style.header}>{text}</h1> 
 </header>)
 
 interface ICategoriesProps {
-    category: Category
+    category: Category;
+    products: GetProductsBySubcategory[];
 }
 
-const Categories  = ({ category }: ICategoriesProps) => {
+const Categories  = ({ category, products }: ICategoriesProps) => {
     const { t } = useTranslation();
 
     const router = useRouter();
@@ -24,7 +26,7 @@ const Categories  = ({ category }: ICategoriesProps) => {
     <>
     <CarouselNoPreview slidesToShow={4} autoplay={true} >
     {
-        Array.from({length: 6}).map((_, index) => (
+        Array(6).map((_, index) => (
             <Product240Pixels 
                 currency='MDL'
                 key={`${Date.now() * Math.random()}`} 
@@ -45,16 +47,16 @@ const Categories  = ({ category }: ICategoriesProps) => {
     <ul className={style.ul}>
         {
             (category.subcategories || []).map((subcategory) => (
-                <li key={subcategory.id} className={style.li}>
+                <li key={subcategory._id} className={style.li}>
                     <h3 className={style.h3}>{t(subcategory?.name || '')}</h3>
                     <ul className={style.ulsublist}>
                         {
-                            (subcategory?.childSubcategories || []).map((childSubcat) => (
-                                <li key={childSubcat.id} className={style.lisublist}>
+                            (subcategory?.childSubcategories || []).map((childSubcategory) => (
+                                <li key={childSubcategory._id} className={style.lisublist}>
                                 <Link 
-                                    href={`${router.asPath}${childSubcat.id}` }
+                                    href={`${router.asPath}${childSubcategory.name}` }
                                     className={style.link}>
-                                   {t(childSubcat?.name || '')}
+                                   {t(childSubcategory?.name || '')}
                                 </Link>
                             </li>
                             ))
@@ -68,15 +70,15 @@ const Categories  = ({ category }: ICategoriesProps) => {
     <div className={style["products-container"]}>
 
     {
-        Array.from({length: 32}).map((_, index) => (
+        products.map(product => (
         <Product240Pixels 
-            currency='MDL' 
-            key={`${Date.now() * Math.random()}`} 
-            imgSrc={`ex${(Math.floor(Math.random() * 6 + 1)).toFixed(0)}.jpg`} 
-            price={~~((index + 1)  * 242.35).toFixed(2)} 
-            productUrl={`/products/${index + 1}`} 
-            title={'Transport'} 
-            alt={'Transport'} 
+            currency={product.currency as TCurrency}
+            key={product._id} 
+            imgSrc={product.thumbnail} 
+            price={product.price} 
+            productUrl={`/products/${product._id}`} 
+            title={product.name} 
+            alt={product.name} 
         />
     ))
 

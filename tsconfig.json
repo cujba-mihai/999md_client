@@ -42,7 +42,6 @@
       "@/public/*": [
         "./public/*"
       ]
-      // "@/components/*": ["components/*"]
     },
     "plugins": [
       {
@@ -53,7 +52,8 @@
   "exclude": [
     "./out/**/*",
     "./node_modules/**/*",
-    "**/*.cy.ts"
+    "**/*.cy.ts",
+    "./src/graphql/__generated__/page.tsx"
   ],
   "include": [
     "next-env.d.ts",

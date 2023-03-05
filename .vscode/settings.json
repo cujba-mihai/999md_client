@@ -1,4 +1,28 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "cSpell.words": [
+    "automerge",
+    "autorun",
+    "codegen",
+    "commitlint",
+    "cssnano",
+    "deepmerge",
+    "entrypoints",
+    "favourite",
+    "formik",
+    "languagedetector",
+    "lhci",
+    "lighthouserc",
+    "lisublist",
+    "Lngs",
+    "nuka",
+    "postprocessor",
+    "Raileanu",
+    "sprintf",
+    "Suspence",
+    "tailwindcss",
+    "toastify",
+    "unselectable"
+  ]
 }

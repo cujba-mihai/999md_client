@@ -30,7 +30,7 @@ const BuyOnMarket = () => {
 
       <PopularCategories />
 
-      {Array.from({ length: 5 }).map((_, index) => ( <CategoryWithItems key={index} /> ))}
+      {Array(5).map((_, index) => ( <CategoryWithItems key={index} /> ))}
     </div>
   );
 };

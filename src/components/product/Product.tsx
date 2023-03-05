@@ -8,7 +8,8 @@ import PhoneNumber from './PhoneNumber';
 import NegotiateButton from './NegotiateButton';
 import SendMsgBtn from './SendMsgBtn';
 import { useTranslation } from 'next-i18next'
-import { Product } from '@/graphql/__generated__/graphql';
+import { Product, User } from '@/graphql/__generated__/graphql';
+import { useMemo } from 'react';
 
 const productImages = [
   'https://i.simpalsmedia.com/999.md/BoardImages/320x240/b37c0f960015d83a2b5be91055aa8d3e.jpg',
@@ -207,6 +208,15 @@ interface IProductProps {
 const ProductPage = ({ product }: IProductProps) => {
   const { t } = useTranslation();
 
+  const images = useMemo(() => Array.from(new Set(product.images.filter(Boolean)) || []), [product.images])
+
+  const productAuthor = useMemo(() => {
+    const author = product.author as User;
+
+    return `${author.firstName} ${author.lastName}`
+
+  }, [product.author])
+
   return (
     <main className={style['main-wrapper']} aria-label="product information">
       <div className={style['title-container']}>
@@ -224,7 +234,7 @@ const ProductPage = ({ product }: IProductProps) => {
 
           <Carousel2 childrenWidth={320} childrenHeight={240} withBottomControls={true} show={2} infiniteLoop={false}>
           {
-              (product.images || []).map((imageUrl) => {
+              images.map((imageUrl) => {
                 return (
                   <NextImage
                     key={`${new Date().getTime()}-${imageUrl}`}
@@ -369,7 +379,7 @@ const ProductPage = ({ product }: IProductProps) => {
 
 
           <div className={style["contact-author"]}>
-            <textarea placeholder={`Mesaj pentru ${productDetails.author}`} name="contact-author" id="contact-author" cols={30} rows={10} className={style['contact-author-textarea']}></textarea>
+            <textarea placeholder={`Mesaj pentru ${productAuthor}`} name="contact-author" id="contact-author" cols={30} rows={10} className={style['contact-author-textarea']}></textarea>
             <SendMsgBtn />
           </div>
 
