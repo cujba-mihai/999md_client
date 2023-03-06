@@ -218,7 +218,7 @@ export type MutationUserCreateProductArgs = {
 export type Product = {
   __typename?: 'Product';
   _id: Scalars['String'];
-  author: Scalars['String'] | User;
+  author: Scalars['String'];
   category: Scalars['String'];
   currency: Scalars['String'];
   description: Scalars['String'];
@@ -399,6 +399,13 @@ export type GetCategoryByNameAndSubcategoryQueryVariables = Exact<{
 
 export type GetCategoryByNameAndSubcategoryQuery = { __typename?: 'Query', getCategoryByNameAndSubcategory: { __typename?: 'Category', _id: string, name: string, subcategories?: Array<{ __typename?: 'Subcategory', childSubcategories?: Array<{ __typename?: 'Subcategory', _id: string, name: string }> | null }> | null } };
 
+export type GetCategoryByNameQueryVariables = Exact<{
+  categoryName: Scalars['String'];
+}>;
+
+
+export type GetCategoryByNameQuery = { __typename?: 'Query', getCategoryByName: { __typename?: 'Category', _id: string, name: string, subcategories?: Array<{ __typename?: 'Subcategory', _id: string, name: string, childSubcategories?: Array<{ __typename?: 'Subcategory', _id: string, name: string }> | null }> | null } };
+
 export type GetProductsByCategoryQueryVariables = Exact<{
   listProductByCategoryInput: ListProductsByCategoryDto;
 }>;
@@ -521,6 +528,23 @@ export const GetCategoryByNameAndSubcategoryDocument = gql`
 }
     `;
 export type GetCategoryByNameAndSubcategoryQueryResult = Apollo.QueryResult<GetCategoryByNameAndSubcategoryQuery, GetCategoryByNameAndSubcategoryQueryVariables>;
+export const GetCategoryByNameDocument = gql`
+    query GetCategoryByName($categoryName: String!) {
+  getCategoryByName(categoryName: $categoryName) {
+    _id
+    name
+    subcategories {
+      _id
+      name
+      childSubcategories {
+        _id
+        name
+      }
+    }
+  }
+}
+    `;
+export type GetCategoryByNameQueryResult = Apollo.QueryResult<GetCategoryByNameQuery, GetCategoryByNameQueryVariables>;
 export const GetProductsByCategoryDocument = gql`
     query GetProductsByCategory($listProductByCategoryInput: ListProductsByCategoryDTO!) {
   getProductsByCategory(listProductByCategoryInput: $listProductByCategoryInput) {

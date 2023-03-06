@@ -11,8 +11,9 @@ export interface ICategory extends ISubcategory {
 }
 
 export interface ISubcategoryAddProps {
-    category: string;
-    subcategories: string[];
+    params: {
+        subcategories: Subcategory[];
+    }
 }
 
 export interface IProductAddProps {
@@ -22,6 +23,42 @@ export interface IProductAddProps {
     subcategories: string[];
 }
 
+export type TCategoryAdd = {
+        _id: string;
+        name: string;
+}
+
+export interface ICategoriesAddProps {
+    categories: TCategoryAdd[]
+}
+
 export interface ICategoryAddProps {
-    categories: string[];
+    params: {
+        categories: TCategoryAdd[];
+    }
+}
+
+export type GetCategoryByNameResponse = {
+    data: Data;
+}
+
+export type Data = {
+    getCategoryByName: GetCategoryByName;
+}
+
+export type GetCategoryByName = {
+    _id:            string;
+    name:          string;
+    subcategories: Subcategory[];
+}
+
+export type Subcategory = {
+    _id:                 string;
+    name:               string;
+    childSubcategories: ChildSubcategory[];
+}
+
+export type ChildSubcategory = {
+    _id:   string;
+    name: string;
 }

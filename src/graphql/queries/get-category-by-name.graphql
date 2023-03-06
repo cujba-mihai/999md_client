@@ -1,0 +1,14 @@
+query GetCategoryByName($categoryName: String!) {
+  getCategoryByName(categoryName: $categoryName) {
+    _id
+    name
+    subcategories {
+      _id
+      name
+      childSubcategories {
+        _id
+        name
+      }
+    }
+  }
+}

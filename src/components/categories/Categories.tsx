@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import style from './Categories.module.scss'
 import CarouselNoPreview from '../carousel/CarouselNoPreview';
 import Link from 'next/link';
 import Product240Pixels, { TCurrency } from '../buy-on-market/Product240Pixels';
-import { Category } from '@/graphql/__generated__/graphql';
+import { Category, Subcategory } from '@/graphql/__generated__/graphql';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 import { GetProductsBySubcategory } from '@/types/subcategories';
@@ -12,6 +12,38 @@ export const Header = ({text}: {text: string}) => (    <header>
     <h1 className={style.header}>{text}</h1> 
 </header>)
 
+interface IDisplaySubcategories {
+    subcategories: Subcategory[]
+}
+
+export const DisplaySubcategories = ({ subcategories }: IDisplaySubcategories) => {
+    const router = useRouter();
+    const { t } = useTranslation();
+
+    const renderedSubcategories = useMemo(() => {
+        return (subcategories || []).map((subcategory) => (
+            <li key={subcategory._id} className={style.li}>
+                <h3 className={style.h3}>{t(subcategory?.name || '')}</h3>
+                <ul className={style.ulsublist}>
+                    {
+                        (subcategory?.childSubcategories || []).map((childSubcategory) => (
+                            <li key={childSubcategory._id} className={style.lisublist}>
+                            <Link 
+                                href={`${router.asPath}${childSubcategory.name}` }
+                                className={style.link}>
+                               {t(childSubcategory?.name || '')}
+                            </Link>
+                        </li>
+                        ))
+                    }
+                </ul>
+            </li>
+        ))
+    }, [])
+
+    return (<ul className={style.ul}>{renderedSubcategories}</ul>)
+}
+
 interface ICategoriesProps {
     category: Category;
     products: GetProductsBySubcategory[];
@@ -19,8 +51,6 @@ interface ICategoriesProps {
 
 const Categories  = ({ category, products }: ICategoriesProps) => {
     const { t } = useTranslation();
-
-    const router = useRouter();
 
   return (
     <>
@@ -44,28 +74,7 @@ const Categories  = ({ category, products }: ICategoriesProps) => {
         <h1 className={style.header}>{t(category?.name)}</h1> 
     </header>
 
-    <ul className={style.ul}>
-        {
-            (category.subcategories || []).map((subcategory) => (
-                <li key={subcategory._id} className={style.li}>
-                    <h3 className={style.h3}>{t(subcategory?.name || '')}</h3>
-                    <ul className={style.ulsublist}>
-                        {
-                            (subcategory?.childSubcategories || []).map((childSubcategory) => (
-                                <li key={childSubcategory._id} className={style.lisublist}>
-                                <Link 
-                                    href={`${router.asPath}${childSubcategory.name}` }
-                                    className={style.link}>
-                                   {t(childSubcategory?.name || '')}
-                                </Link>
-                            </li>
-                            ))
-                        }
-                    </ul>
-                </li>
-            ))
-                    }
-    </ul>
+    <DisplaySubcategories subcategories={category.subcategories || []} />
     
     <div className={style["products-container"]}>
 

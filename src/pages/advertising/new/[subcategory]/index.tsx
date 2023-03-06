@@ -1,35 +1,52 @@
 // import { GetServerSideProps } from 'next'
-import SubcategoriesAdd from '@/components/advertising/SubcategoriesAdd';
 import React from 'react'
 import nextI18NextConfig from 'next-i18next.config.js';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { GetServerSideProps } from 'next';
-import { ISubcategoryAddProps } from '@/types/pages';
+import { GetCategoryByNameResponse, ISubcategoryAddProps } from '@/types/pages';
+import {  GetCategoryByNameDocument } from '@/graphql/__generated__/graphql';
+import { initializeApollo } from '@/hooks/withApollo';
+import _ from 'lodash';
+import { DisplaySubcategories } from '@/components/categories/Categories';
 
 
-const SubcategoryAdd = ({ subcategories, category }: ISubcategoryAddProps) => {
+const SubcategoryAdd = ({ params: { subcategories } }: ISubcategoryAddProps) => {
 
-  return (<SubcategoriesAdd category={category} subcategories={subcategories} />)
+  return (<DisplaySubcategories subcategories={subcategories} />)
 }
 
 SubcategoryAdd.withLayout = true;
 
 export default SubcategoryAdd;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { categories, subcategories } = require('../../../../components/advertising/dummyData');
+export const getServerSideProps = async (context: any) => {
+  const apolloClient = initializeApollo(context);
 
-  const asPath = context.req.url || '';
-  const path = asPath.replace(/\?.*/, '');
+  const categoryName = _.get(context, 'params.subcategory');
 
-  const [ category ] = path.split('/').filter(Boolean).reverse();
+  try {
+    const { data: { getCategoryByName: categories } }: GetCategoryByNameResponse = await apolloClient.query({
+      query: GetCategoryByNameDocument,
+      variables: { 
+        categoryName,
+      },
+    })
 
-  return {
-    props: {
-      category,
-      categories,
-      subcategories,
-      ...(await serverSideTranslations(context.locale || 'en', ['translation', 'common'], nextI18NextConfig))
-    },
+    return {
+      props: { 
+        params: {
+          categoryName,
+          subcategories: categories.subcategories
+        },
+        paths: [ ...context.params.subcategory] ,
+        ...(await serverSideTranslations(context.locale, ['translation', 'common'], nextI18NextConfig))
+      },
+    };
+
+  } catch( err ) {
+    console.error('Error occurred in /categories/[...subcategory]. ', err);
+
+    return {}
   }
+
+
 };

@@ -5,9 +5,10 @@ import React from 'react'
 import styles from './AdvertisingAdd.module.scss';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
+import { ICategoriesAddProps } from '@/types/pages';
 
 
-const CategoriesAdd = ({ categories }: any) => {
+const CategoriesAdd = ({ categories }: ICategoriesAddProps) => {
   const router = useRouter();
   const { t } = useTranslation();
   return (
@@ -21,12 +22,11 @@ const CategoriesAdd = ({ categories }: any) => {
 
         <ul className={styles['categories-list']}>
             {
-                (categories || []).map((category: { name: string; icon: string; }) => (
-                    <li key={`${category.name}-${category.icon}`}>
+                (categories || []).map((category: { name: string; _id: string; }) => (
+                    <li key={`${category.name}-${category._id}`}>
                             <Link href={{pathname: `${router.asPath}${category.name}`} } className={styles['categories-link']}>
-                                <Image alt={t(category.name)} src={category.icon} height={24} width={24} key={`${category.name}-${category.icon}`}/>
+                                <Image alt={t(category.name)} src={category.name} height={24} width={24} />
                                 <TextTranslate tag="p" value={category.name} />
-                                {/* { t(category.name)} */}
                             </Link>
                     </li>
                 ))
