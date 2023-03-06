@@ -211,7 +211,7 @@ const ProductPage = ({ product }: IProductProps) => {
   const images = useMemo(() => Array.from(new Set(product.images.filter(Boolean)) || []), [product.images])
 
   const productAuthor = useMemo(() => {
-    const author = product.author as User;
+    const author = product.author as unknown as User;
 
     return `${author.firstName} ${author.lastName}`
 
