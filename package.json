@@ -57,7 +57,7 @@
     "@testing-library/react": "14.0.0",
     "@types/i18next-sprintf-postprocessor": "^0.2.0",
     "@types/node": "18.16.18",
-    "@types/react": "18.2.13",
+    "@types/react": "18.2.14",
     "@types/ua-parser-js": "^0.7.36",
     "@typescript-eslint/eslint-plugin": "5.60.0",
     "@typescript-eslint/parser": "5.60.0",
